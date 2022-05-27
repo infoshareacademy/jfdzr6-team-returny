@@ -1,0 +1,1 @@
+### Tutaj grafika, ikony potrzebne do wyrenderowania komponentow

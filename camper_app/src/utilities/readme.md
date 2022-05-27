@@ -1,0 +1,1 @@
+### Tutaj wszytko co nie pasuje nigdzie indziej np. funkcje narzedziowe itp 
