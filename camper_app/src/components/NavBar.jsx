@@ -1,19 +1,5 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-
-const StyledNavigation = styled.nav`
-  background-color: yellowgreen;
-  height: 100px;
-  width: 100%;
-`;
-
-const StyledLinkContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-`;
+import { StyledNavigation , StyledLinkContainer } from "./NavBar.styles"
 
 export function NavBar() {
   return (
