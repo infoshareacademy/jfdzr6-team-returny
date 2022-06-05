@@ -28,6 +28,7 @@ export function NavBar() {
           >
             Home
           </NavLink>
+          <span>Czesc, tu konflikt</span>
           <NavLink
             className={({ isActive }) =>
               isActive ? "linkcolor linkformat" : "linkformat"
