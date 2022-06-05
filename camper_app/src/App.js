@@ -3,6 +3,7 @@ import { AddCamperForm } from "./views/AddCamperForm/AddCamperForm";
 import { NavBar } from "./components/NavBar";
 import { About } from "./views/About";
 import { Home } from "./views/Home";
+import {AllCampers} from "./views/AllCampres";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="about" element={<About/>}/>
           <Route path="addcamper" element={<AddCamperForm />}/>
+          <Route path="allcampers" element={<AllCampers/>}/>
         </Routes>
       </BrowserRouter>
     </>
