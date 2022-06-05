@@ -19,14 +19,12 @@ export const StyledBoxBackground = styled.div`
   padding: 30px;
 `
 
-
 export const StyledInputText = styled.input`
   font-size: 16px;
   height: 40px;
   width: 400px;
   margin: 5px 5px 5px 50px;
 `
-
 export const StyledSelect = styled.select`
   font-size: 16px;
   height: 40px;
@@ -38,10 +36,11 @@ export const StyledInputFile = styled.input`
   background-color: turquoise;  
   height: 100px;
   width: 220px;
-  margin: 5px 0px 0px 20px;
+  margin: 5px 0px 0px 50px;
 `
 
 export const StyledTextArea = styled.textarea`
+  resize: none;
   font-size: 20px;
   height: 200px;
   width: 400px;

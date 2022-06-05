@@ -9,6 +9,7 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar />
+        <AddCamperForm />
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="about" element={<About/>}/>
