@@ -1,5 +1,5 @@
 import { StyledBoxBackground, StyledHeader1, StyledHeader2, StyledTextArea
-    , StyledInputFile, StyledInputText,StyledSelect } from './AddCamperForm.style'
+    , StyledInputFile, StyledInputText,StyledSelect, StyledButton } from './AddCamperForm.style'
 
 export const AddCamperForm = () => {
     return (
@@ -41,6 +41,17 @@ export const AddCamperForm = () => {
         <StyledHeader2>Opis pojazdu:</StyledHeader2>
         <div><StyledTextArea name='description' type='text' placeholder='Opisz swój pojazd...'/></div>
         </StyledBoxBackground>
+
+        <StyledBoxBackground>
+        <StyledHeader2>Dane kontaktowe:</StyledHeader2>
+        <div>
+            <p>Lokalizacja: </p>
+            <p>Adres email: </p>
+            <p>Nr telefonu: </p>
+        </div>
+        </StyledBoxBackground>
+
+        <StyledButton>Dodaj kampera</StyledButton>
 
     </div>)
 }

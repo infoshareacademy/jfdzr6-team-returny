@@ -46,3 +46,12 @@ export const StyledTextArea = styled.textarea`
   width: 400px;
   margin: 5px 0px 10px 50px;
 `
+
+export const StyledButton = styled.button `
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  background-color: khaki;
+  margin-left: 700px;
+  margin-bottom: 100px;
+`
