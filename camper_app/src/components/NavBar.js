@@ -84,7 +84,6 @@ export function NavBar() {
           >
             KONTAKT
           </NavLink>
-
           <NavLink
             className={({ isActive }) =>
               isActive ? "linkcolor linkformat" : "linkformat"
