@@ -7,13 +7,14 @@ export const AddCamperForm = () => {
     const handleSubmitCamper = (e) => {
         e.preventDefault();
         const form = e.target;
-        const { title, campertype ,year,brand,papacity,price,rentduration,description} = form;
+        const { title, campertype ,year,brand,capacity,price,rentduration,description} = form;
+        console.log(capacity.value)
         const camperData = {
           title: title.value,
           campertype:campertype.value,
           year:year.value,
           brand:brand.value,
-          papacity:papacity.value,
+          papacity:capacity.value,
           price:price.value,
           rentduration:rentduration.value,
           description:description.value
@@ -30,8 +31,8 @@ export const AddCamperForm = () => {
     return (
     <div>
         <StyledHeader1>Dodaj pojazd</StyledHeader1>
-        <StyledBoxBackground>
             <form onSubmit={handleSubmitCamper}>
+        <StyledBoxBackground>
                 <div><StyledInputText name='title' type='text' placeholder='Tytuł ogłoszenia' 
                 maxLength='60'/></div>
                 <StyledSelect name="campertype">
@@ -53,7 +54,7 @@ export const AddCamperForm = () => {
                     <option value="21">3 tygodnie</option>
                     <option value="28">4 tygodnie</option>
                 </StyledSelect>  
-            </form>
+           
         </StyledBoxBackground>
 
         <StyledBoxBackground>
@@ -77,6 +78,7 @@ export const AddCamperForm = () => {
         </StyledBoxBackground>
 
         <StyledButton>Dodaj kampera</StyledButton>
+        </form>
 
     </div>)
 }
