@@ -1,15 +1,40 @@
 import { StyledBoxBackground, StyledHeader1, StyledHeader2, StyledTextArea
     , StyledInputFile, StyledInputText,StyledSelect, StyledButton } from './AddCamperForm.style'
+import {addCamper} from '../../api/addCamper';
 
 export const AddCamperForm = () => {
+
+    const handleSubmitCamper = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const { title, campertype ,year,brand,papacity,price,rentduration,description} = form;
+        const camperData = {
+          title: title.value,
+          campertype:campertype.value,
+          year:year.value,
+          brand:brand.value,
+          papacity:papacity.value,
+          price:price.value,
+          rentduration:rentduration.value,
+          description:description.value
+
+          
+        };
+        form.reset();
+        console.log(camperData);
+        // addCamper(camperData);
+        return camperData;
+      };
+
+
     return (
     <div>
         <StyledHeader1>Dodaj pojazd</StyledHeader1>
         <StyledBoxBackground>
-            <form>
+            <form onSubmit={handleSubmitCamper}>
                 <div><StyledInputText name='title' type='text' placeholder='Tytuł ogłoszenia' 
                 maxLength='60'/></div>
-                <StyledSelect name="camper-type">
+                <StyledSelect name="campertype">
                     <option value="">Kategoria campera</option>
                     <option value="campervan">Campervan</option>
                     <option value="integra">Integra</option>
@@ -21,7 +46,7 @@ export const AddCamperForm = () => {
 
                 <div><StyledInputText name='capacity' type='text' placeholder='Ilość osób' maxLength='1'/></div>
                 <div><StyledInputText name='price' type='text' placeholder='Cena [pln]' /> zł/tydzień</div>
-                <StyledSelect name="rent-duration">
+                <StyledSelect name="rentduration">
                     <option value="">Okres wynajmu</option>
                     <option value="7">1 tydzień</option>
                     <option value="14">2 tygodnie</option>
