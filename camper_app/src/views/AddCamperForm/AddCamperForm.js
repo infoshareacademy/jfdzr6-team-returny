@@ -8,13 +8,19 @@ import uuid from 'react-uuid'
 
 export const AddCamperForm = () => {
     const [imagesUrl,setimagesUrl] =useState([]);
+    const [error,setError]=useState('')
    
-console.log(uuid())
+
     const handleSubmitCamper = async(e) => {
         const form = e.target;
         e.preventDefault();
         const { title, campertype ,year,brand,capacity,price,rentduration,description,imgcollection} = form;
-   
+        
+        if (imgcollection.files['length']>5){
+            setError('the maximum number of photos is 5');
+            throw new Error('too many pictures');
+            return;
+        }
         const images=[];
         try{
             for (let prop in imgcollection.files ){
@@ -83,9 +89,10 @@ console.log(uuid())
             {imagesUrl && imagesUrl.map((el,index)=><img key={index} src={el} width="150px" height="150px"></img>)}
             
         <StyledHeader2>Zdjęcia</StyledHeader2>
-        <input type='file' name='imgcollection' multiple accept='image/jpg, image/png' />
-        <StyledInputFile name='mainimg' type='file' accept='image/jpg, image/png' />
-        <StyledInputFile name='extraimg' type='file' accept='image/jpg, image/png' />
+        <input type='file' onBlur={()=>setError('')} name='imgcollection' multiple accept='image/jpg, image/png' />
+        {error && error}
+        {/* <StyledInputFile name='mainimg' type='file' accept='image/jpg, image/png' />
+        <StyledInputFile name='extraimg' type='file' accept='image/jpg, image/png' /> */}
         </StyledBoxBackground>
 
         <StyledBoxBackground>
