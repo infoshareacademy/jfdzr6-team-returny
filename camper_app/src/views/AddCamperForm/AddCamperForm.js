@@ -12,14 +12,15 @@ export const AddCamperForm = () => {
     const handleSubmitCamper = async(e) => {
         const form = e.target;
         e.preventDefault();
-        const { title, campertype ,year,brand,capacity,price,rentduration,description,mainimg,extraimg} = form;
-        const imageFileName=[mainimg.files[0],extraimg.files[0]];
-       
+        const { title, campertype ,year,brand,capacity,price,rentduration,description,mainimg,extraimg, imgcollection} = form;
+    //    const imageFileName=[mainimg.files[0],extraimg.files[0]];
+      
         const images=[];
         try{
-            for(let i in imageFileName){
-                const storageRef = ref(storage, `campers/${imageFileName[i].name}`);
-                const snapshot=await uploadBytes(storageRef,imageFileName[i]);
+            for (let prop in imgcollection.files ){
+                if (typeof imgcollection.files[prop]==='object') {
+                const storageRef = ref(storage, `campers/${imgcollection.files[prop].name}`);
+                const snapshot=await uploadBytes(storageRef,imgcollection.files[prop]);
                 const downloadUrl=await getDownloadURL(snapshot.ref);
                 images.push(downloadUrl)
                 setimagesUrl((prevstate)=>{
@@ -27,10 +28,9 @@ export const AddCamperForm = () => {
                  return newState; 
                 })
             }
+            }
+        }catch(er){ console.log(er)}
 
-        }catch(err){
-            console.log(err)
-        }
           const camperData = {
           title: title.value,
           campertype:campertype.value,
@@ -44,7 +44,7 @@ export const AddCamperForm = () => {
          
         };
         form.reset();
-        console.log(camperData);
+       
         addCamper(camperData).then(res=>console.log(res)).catch(err=>console.log(err));
        
       };
@@ -53,7 +53,7 @@ export const AddCamperForm = () => {
     return (
     <div>
         <StyledHeader1>Dodaj pojazd</StyledHeader1>
-            <form onSubmit={handleSubmitCamper}>
+            <form onSubmit={handleSubmitCamper} encType='multipart/form-data'>
         <StyledBoxBackground>
                 <div><StyledInputText name='title' type='text' placeholder='Tytuł ogłoszenia' 
                 maxLength='60'/></div>
@@ -83,6 +83,7 @@ export const AddCamperForm = () => {
             {imagesUrl && imagesUrl.map((el,index)=><img key={index} src={el} width="150px" height="150px"></img>)}
             
         <StyledHeader2>Zdjęcia</StyledHeader2>
+        <input type='file' name='imgcollection' multiple accept='image/jpg, image/png' />
         <StyledInputFile name='mainimg' type='file' accept='image/jpg, image/png' />
         <StyledInputFile name='extraimg' type='file' accept='image/jpg, image/png' />
         </StyledBoxBackground>
