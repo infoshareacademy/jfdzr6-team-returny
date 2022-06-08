@@ -35,7 +35,7 @@ export const AddCamperForm = () => {
                 })
             }
             }
-        }catch(er){ console.log(er)}
+       
 
           const camperData = {
           title: title.value,
@@ -49,11 +49,14 @@ export const AddCamperForm = () => {
           description:description.value
          
         };
+       
+       
+        await addCamper(camperData);
         form.reset();
+
+    }catch(er){ console.log(er)}
        
-        addCamper(camperData).then(res=>console.log(res)).catch(err=>console.log(err));
-       
-      };
+ };
 
       
     return (
