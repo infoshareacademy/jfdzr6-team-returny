@@ -3,13 +3,34 @@ import { StyledBoxBackground, StyledHeader1, StyledHeader2, StyledTextArea
 import {addCamper} from '../../api/addCamper';
 import { storage } from "../../firebase";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
+import { useState } from 'react';
 
 export const AddCamperForm = () => {
+    const [imagesUrl,setimagesUrl] =useState([]);
+   
 
-    const handleSubmitCamper = (e) => {
-        e.preventDefault();
+    const handleSubmitCamper = async(e) => {
         const form = e.target;
-        const { title, campertype ,year,brand,capacity,price,rentduration,description} = form;
+        e.preventDefault();
+        const { title, campertype ,year,brand,capacity,price,rentduration,description,mainimg,extraimg} = form;
+        const imageFileName=[mainimg.files[0],extraimg.files[0]];
+       
+        const images=[];
+        try{
+            for(let i in imageFileName){
+                const storageRef = ref(storage, `campers/${imageFileName[i].name}`);
+                const snapshot=await uploadBytes(storageRef,imageFileName[i]);
+                const downloadUrl=await getDownloadURL(snapshot.ref);
+                images.push(downloadUrl)
+                setimagesUrl((prevstate)=>{
+                 const newState=[...prevstate,downloadUrl]
+                 return newState; 
+                })
+            }
+
+        }catch(err){
+            console.log(err)
+        }
           const camperData = {
           title: title.value,
           campertype:campertype.value,
@@ -17,10 +38,10 @@ export const AddCamperForm = () => {
           brand:brand.value,
           papacity:capacity.value,
           price:price.value,
+          images:images,
           rentduration:rentduration.value,
           description:description.value
-
-          
+         
         };
         form.reset();
         console.log(camperData);
@@ -28,7 +49,7 @@ export const AddCamperForm = () => {
        
       };
 
-
+      
     return (
     <div>
         <StyledHeader1>Dodaj pojazd</StyledHeader1>
@@ -59,9 +80,11 @@ export const AddCamperForm = () => {
         </StyledBoxBackground>
 
         <StyledBoxBackground>
+            {imagesUrl && imagesUrl.map((el,index)=><img key={index} src={el} width="150px" height="150px"></img>)}
+            
         <StyledHeader2>Zdjęcia</StyledHeader2>
-        <StyledInputFile name='main-img' type='file' accept='image/jpg, image/png' />
-        <StyledInputFile name='extra-img' type='file' accept='image/jpg, image/png' />
+        <StyledInputFile name='mainimg' type='file' accept='image/jpg, image/png' />
+        <StyledInputFile name='extraimg' type='file' accept='image/jpg, image/png' />
         </StyledBoxBackground>
 
         <StyledBoxBackground>

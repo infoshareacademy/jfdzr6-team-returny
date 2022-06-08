@@ -7,10 +7,6 @@ export function addCamper(data, userId="12345", userEmail="user@user.com",userTl
   console.log(data);
   return addDoc(campersCollection, {
     ...data,
-    dane:[{user: userId,
-    email:userEmail},
-    {user:userId,
-    eamil:userEmail}],
     userid: userId,
     useremail: userEmail,
     usertlf:userTlf,
