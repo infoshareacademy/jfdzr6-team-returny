@@ -1,6 +1,8 @@
 import { StyledBoxBackground, StyledHeader1, StyledHeader2, StyledTextArea
     , StyledInputFile, StyledInputText,StyledSelect, StyledButton } from './AddCamperForm.style'
 import {addCamper} from '../../api/addCamper';
+import { storage } from "../../firebase";
+import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 
 export const AddCamperForm = () => {
 
@@ -8,8 +10,7 @@ export const AddCamperForm = () => {
         e.preventDefault();
         const form = e.target;
         const { title, campertype ,year,brand,capacity,price,rentduration,description} = form;
-        console.log(capacity.value)
-        const camperData = {
+          const camperData = {
           title: title.value,
           campertype:campertype.value,
           year:year.value,
@@ -23,8 +24,8 @@ export const AddCamperForm = () => {
         };
         form.reset();
         console.log(camperData);
-        // addCamper(camperData);
-        return camperData;
+        addCamper(camperData).then(res=>console.log(res)).catch(err=>console.log(err));
+       
       };
 
 
