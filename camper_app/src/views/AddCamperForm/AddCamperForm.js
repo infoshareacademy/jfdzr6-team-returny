@@ -4,22 +4,22 @@ import {addCamper} from '../../api/addCamper';
 import { storage } from "../../firebase";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { useState } from 'react';
+import uuid from 'react-uuid'
 
 export const AddCamperForm = () => {
     const [imagesUrl,setimagesUrl] =useState([]);
    
-
+console.log(uuid())
     const handleSubmitCamper = async(e) => {
         const form = e.target;
         e.preventDefault();
-        const { title, campertype ,year,brand,capacity,price,rentduration,description,mainimg,extraimg, imgcollection} = form;
-    //    const imageFileName=[mainimg.files[0],extraimg.files[0]];
-      
+        const { title, campertype ,year,brand,capacity,price,rentduration,description,imgcollection} = form;
+   
         const images=[];
         try{
             for (let prop in imgcollection.files ){
                 if (typeof imgcollection.files[prop]==='object') {
-                const storageRef = ref(storage, `campers/${imgcollection.files[prop].name}`);
+                const storageRef = ref(storage, `campers/${imgcollection.files[prop].name}+${uuid()}`);
                 const snapshot=await uploadBytes(storageRef,imgcollection.files[prop]);
                 const downloadUrl=await getDownloadURL(snapshot.ref);
                 images.push(downloadUrl)
