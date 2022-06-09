@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, renderMatches } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.jpg";
+import "../components/NavBar.css";
 
 
 const StyledNavigation = styled.nav`
@@ -8,103 +9,100 @@ const StyledNavigation = styled.nav`
   height: 100px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
-
+  justify-content: space-between; 
+  align-items: center;
 `;
 
 const StyledLinkContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px;
-  margin:20px;
-
+  padding: 20px 80px 20px;
+  margin:20px 80px 20px ;
+  text-decoration: none;
+  color: white;
+  align-items:center;
 `;
 
 const ButtonGroup = styled.div`
 display:flex;
 justify-content: space-between;
+margin: 10px;
 
 `;
 
 const Button = styled.button`
 background-color:aqua;
 align-items: right;
-padding: 15px 15px;
-background-color:rgb(93, 228, 217);
-border: none;
-border-radius: 20px;
-margin-left:20px;
-
+margin-left:30px;
+font-family: 'Play', sans-serif;
 `;
 
 
 const StyledImgLogo = styled.img`
-
 align-items: left;
+width:220x;
+height: 50px;
+justify-content:center;
+margin: 30px;
 
 `;
-
 
 
 export function NavBar() {
   return (
     <>
-      <StyledNavigation>
-
+    <StyledNavigation>
       <StyledImgLogo src={logo} />
-      
-        
-        <StyledLinkContainer>
-
-          
+        <div className="li">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "linkcolor linkformat" : "linkformat"
+              isActive={color: 'red'} ? "linkcolor linkformat" : "linkformat"
             }
-            to="/"
+            to="../views/About.js"
           >
             O NAS
           </NavLink>
-          
+        </div>
+
+        <div className="li">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "linkcolor linkformat" : "linkformat"
+              isActive={color: 'red'} ? "linkcolor linkformat" : "linkformat"
             }
-            to="/"
+            to="../views/FindCamper.js"
           >
             ZNAJDŹ CAMPERA
           </NavLink>
+          
+        </div>    
 
+        <div className="li">  
           <NavLink
             className={({ isActive }) =>
-              isActive ? "linkcolor linkformat" : "linkformat"
+              isActive={color: 'red'} ? "linkcolor linkformat" : "linkformat"
             }
-            to="/"
+            to="../views/Contact.js"
           >
             KONTAKT
           </NavLink>
+         </div>
+
+        <div className="li">
 
           <NavLink
             className={({ isActive }) =>
-              isActive ? "linkcolor linkformat" : "linkformat"
+              isActive={color: 'red'} ? "linkcolor linkformat" : "linkformat"
             }
-            to="/"
+            to="../views/Insurance.js"
           >
             UBEZPIECZENIA
           </NavLink>
-
-          <ButtonGroup>
-            <Button> Zaloguj się </Button>
-            <Button> Dodaj campera </Button>
+       </div>
+          
+       <ButtonGroup>
+            <Button> <a href="#"> Zaloguj się</a></Button>
+            <Button> <a href="#"> Dodaj campera</a> </Button>
           </ButtonGroup>
-
-    
-        </StyledLinkContainer>
       </StyledNavigation>
-
-      
-
     </>
   );
 }
