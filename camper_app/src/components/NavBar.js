@@ -87,7 +87,6 @@ export function NavBar() {
          </div>
 
         <div className="li">
-
           <NavLink
             className={({ isActive }) =>
               isActive={color: 'red'} ? "linkcolor linkformat" : "linkformat"

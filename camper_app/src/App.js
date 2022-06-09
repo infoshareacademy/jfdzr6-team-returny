@@ -18,9 +18,12 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Main/>
+
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="about" element={<About/>}/>
+          <Route path="addcamper" element={<AddCamperForm />}/>
+          <Route path="allcampers" element={<AllCampers/>}/>
         </Routes>
       </BrowserRouter>
       </div>
