@@ -4,7 +4,9 @@ import {addCamper} from '../../api/addCamper';
 import { storage } from "../../firebase";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import { useState } from 'react';
-import uuid from 'react-uuid'
+import uuid from 'react-uuid';
+import {NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 export const AddCamperForm = () => {
     const [imagesUrl,setimagesUrl] =useState([]);
@@ -51,7 +53,7 @@ export const AddCamperForm = () => {
         };
        
        
-        await addCamper(camperData);
+        addCamper(camperData).then(res=>{NotificationManager.success('Camper was sent');}).catch(err=>{NotificationManager.error('Camper was not sent');});
         form.reset();
 
     }catch(er){ console.log(er)}
@@ -61,6 +63,7 @@ export const AddCamperForm = () => {
       
     return (
     <div>
+        
         <StyledHeader1>Dodaj pojazd</StyledHeader1>
             <form onSubmit={handleSubmitCamper} encType='multipart/form-data'>
         <StyledBoxBackground>
