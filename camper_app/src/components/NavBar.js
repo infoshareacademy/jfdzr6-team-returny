@@ -1,4 +1,4 @@
-import { NavLink, renderMatches } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.jpg";
 import "../components/NavBar.css";
@@ -13,14 +13,6 @@ const StyledNavigation = styled.nav`
   align-items: center;
 `;
 
-const StyledLinkContainer = styled.div`
-  display: flex;
-  padding: 20px 80px 20px;
-  margin:20px 80px 20px ;
-  text-decoration: none;
-  color: white;
-  align-items:center;
-`;
 
 const ButtonGroup = styled.div`
 display:flex;
@@ -47,12 +39,16 @@ margin: 30px;
 `;
 
 
+
+
 export function NavBar() {
   return (
     <>
+    
     <StyledNavigation>
       <StyledImgLogo src={logo} />
         <div className="li">
+        
           <NavLink
             className={({ isActive }) =>
               isActive={color: 'red'} ? "linkcolor linkformat" : "linkformat"
@@ -62,7 +58,6 @@ export function NavBar() {
             O NAS
           </NavLink>
         </div>
-
         <div className="li">
           <NavLink
             className={({ isActive }) =>
@@ -103,6 +98,7 @@ export function NavBar() {
             <Button> <a href="#"> Dodaj campera</a> </Button>
           </ButtonGroup>
       </StyledNavigation>
+    
     </>
   );
 }

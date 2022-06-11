@@ -40,26 +40,29 @@ main p{
 }
 
 button {
-background-color:aqua;
-align-items: left;
-padding: 18px 18px;
-border: none;
-border-radius: 30px;
-
-font-family: 'Play', sans-serif;
+    background-color:#78cdca;
+    align-items: left;
+    padding: 18px 18px;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
 }
 
 .container_main {
-
-display: flex;
-justify-content: right;
-margin: 100px;
-margin-right: 800px;
-text-align: left;
+    display: flex;
+    justify-content: right;
+    margin: 100px;
+    margin-right: 800px;
+    text-align: left;
 }
 
 a {
-
     text-decoration: none;
     color: black;
+    
+}
+
+a:hover {
+    color:#78cdca;
 }

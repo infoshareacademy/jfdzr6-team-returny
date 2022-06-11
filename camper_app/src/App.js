@@ -1,31 +1,26 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
-import Main from "./components/Main";
 import { NavBar } from "./components/NavBar";
 import { About } from "./views/About";
 import { Home } from "./views/Home";
 import Footer from "./components/Footer";
+import CamperCard from "./components/CamperCard";
 
 function App() {
   return (
     <>
 
-    <div className="page-container">
-    <div className="content-wrap">
-
-    
-    
     <Home/>
       <BrowserRouter>
         <NavBar />
-        <Main/>
+        <CamperCard/>
         <Routes>
+        <Route path="/allcampers" element={<CamperCard/>}/>
           <Route path="/" element={<Home/>}/>
           <Route path="about" element={<About/>}/>
         </Routes>
       </BrowserRouter>
-      </div>
       <Footer/>
-      </div>
+      
     </>
   );
 }
