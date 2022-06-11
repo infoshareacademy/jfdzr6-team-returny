@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
-import { AddCamperForm} from "./view/AddCamperForm";
+import { AddCamperForm} from "./views/AddCamperForm/AddCamperForm";
 import { NavBar } from "./components/NavBar";
 import { About } from "./views/About";
 import { Home } from "./views/Home";
