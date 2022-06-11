@@ -1,11 +1,9 @@
 import React from "react";
 import "./CamperCard.css"
 
-
-const CamperCard = () => {
+export const CamperCard = () => {
         return(
 
-       
         <div className="wrapper">
         <FindCmpr></FindCmpr>
         
@@ -59,7 +57,6 @@ const CamperCard = () => {
         description="Camper jakiśtam" />
 
         </div>
-
         )
 }
 
@@ -74,9 +71,7 @@ function Card(props){
             <button className="card__btn">Zobacz campera</button>
         </div>
     )
-
 }
-
 
 function FindCmpr(){
     return(
@@ -90,7 +85,6 @@ function FindCmpr(){
                 <option value="integra">Integra</option>
                 <option value="półintegra">Półintegra</option>
                 <option value="alkowa">Alkowa</option>
-            
             </select>
         <div class="select_arrow">
         </div>
@@ -98,5 +92,3 @@ function FindCmpr(){
 </div>
     )
 }
-
-export default CamperCard;

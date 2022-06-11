@@ -1,33 +1,33 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 import { AddCamperForm} from "./views/AddCamperForm/AddCamperForm";
 import { NavBar } from "./components/NavBar";
-
 import { Home } from "./views/Home";
-import Footer from "./components/Footer";
-import CamperCard from "./components/CamperCard";
+import { Footer } from "./components/Footer";
+import { CamperCard } from "./components/CamperCard";
 import { NotificationContainer } from "react-notifications";
 
-function App() {
+export function App() {
   return (
     <>
-
-    <Home/>
       <BrowserRouter>
         <NavBar />
-         <NotificationContainer />
-        
+        <NotificationContainer />
+      
         <Routes>
-        <Route path="/allcampers" element={<CamperCard/>}/>
           <Route path="/" element={<Home/>}/>
-          
-          <Route path="addcamper" element={<AddCamperForm />}/>
-          <Route path="allcampers" element={<CamperCard/>}/>
+          <Route path="/about" element={<Home/>}/>
+          <Route path="find-camper" element={<CamperCard/>}/>
+          <Route path="contact" element={<Home/>}/>
+          <Route path="insurance" element={<Home/>}/>
+          <Route path="login" element={<Home/>}/>
+          <Route path="add-camper" element={<AddCamperForm />}/>
         </Routes>
+
+        <Footer/>
       </BrowserRouter>
-      <Footer/>
+      
       
     </>
   );
 }
 
-export default App;
