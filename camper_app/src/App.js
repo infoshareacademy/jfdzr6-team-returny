@@ -17,6 +17,8 @@ function App() {
         <Route path="/allcampers" element={<CamperCard/>}/>
           <Route path="/" element={<Home/>}/>
           <Route path="about" element={<About/>}/>
+          <Route path="addcamper" element={<AddCamperForm />}/>
+          <Route path="allcampers" element={<AllCampers/>}/>
         </Routes>
       </BrowserRouter>
       <Footer/>
