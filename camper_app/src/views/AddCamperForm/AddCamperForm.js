@@ -15,7 +15,7 @@ export const AddCamperForm = () => {
     const handleSubmitCamper = async(e) => {
         const form = e.target;
         e.preventDefault();
-        const { title, campertype ,year,brand,capacity,price,rentduration,description,imgcollection} = form;
+        const { title, campertype ,year,brand,capacity,price,location,description,imgcollection} = form;
         
         if (imgcollection.files['length']>5){
             setError('The maximum number of photos is 5');
@@ -45,11 +45,11 @@ export const AddCamperForm = () => {
           papacity:capacity.value,
           price:price.value,
           images:images,
-          rentduration:rentduration.value,
+          location:location.value,
           description:description.value
          
         };
-       
+      
         addCamper(camperData).then(res=>{NotificationManager.success('Camper was sent');}).catch(err=>{NotificationManager.error('Camper was not sent');});
         form.reset();
 
@@ -100,7 +100,7 @@ export const AddCamperForm = () => {
         </StyledBoxBackground>
 
         <StyledBoxBackground>
-            {imagesUrl && imagesUrl.map((el,index)=><img key={index} src={el} width="150px" height="150px"></img>)}
+            {/* {imagesUrl && imagesUrl.map((el,index)=><img key={index} src={el} width="150px" height="150px"></img>)} */}
             
         <StyledHeader2>Zdjęcia</StyledHeader2>
         <DivInfo>Maksymalna ilość zdjęć: 5</DivInfo>
