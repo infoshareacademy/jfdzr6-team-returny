@@ -1,0 +1,133 @@
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.gstatic.com');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap');
+
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+font-family: 'Play', sans-serif;
+margin:2rem;
+
+}
+
+.wrapper{
+    margin: 60px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns:repeat(auto-fit,minmax(12rem, 16rem));
+    gap:2rem;
+    justify-content: center;
+}
+
+.card{
+    overflow: hidden;
+    box-shadow: 0 2px 5px;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    cursor:pointer;
+    transition:transform 200ms ease-in;
+
+}
+
+.card__image {
+    height: 12rem;
+    width: 100%;
+    object-fit:cover;
+
+}
+
+.card__title{
+    padding:1rem;
+}
+
+.card__description{
+ padding: 0 1rem;
+}
+
+.card__btn{
+    padding:1rem;
+    font-family:'Play', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 1rem;
+    border:2px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.find__title {
+    font-size: 50px;
+    font-family: 'Play', sans-serif;
+    margin: 20px;   
+}
+
+.find_desc {
+
+    font-size: 20px;
+    font-family: 'Play', sans-serif;
+    margin: 20px; 
+
+}
+
+.select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+}    
+
+.select select {
+        font-family: 'Arial';
+        display: inline-block;
+        width: 100%;
+        cursor: pointer;
+        padding: 9px 15px;
+        outline: 0;
+        border: 0px solid #000000;
+        border-radius: 0px;
+        background: #e6e6e6;
+        color: #7b7b7b;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+        .select select::-ms-expand {
+            display: none;
+        }
+        .select select:hover,
+        .select select:focus {
+            color: #000000;
+            background: #cccccc;
+        }
+        .select select:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+.select_arrow {
+    position: absolute;
+    top: 16px;
+    right: 15px;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px 5px 0px 5px;
+    border-color: #7b7b7b transparent transparent transparent;
+}
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+    border-top-color: #000000;
+}
+.select select:disabled ~ .select_arrow {
+    border-top-color: #cccccc;
+}
