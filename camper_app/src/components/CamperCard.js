@@ -25,25 +25,30 @@ export const CamperCard = () => {
     const [campers, setCampers] = useState([]);
 
     useEffect(() => {
-        // getAllCampers().then(data=>console.log(data)).catch(err=>console.log(err));
+        getAllCampers().then(data=>{console.log(data);
+        setCampers(data);
+        
+        }).catch(err=>console.log(err));
     
-        onSnapshot(
-          query(campersCollection, orderBy("createdAt", "desc")),
-          (querySnapshot) => {
-            const allCampers = getAllCampersSnapshot(querySnapshot);
-            setCampers(allCampers);
-          }
-        );
+        // onSnapshot(
+        //   query(campersCollection, orderBy("createdAt", "desc")),
+        //   (querySnapshot) => {
+        //     const allCampers = getAllCampersSnapshot(querySnapshot);
+        //     setCampers(allCampers);
+        //   }
+        // );
       }, []);
 
       console.log(campers)
         return(
-
-       
-        <div className="wrapper">
+<>
         <FindCmpr></FindCmpr>
+        <div className="wrapper">
+       {campers && campers.map((el)=><Card key={el.id} data={el}/>)}
+       </div>
+        <div className="wrapper">
         
-        <Card
+        {/* <Card
         img="https://i.ibb.co/8jkVd0x/2.jpg"
         title="Camper nr 1"
         description="Camper jakiśtam" />
@@ -90,20 +95,23 @@ export const CamperCard = () => {
         <Card
         img="https://i.ibb.co/JsCKv8M/12.jpg"
         title="Camper nr 12"
-        description="Camper jakiśtam" />
+        description="Camper jakiśtam" /> */}
 
         </div>
-
+        </>
         )
 }
 
 function Card(props){
+
+const {data}=props; 
+  
     return(
         <div className="card">
             <div className="card__body">
-                <img src={props.img} class="card__image" />
-                <h2 className="card__title">{props.title}</h2>
-                <p className="card__description">{props.description}</p>
+                <img src={data.images[0]} class="card__image" />
+                <h2 className="card__title">{data.title}</h2>
+                <p className="card__description">{data.description}</p>
             </div>
             <button className="card__btn">Zobacz campera</button>
         </div>
@@ -119,7 +127,8 @@ function FindCmpr(){
     <h2 className="find__title">Znajdź campera</h2>
     <p class="find_desc">Wybierz z listy: </p>
         <div class="select">
-            <select id="cars" name="cars">
+            <select id="cars" name="camperType">
+                <option value="allcapers">All Campers</option>
                 <option value="campervan">Campervan</option>
                 <option value="integra">Integra</option>
                 <option value="półintegra">Półintegra</option>
