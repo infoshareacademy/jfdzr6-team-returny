@@ -1,5 +1,5 @@
 import { StyledBoxBackground, StyledHeader1, StyledHeader2, StyledTextArea
-    , StyledInputFile, StyledInputText,StyledSelect, StyledButton } from './AddCamperForm.style'
+    , StyledInputFile, StyledInputText,StyledSelect, StyledButton, DivInfo, StyledError } from './AddCamperForm.style'
 import {addCamper} from '../../api/addCamper';
 import { storage } from "../../firebase";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
@@ -18,7 +18,7 @@ export const AddCamperForm = () => {
         const { title, campertype ,year,brand,capacity,price,rentduration,description,imgcollection} = form;
         
         if (imgcollection.files['length']>5){
-            setError('the maximum number of photos is 5');
+            setError('The maximum number of photos is 5');
             throw new Error('too many pictures');
             return;
         }
@@ -60,7 +60,7 @@ export const AddCamperForm = () => {
     return (
     <div>
         
-        <StyledHeader1>Dodaj pojazd</StyledHeader1>
+        <StyledHeader1>Dodaj campera</StyledHeader1>
             <form onSubmit={handleSubmitCamper} encType='multipart/form-data'>
         <StyledBoxBackground>
                 <div><StyledInputText name='title' type='text' placeholder='Tytuł ogłoszenia' 
@@ -103,10 +103,9 @@ export const AddCamperForm = () => {
             {imagesUrl && imagesUrl.map((el,index)=><img key={index} src={el} width="150px" height="150px"></img>)}
             
         <StyledHeader2>Zdjęcia</StyledHeader2>
-        <input type='file' onBlur={()=>setError('')} name='imgcollection' multiple accept='image/jpg, image/png' />
-        {error && error}
-        {/* <StyledInputFile name='mainimg' type='file' accept='image/jpg, image/png' />
-        <StyledInputFile name='extraimg' type='file' accept='image/jpg, image/png' /> */}
+        <DivInfo>Maksymalna ilość zdjęć: 5</DivInfo>
+        <StyledInputFile type='file' onBlur={()=>setError('')} name='imgcollection' multiple accept='image/jpg, image/png' />
+        <StyledError> {error && error} </StyledError> 
         </StyledBoxBackground>
 
         <StyledBoxBackground>
@@ -114,7 +113,7 @@ export const AddCamperForm = () => {
         <div><StyledTextArea name='description' type='text' placeholder='Opisz swój pojazd...'/></div>
         </StyledBoxBackground>
 
-        <StyledButton>Dodaj kampera</StyledButton>
+        <StyledButton>Dodaj campera</StyledButton>
         </form>
 
     </div>)

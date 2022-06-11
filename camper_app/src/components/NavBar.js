@@ -19,7 +19,7 @@ margin: 10px;
 `;
 
 const Button = styled.button`
-background-color:aqua;
+background-color: #78cdca;
 align-items: right;
 margin-left:30px;
 font-family: 'Play', sans-serif;
