@@ -12,7 +12,6 @@ function App() {
     <Home/>
       <BrowserRouter>
         <NavBar />
-        <CamperCard/>
         <Routes>
         <Route path="/allcampers" element={<CamperCard/>}/>
           <Route path="/" element={<Home/>}/>
