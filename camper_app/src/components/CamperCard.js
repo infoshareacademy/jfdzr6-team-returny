@@ -10,7 +10,7 @@ export const CamperCard = () => {
   const [campers, setCampers] = useState([]);
 
   function getCamperType(type) {
-    setCampers([]);
+   
     if (type == "allcapers") {
       getAllCampers().then((data) => {
         setCampers(data);
