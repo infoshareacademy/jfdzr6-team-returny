@@ -12,7 +12,6 @@ export const AddCamperForm = () => {
     const [imagesUrl,setimagesUrl] =useState([]);
     const [error,setError]=useState('')
    
-
     const handleSubmitCamper = async(e) => {
         const form = e.target;
         e.preventDefault();
@@ -38,7 +37,6 @@ export const AddCamperForm = () => {
             }
             }
        
-
           const camperData = {
           title: title.value,
           campertype:campertype.value,
@@ -52,7 +50,6 @@ export const AddCamperForm = () => {
          
         };
        
-       
         addCamper(camperData).then(res=>{NotificationManager.success('Camper was sent');}).catch(err=>{NotificationManager.error('Camper was not sent');});
         form.reset();
 
@@ -60,7 +57,6 @@ export const AddCamperForm = () => {
        
  };
 
-      
     return (
     <div>
         
@@ -80,14 +76,26 @@ export const AddCamperForm = () => {
                 <div><StyledInputText name='brand' type='text' placeholder='Marka' maxLength='20'/></div>
 
                 <div><StyledInputText name='capacity' type='text' placeholder='Ilość osób' maxLength='1'/></div>
-                <div><StyledInputText name='price' type='text' placeholder='Cena [pln]' /> zł/tydzień</div>
-                <StyledSelect name="rentduration">
-                    <option value="">Okres wynajmu</option>
-                    <option value="7">1 tydzień</option>
-                    <option value="14">2 tygodnie</option>
-                    <option value="21">3 tygodnie</option>
-                    <option value="28">4 tygodnie</option>
-                </StyledSelect>  
+                <div><StyledInputText name='price' type='text' placeholder='Cena [pln]' /> zł/dzień</div>
+                <StyledSelect name="location">
+                    <option value="">Lokalizacja campera (województwo)</option>
+                    <option value="mazowieckie">mazowieckie</option>
+                    <option value="slaskie">śląskie</option>
+                    <option value="wielkopolskie">wielkopolskie</option>
+                    <option value="malopolskie">małopolskie</option>
+                    <option value="dolnoslaskie">dolnośląskie</option>
+                    <option value="lodzkie">łódzkie</option>
+                    <option value="pomorskie">pomorskie</option>
+                    <option value="podkarpackie">podkarpackie</option>
+                    <option value="lubelskie">lubelskie</option>
+                    <option value="kujawsko-pomorskie">kujawsko-pomorskie</option>
+                    <option value="zachodniopomorskie">zachodniopomorskie</option>
+                    <option value="warminsko-mazurskie">warmińsko-mazurskie</option>
+                    <option value="swietokrzyskie">świętokrzyskie</option>
+                    <option value="podlaskie">podlaskie</option>
+                    <option value="lubuskie">lubuskie</option>
+                    <option value="opolskie">opolskie</option>
+                </StyledSelect>   
            
         </StyledBoxBackground>
 
@@ -104,15 +112,6 @@ export const AddCamperForm = () => {
         <StyledBoxBackground>
         <StyledHeader2>Opis pojazdu:</StyledHeader2>
         <div><StyledTextArea name='description' type='text' placeholder='Opisz swój pojazd...'/></div>
-        </StyledBoxBackground>
-
-        <StyledBoxBackground>
-        <StyledHeader2>Dane kontaktowe:</StyledHeader2>
-        <div>
-            <p>Lokalizacja: </p>
-            <p>Adres email: </p>
-            <p>Nr telefonu: </p>
-        </div>
         </StyledBoxBackground>
 
         <StyledButton>Dodaj kampera</StyledButton>

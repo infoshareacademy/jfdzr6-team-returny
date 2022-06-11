@@ -5,6 +5,7 @@ import { getAllCampers } from "../api/getAllCampers";
 import { getCampersByType } from "../api/getCampersByType";
 
 export const CamperCard = () => {
+
   const [campers, setCampers] = useState([]);
 
   function getCamperType(type) {
@@ -61,6 +62,7 @@ function Card(props) {
   );
 }
 ////
+
 
 function FindCmpr({ getCamperType }) {
   function handleSelectType(e) {

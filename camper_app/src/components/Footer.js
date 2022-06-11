@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css"
 
-const Footer = () => {
+export const Footer = () => {
 
     return (
 <div class="footer">
@@ -14,19 +14,18 @@ const Footer = () => {
 
         <div class="row">
         <ul>
-            <li><a href="#">O nas</a></li>
-            <li><a href="#">Znajdź campera</a></li>
-            <li><a href="#">Kontakt</a></li>
-            <li><a href="#">Ubezpieczenia</a></li>
+            <li><a href="/about">O nas</a></li>
+            <li><a href="/find-camper">Znajdź campera</a></li>
+            <li><a href="/contact">Kontakt</a></li>
+            <li><a href="/insurance">Ubezpieczenia</a></li>
             <li><a href="#">Regulamin</a></li>
         </ul>
         </div>
 
         <div class="row">
-        Camper Copyright © 2022 Polska - All rights reserved || Designed By: Returny
+        Copyright © 2022 CampRide. All rights reserved || Designed By: Returny
     </div>
 </div>
 
     )
 }
-export default Footer;
