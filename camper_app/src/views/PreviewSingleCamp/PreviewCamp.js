@@ -1,8 +1,13 @@
+import { useParams } from "react-router-dom";
 import { StyledDescriptionBox, StyledDescription, Wrapper, StyledCampImg, CampTitle, StyledContactDetails, StyledContactHead, StyledCampDetails } from './PreviewCamp.style'
 
 
 
 export function PreviewCamp () {
+    const params = useParams();
+    const { id } = params;
+
+
     return (
         <Wrapper>
 
