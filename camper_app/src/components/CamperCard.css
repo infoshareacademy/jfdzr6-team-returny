@@ -34,7 +34,6 @@ margin:2rem;
     display:flex;
     flex-direction: column;
     justify-content:space-between;
-    cursor:pointer;
     transition:transform 200ms ease-in;
 
 }
@@ -61,6 +60,8 @@ margin:2rem;
     font-size: 1rem;
     margin: 1rem;
     border:2px;
+    cursor: pointer;
+    
 }
 
 .card:hover {
@@ -92,7 +93,6 @@ margin:2rem;
         font-family: 'Arial';
         display: inline-block;
         width: 100%;
-        cursor: pointer;
         padding: 9px 15px;
         outline: 0;
         border: 0px solid #000000;
