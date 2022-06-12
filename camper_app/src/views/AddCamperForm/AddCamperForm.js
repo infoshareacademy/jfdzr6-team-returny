@@ -18,8 +18,8 @@ export const AddCamperForm = () => {
         const { title, campertype ,year,brand,capacity,price,location,description,imgcollection} = form;
         
         if (imgcollection.files['length']>5){
-            setError('The maximum number of photos is 5');
-            throw new Error('too many pictures');
+            setError('Mozna dodać maksymalnie 5 zdjęć.');
+            throw new Error('Zbyt wiele zdjęć');
             return;
         }
         const images=[];
@@ -101,7 +101,6 @@ export const AddCamperForm = () => {
 
         <StyledBoxBackground>
             {/* {imagesUrl && imagesUrl.map((el,index)=><img key={index} src={el} width="150px" height="150px"></img>)} */}
-            
         <StyledHeader2>Zdjęcia</StyledHeader2>
         <DivInfo>Maksymalna ilość zdjęć: 5</DivInfo>
         <StyledInputFile type='file' onBlur={()=>setError('')} name='imgcollection' multiple accept='image/jpg, image/png' />
@@ -115,6 +114,7 @@ export const AddCamperForm = () => {
 
         <StyledButton>Dodaj campera</StyledButton>
         </form>
-
-    </div>)
+        
+    </div>
+    )
 }

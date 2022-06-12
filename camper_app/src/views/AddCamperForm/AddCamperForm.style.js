@@ -64,6 +64,7 @@ export const StyledButton = styled.button `
   background-color: #78cdca;
   margin-left: 700px;
   margin-bottom: 100px;
+  cursor: pointer;
 `
 
 export const DivInfo = styled.div `
