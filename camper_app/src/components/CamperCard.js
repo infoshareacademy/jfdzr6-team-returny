@@ -1,6 +1,7 @@
 import React from "react";
 import "./CamperCard.css";
 import { useState, useEffect } from "react";
+
 import { getAllCampers } from "../api/getAllCampers";
 import { getCampersByType } from "../api/getCampersByType";
 import { Loader } from "./Loader";
@@ -55,23 +56,7 @@ export const CamperCard = () => {
   );
 };
 
-/////
 
-function Card(props) {
-  const { data } = props;
-
-  return (
-    <div className="card">
-      <div className="card__body">
-        <img src={data.images[0]} class="card__image" />
-        <h2 className="card__title">{data.title}</h2>
-        <p className="card__description">{data.description}</p>
-      </div>
-      <button className="card__btn">Zobacz campera</button>
-    </div>
-  );
-}
-////
 
 function FindCmpr({ getCamperType }) {
   function handleSelectType(e) {
