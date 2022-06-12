@@ -29,13 +29,15 @@ export function PreviewCamp() {
   return (
     <>
     {camper && 
+       
         <Wrapper>
         <CampTitle>
           <h2>{camper.title}</h2>
         </CampTitle>
   
         <StyledCampImg>
-          <img src={camper.images[0]} alt="Tutaj jest camper" />
+            {camper.images.map((el,index)=><img src={camper.images[index]} alt="Tutaj jest camper" />)}
+          
         </StyledCampImg>
   
         <StyledCampDetails>
@@ -59,7 +61,9 @@ export function PreviewCamp() {
           <p>Telefon: {camper.usertlf}</p>
           <p>E-Mail: {camper.useremail}</p>
         </StyledContactDetails>
+        
       </Wrapper>
+      
     }
     </>
     
