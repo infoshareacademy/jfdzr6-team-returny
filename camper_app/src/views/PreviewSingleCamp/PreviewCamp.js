@@ -1,13 +1,20 @@
 import { useParams } from "react-router-dom";
 import { StyledDescriptionBox, StyledDescription, Wrapper, StyledCampImg, CampTitle, StyledContactDetails, StyledContactHead, StyledCampDetails } from './PreviewCamp.style'
-
+import { getCamperById } from "../../api/geCamperById";
+import { useEffect } from "react";
 
 
 export function PreviewCamp () {
     const params = useParams();
     const { id } = params;
 
+useEffect(()=>{
 
+getCamperById(id).then(data=>console.log(data)).catch(er=>console.log(er))
+
+},[])
+
+console.log(id)
     return (
         <Wrapper>
 
