@@ -3,22 +3,21 @@ import "./CamperCard.css";
 import { useState, useEffect } from "react";
 import { getAllCampers } from "../api/getAllCampers";
 import { getCampersByType } from "../api/getCampersByType";
+import { Loader } from "./Loader";
+import { NotificationManager } from "react-notifications";
 
 export const CamperCard = () => {
-
   const [campers, setCampers] = useState([]);
 
   function getCamperType(type) {
-    console.log(type);
+   
     if (type == "allcapers") {
       getAllCampers().then((data) => {
-        console.log(data);
         setCampers(data);
       });
     } else {
       getCampersByType(type)
         .then((data) => {
-          console.log(data);
           setCampers(data);
         })
         .catch((err) => console.log(err));
@@ -30,17 +29,28 @@ export const CamperCard = () => {
       .then((data) => {
         console.log(data);
         setCampers(data);
+        return data;
       })
-      .catch((err) => console.log(err));
+      .then((err) => {
+        if (err.length == 0) {
+          NotificationManager.error("something went wrong");
+        }
+        console.log(err);
+      });
   }, []);
 
-  console.log(campers);
   return (
     <>
-      <FindCmpr getCamperType={getCamperType}></FindCmpr>
-      <div className="wrapper">
-        {campers && campers.map((el) => <Card key={el.id} data={el} />)}
-      </div>
+      {campers.length !== 0 ? (
+        <>
+          <FindCmpr getCamperType={getCamperType} />
+          <div className="wrapper">
+            {campers && campers.map((el) => <Card key={el.id} data={el} />)}
+          </div>
+        </>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 };
@@ -62,7 +72,6 @@ function Card(props) {
   );
 }
 ////
-
 
 function FindCmpr({ getCamperType }) {
   function handleSelectType(e) {
