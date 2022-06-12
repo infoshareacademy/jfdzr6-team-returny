@@ -17,12 +17,16 @@ export function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/about" element={<Home/>}/>
-          <Route path="find-camper" element={<CamperCard/>}/>
+          
           <Route path="contact" element={<Home/>}/>
           <Route path="insurance" element={<Home/>}/>
           <Route path="login" element={<Home/>}/>
           <Route path="add-camper" element={<AddCamperForm />}/>
-          <Route path="previewcamp" element={<PreviewCamp />}/>
+
+          <Route path="find-camper" element={<Campers/>}>
+          <Route index element={<CamperCard/>}/>
+          <Route path=":id" element={<PreviewCamp />}/>
+          </Route>
         </Routes>
 
         <Footer/>
