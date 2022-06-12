@@ -67,6 +67,9 @@ export const StyledButton = styled.button `
   margin-left: 700px;
   margin-bottom: 100px;
   cursor: pointer;
+  &:hover {
+    color: white;
+  }
 `
 
 export const DivInfo = styled.div `

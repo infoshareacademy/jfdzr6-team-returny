@@ -1,4 +1,4 @@
-import { StyledHeader2, StyledHeader3, StyledBoxBackground, StyledWrapper, StyledInputText, StyledButton, DivInfo } from "./LoginRegister.style"
+import { StyledHeader2, StyledHeader3, StyledBoxBackground, StyledWrapper, StyledInputText, StyledButton, DivInfo, StyledLink } from "./LoginRegister.style"
 
 
 export const LoginRegister = () => {
@@ -17,7 +17,7 @@ export const LoginRegister = () => {
                 <div><StyledInputText name='telephone' type='text' placeholder='Podaj telefon' 
                 maxLength='30'/></div>      
                 <StyledHeader3>Hasło:</StyledHeader3>
-                <div><StyledInputText name='password' type='text' placeholder='Podaj hasło' 
+                <div><StyledInputText name='password' type='password' placeholder='Podaj hasło' 
                 maxLength='30'/></div>
                 <DivInfo>*Wypełnij wszystkie pola</DivInfo>
                 <StyledButton>Załóż konto</StyledButton>       
@@ -26,10 +26,11 @@ export const LoginRegister = () => {
             <StyledHeader2>Zaloguj się</StyledHeader2>
                 <StyledHeader3>Email:</StyledHeader3>
                 <div><StyledInputText name='email' type='text' placeholder='Podaj email' 
-                maxLength='30'/></div>      
+                maxLength='30'/></div>
                 <StyledHeader3>Hasło:</StyledHeader3>
-                <div><StyledInputText name='password' type='text' placeholder='Podaj hasło' 
-                maxLength='30'/></div>   
+                <div><StyledInputText name='password' type='password' placeholder='Podaj hasło' 
+                maxLength='30'/></div>
+                <StyledLink>Przypomnij hasło</StyledLink>
                 <StyledButton>Zaloguj się</StyledButton>        
             </StyledBoxBackground>
         </StyledWrapper>

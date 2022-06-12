@@ -40,33 +40,14 @@ export const StyledInputText = styled.input`
   border-radius: 8px;
   border: 1px solid black;
 `
-// export const StyledSelect = styled.select`
-//   font-size: 16px;
-//   height: 40px;
-//   width: 400px;
-//   margin: 5px 0px 5px 50px;
-//   padding-left: 10px;
-//   border-radius: 8px;
-//   border: 1px solid black;
-// `
 
-// export const StyledInputFile = styled.input`
-//   font-size: 16px;
-//   font-family: 'Play', sans-serif;
-//   margin: 5px 0px 20px 50px;
-// `
-
-// export const StyledTextArea = styled.textarea`
-//   resize: none;
-//   font-family: 'Play', sans-serif;
-//   font-size: 20px;
-//   height: 200px;
-//   width: 400px;
-//   margin: 5px 0px 10px 50px;
-//   padding: 10px;
-//   border-radius: 8px;
-//   border: 1px solid black;
-// `
+export const StyledLink = styled.a `
+  font-family: 'Play', sans-serif;
+  margin: 20px 0px 10px 3px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+`
 
 export const StyledButton = styled.button `
   width: 150px;
@@ -76,6 +57,9 @@ export const StyledButton = styled.button `
   margin-top: 20px;
   padding: 5px;
   cursor: pointer;
+  &:hover {
+    color: white;
+  }
 `
 
 export const DivInfo = styled.div `
