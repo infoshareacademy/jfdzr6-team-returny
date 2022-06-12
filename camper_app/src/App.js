@@ -5,6 +5,7 @@ import { Home } from "./views/Home";
 import { Footer } from "./components/Footer";
 import { CamperCard } from "./components/CamperCard";
 import { NotificationContainer } from "react-notifications";
+import { LoginRegister } from "./views/LoginRegister/LoginRegister";
 
 export function App() {
   return (
@@ -21,6 +22,7 @@ export function App() {
           <Route path="insurance" element={<Home/>}/>
           <Route path="login" element={<Home/>}/>
           <Route path="add-camper" element={<AddCamperForm />}/>
+          <Route path="login-register" element={<LoginRegister />}/>
         </Routes>
 
         <Footer/>

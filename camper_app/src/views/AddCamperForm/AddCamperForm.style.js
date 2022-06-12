@@ -55,6 +55,8 @@ export const StyledTextArea = styled.textarea`
   width: 400px;
   margin: 5px 0px 10px 50px;
   padding: 10px;
+  border-radius: 8px;
+  border: 1px solid black;
 `
 
 export const StyledButton = styled.button `
