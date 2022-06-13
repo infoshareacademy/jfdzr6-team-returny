@@ -5,6 +5,7 @@ import { Home } from "./views/Home";
 import { Footer } from "./components/Footer";
 import { CamperCard } from "./components/CamperCard";
 import { NotificationContainer } from "react-notifications";
+import { LoginRegister } from "./views/LoginRegister/LoginRegister";
 import { PreviewCamp } from "./views/PreviewSingleCamp/PreviewCamp";
 import { Campers } from "./views/Campers";
 
@@ -16,6 +17,7 @@ export function App() {
         <NotificationContainer />
 
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Home />} />
 
@@ -28,6 +30,8 @@ export function App() {
             <Route index element={<CamperCard />} />
             <Route path=":id" element={<PreviewCamp />} />
           </Route>
+
+         
         </Routes>
 
         <Footer />
