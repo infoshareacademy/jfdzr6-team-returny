@@ -41,6 +41,7 @@ export const AddCamperForm = () => {
     } = form;
 
     if (imgcollection.files["length"] > 5) {
+      setsendLoader(false);
       setError("Mozna dodać maksymalnie 5 zdjęć.");
       throw new Error("Zbyt wiele zdjęć");
       return;
