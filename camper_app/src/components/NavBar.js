@@ -84,7 +84,7 @@ export function NavBar() {
         </div>
           
        <ButtonGroup>
-            <Button> <a href="/login"> Zaloguj się</a></Button>
+            <Button> <a href="/login-register"> Zaloguj się</a></Button>
             <Button> <a href="/add-camper"> Dodaj campera</a> </Button>
           </ButtonGroup>
       </StyledNavigation>

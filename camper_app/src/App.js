@@ -23,8 +23,8 @@ export function App() {
 
           <Route path="contact" element={<Home />} />
           <Route path="insurance" element={<Home />} />
-          <Route path="login" element={<Home />} />
           <Route path="add-camper" element={<AddCamperForm />} />
+          <Route path="login-register" element={<LoginRegister />} />
 
           <Route path="find-camper" element={<Campers />}>
             <Route index element={<CamperCard />} />
