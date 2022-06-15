@@ -80,21 +80,52 @@ function FindCmpr({ getCamperType }) {
   }
 
   return (
-    <div classNAme="find">
+  <div class="find">
+
       <h2 className="find__title">Znajdź campera</h2>
       <p class="find_desc">Wybierz z listy: </p>
+
       <div class="select">
         <select id="cars" name="camperType" onChange={handleSelectType}>
-          <option value="allcapers">All Campers</option>
+          <option value="allcapers">Typ campera</option>
           <option value="campervan">Campervan</option>
           <option value="integra">Integra</option>
           <option value="polintegra">Półintegra</option>
           <option value="alkowa">Alkowa</option>
         </select>
-        <div class="select_arrow"></div>
+        <div class="select_arrow"></div>  
       </div>
+
+      <div class="select_two">
+      <select id="vov" name="vovType">
+        <option value="a">Wybierz województwo</option>
+        <option value="b">dolnośląskie</option>
+        <option value="campervan">kujawsko-pomorskie</option>
+        <option value="integra">lubelskie</option>
+        <option value="polintegra">lubuskie</option>
+        <option value="alkowa">łódzkie</option>
+        <option value="allcapers">małopolskie</option>
+        <option value="campervan">mazowieckie</option>
+        <option value="integra">opolskie</option>
+        <option value="polintegra">podkarpackie</option>
+        <option value="alkowa">pomorskie</option>
+        <option value="alkowa">śląskie</option>
+        <option value="alkowa">świętokrzyskie</option>
+        <option value="alkowa">warmińsko-mazurskie</option>
+        <option value="alkowa">wielkopolskie</option>
+        <option value="alkowa">zachodniopomorskie</option>
+      </select>
     </div>
+
+
+  </div>
+
+
+
+
+
+    
   );
 }
-
 ///
+
