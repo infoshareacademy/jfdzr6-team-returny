@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { AddCamperForm } from "./views/AddCamperForm/AddCamperForm";
 import { NavBar } from "./components/NavBar";
 import { Home } from "./views/Home";
@@ -10,6 +11,30 @@ import { Campers } from "./views/Campers";
 import { Register } from "./views/Register";
 
 export function App() {
+  const [isAuth, setIsAuth] = useState(false);
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     console.log("auth status changed", user);
+  //     if (user) {
+  //       setIsAuth(true);
+
+  //       console.log("current user", user);
+  //       //pobranie danych konkretnego uzytkownika
+  //       const docRef = doc(db, "users", user.uid);
+  //       getDoc(docRef).then((docSnap) => {
+  //         const extendDataUser = docSnap.data();
+  //         //dodanie do kontekstu rozszerzonych danych usera
+  //         context.setExtendedUserData(extendDataUser);
+  //         //dodanie do kontekstu usera
+  //         context.setUserData(user);
+  //       });
+  //     } else {
+  //       setIsAuth(false);
+       
+  //     }
+  //   });
+  // }, []);
+
   return (
     <>
       <BrowserRouter>

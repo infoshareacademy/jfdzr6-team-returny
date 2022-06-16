@@ -2,32 +2,28 @@ import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { db } from "../firebase";
 import { AuthForm } from "../components/AuthForm/AuthForm";
 import { getFormData } from "../utilities/getFormData";
-import {auth} from '../firebase';
+import { auth } from "../firebase";
 import { serverTimestamp, doc, setDoc } from "firebase/firestore";
-
 
 export function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
-    const { profilePicture, email, password, displayName } = getFormData(
-      e,
-      "register"
-    );
+    const { profilePicture, email, password, displayName, telephone } =
+      getFormData(e, "register");
 
     try {
-      const jwt = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password,
-        displayName
-      );
+      const jwt = await createUserWithEmailAndPassword(auth, email, password);
+      //Avator opcja
       //   const snapshot=await uploadBytes(storageRef,profilePicture)
       //   console.log(snapshot);
       //   console.log(jwt)
       //   const downloadUrl=await getDownloadURL(snapshot.ref);
+      console.log(jwt.user.uid,displayName,telephone);
+      console.log("jwt dane:", jwt);
       const result = await setDoc(doc(db, "users", jwt.user.uid), {
         isAdmin: false,
-        mobil: '123456789',
+        name: displayName,
+        mobil: telephone,
         email: jwt.user.email,
         createdAt: serverTimestamp(),
       });
