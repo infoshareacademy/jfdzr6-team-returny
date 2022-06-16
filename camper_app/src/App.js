@@ -20,6 +20,7 @@ export function App() {
 
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Home />} />
+          <Route path="/login" element={<LoginRegister />} />
 
           <Route path="contact" element={<Home />} />
           <Route path="insurance" element={<Home />} />
