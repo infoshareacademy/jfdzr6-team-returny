@@ -5,9 +5,9 @@ import { Home } from "./views/Home";
 import { Footer } from "./components/Footer";
 import { CamperCard } from "./components/CamperCard";
 import { NotificationContainer } from "react-notifications";
-import { LoginRegister } from "./views/LoginRegister/LoginRegister";
 import { PreviewCamp } from "./views/PreviewSingleCamp/PreviewCamp";
 import { Campers } from "./views/Campers";
+import { Register } from "./views/Register";
 
 export function App() {
   return (
@@ -20,7 +20,8 @@ export function App() {
 
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Home />} />
-          <Route path="/login" element={<LoginRegister />} />
+         
+          <Route path="/register" element={<Register />} />
 
           <Route path="contact" element={<Home />} />
           <Route path="insurance" element={<Home />} />
