@@ -6,7 +6,7 @@ export const getFormData = (e, role) => {
       ? {
           email: email.value,
           password: password.value,
-          profilePicture: profilePicture.files[0],
+        //   profilePicture: profilePicture.files[0],
         }
       : role === "login"
       ? {
