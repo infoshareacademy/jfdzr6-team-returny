@@ -41,15 +41,20 @@ export const AuthForm = ({formRole,onSubmit}) => {
                 <div><StyledInputText name='password' type='password' placeholder='Podaj hasło' 
                 maxLength='30'/></div>
                 <StyledLink><Link to='/register'>Zarejestruj się</Link></StyledLink>
-                <StyledLink>Przypomnij hasło</StyledLink>
+                <StyledLink><Link to='/forgotpass'>Przypomnij hasło</Link></StyledLink>
                 <StyledButton>Zaloguj się</StyledButton>        
             </StyledBoxBackground>
            )
 
            }
            {formRole ==='forgotPassword' && (
-            <>
-            </>
+            <StyledBoxBackground>
+            <StyledHeader2>Zmień hasło</StyledHeader2>
+                <StyledHeader3>Email:</StyledHeader3>
+                <div><StyledInputText name='email' type='text' placeholder='Podaj email' 
+                maxLength='30'/></div>
+             <StyledButton>Zmień hasło</StyledButton>     
+           </StyledBoxBackground>
            )
 
            }

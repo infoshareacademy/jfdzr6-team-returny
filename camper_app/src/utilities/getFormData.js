@@ -16,5 +16,7 @@ export const getFormData = (e, role) => {
         email: email.value,
         password: password.value,
       }
-    : { email: email.value };
+    : role ==="forgotPassword"
+    ? { email: email.value } : null;
+
 };

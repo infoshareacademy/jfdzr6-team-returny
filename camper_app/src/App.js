@@ -11,6 +11,7 @@ import { PreviewCamp } from "./views/PreviewSingleCamp/PreviewCamp";
 import { Campers } from "./views/Campers";
 import { Register } from "./views/Register";
 import { Login } from "./views/Login";
+import { ForgotPassword } from "./views/ForgotPass";
 
 export function App() {
   const context=useContext(UserContext);
@@ -30,6 +31,7 @@ export function App() {
          
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
+          <Route path="forgotpass" element={<ForgotPassword />} />
 
           <Route path="contact" element={<Home />} />
           <Route path="insurance" element={<Home />} />
