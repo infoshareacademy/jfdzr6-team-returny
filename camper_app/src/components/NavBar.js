@@ -3,6 +3,8 @@ import { NavLink ,Link} from "react-router-dom";
 import { UserContext } from "../context/userContext";
 import { signOut } from "@firebase/auth";
 import {auth} from "../firebase";
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 import styled from "styled-components";
 import logo from "../assets/logo.jpg";
 import "../components/NavBar.css";
@@ -96,8 +98,9 @@ export function NavBar() {
         {context.userData && (
           <>
           <Button> <Link to="/" onClick={()=>{
-            signOut(auth);
+            signOut(auth); 
             context.setUserData('');
+            NotificationManager.info("Zostałeś wylogowany");
           }}> Wyloguj się</Link></Button>
           <Button> <Link to="/add-camper"> Dodaj campera</Link> </Button>
           </>

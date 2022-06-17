@@ -5,6 +5,8 @@ import { AuthForm } from "../components/AuthForm/AuthForm";
 import { getFormData } from "../utilities/getFormData";
 import { auth } from "../firebase";
 import { serverTimestamp, doc, setDoc } from "firebase/firestore";
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 export function Register() {
   const navigate=useNavigate();
@@ -29,10 +31,11 @@ export function Register() {
         email: jwt.user.email,
         createdAt: serverTimestamp(),
       });
+      navigate('/login');
       console.log(result);
       await signOut(auth);
       e.target.reset();
-      navigate('/login');
+      NotificationManager.info(`Twoje konto: ${jwt.user.email} zostało utworzone`);
     } catch (err) {
       console.log(e);
       //   alert(FirebaseError[e.code])

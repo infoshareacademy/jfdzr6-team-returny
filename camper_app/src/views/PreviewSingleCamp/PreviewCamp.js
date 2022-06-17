@@ -25,7 +25,7 @@ export function PreviewCamp() {
       .catch((er) => console.log(er));
   }, []);
 
-  console.log(camper);
+  
   return (
     <>
     {camper && 
