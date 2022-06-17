@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
-import { onAuthStateChanged } from "@firebase/auth";
+import { useState, useContext } from "react";
+import { UserContext } from "./context/userContext";
 import { AddCamperForm } from "./views/AddCamperForm/AddCamperForm";
 import { NavBar } from "./components/NavBar";
 import { Home } from "./views/Home";
@@ -13,31 +13,10 @@ import { Register } from "./views/Register";
 import { Login } from "./views/Login";
 
 export function App() {
+  const context=useContext(UserContext);
   const [isAuth, setIsAuth] = useState(false);
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     console.log("auth status changed", user);
-  //     if (user) {
-  //       setIsAuth(true);
-
-  //       console.log("current user", user);
-  //       //pobranie danych konkretnego uzytkownika
-  //       const docRef = doc(db, "users", user.uid);
-  //       getDoc(docRef).then((docSnap) => {
-  //         const extendDataUser = docSnap.data();
-  //         //dodanie do kontekstu rozszerzonych danych usera
-  //         context.setExtendedUserData(extendDataUser);
-  //         //dodanie do kontekstu usera
-  //         context.setUserData(user);
-  //       });
-  //     } else {
-  //       setIsAuth(false);
-       
-  //     }
-  //   });
-  // }, []);
-
+  console.log(context.userData);
   return (
     <>
       <BrowserRouter>

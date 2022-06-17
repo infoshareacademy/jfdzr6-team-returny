@@ -1,15 +1,13 @@
 import { createContext, useState } from "react";
 
-export const AdminContext = createContext();
+export const UserContext = createContext();
 
-export const AdminContextProvider = ({ children }) => {
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [user, setUserData] = useState('');
-  const [extendedUserData, setExtendedUserData] = useState('');
-
-  
+export const UserContextProvider = ({ children }) => {
+  const [userData, setUserData] = useState("");
 
   return (
-    <AdminContext.Provider value={{isAdmin,setIsAdmin,user, setUserData, extendedUserData, setExtendedUserData}}>{children}</AdminContext.Provider>
+    <UserContext.Provider value={{ userData, setUserData }}>
+      {children}
+    </UserContext.Provider>
   );
 };
