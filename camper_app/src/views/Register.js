@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { db } from "../firebase";
 import { AuthForm } from "../components/AuthForm/AuthForm";
@@ -6,6 +7,7 @@ import { auth } from "../firebase";
 import { serverTimestamp, doc, setDoc } from "firebase/firestore";
 
 export function Register() {
+  const navigate=useNavigate();
   const handleRegister = async (e) => {
     e.preventDefault();
     const { profilePicture, email, password, displayName, telephone } =
@@ -30,6 +32,7 @@ export function Register() {
       console.log(result);
       await signOut(auth);
       e.target.reset();
+      navigate('/login');
     } catch (err) {
       console.log(e);
       //   alert(FirebaseError[e.code])

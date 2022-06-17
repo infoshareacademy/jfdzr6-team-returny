@@ -41,7 +41,7 @@ export const StyledInputText = styled.input`
   border: 1px solid black;
 `
 
-export const StyledLink = styled.a `
+export const StyledLink = styled.p`
   font-family: 'Play', sans-serif;
   margin: 20px 0px 10px 3px;
   font-size: 16px;

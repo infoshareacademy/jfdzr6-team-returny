@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { onAuthStateChanged } from "@firebase/auth";
 import { AddCamperForm } from "./views/AddCamperForm/AddCamperForm";
 import { NavBar } from "./components/NavBar";
 import { Home } from "./views/Home";
@@ -9,9 +10,11 @@ import { NotificationContainer } from "react-notifications";
 import { PreviewCamp } from "./views/PreviewSingleCamp/PreviewCamp";
 import { Campers } from "./views/Campers";
 import { Register } from "./views/Register";
+import { Login } from "./views/Login";
 
 export function App() {
   const [isAuth, setIsAuth] = useState(false);
+
   // useEffect(() => {
   //   onAuthStateChanged(auth, (user) => {
   //     console.log("auth status changed", user);
@@ -46,11 +49,12 @@ export function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Home />} />
          
-          <Route path="/register" element={<Register />} />
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
 
           <Route path="contact" element={<Home />} />
           <Route path="insurance" element={<Home />} />
-          <Route path="login" element={<Home />} />
+          
           <Route path="add-camper" element={<AddCamperForm />} />
 
           <Route path="find-camper" element={<Campers />}>
