@@ -5,7 +5,7 @@ import { AddCamperForm } from "./views/AddCamperForm/AddCamperForm";
 import { NavBar } from "./components/NavBar";
 import { Home } from "./views/Home";
 import { Footer } from "./components/Footer";
-import { CamperCard } from "./components/CamperCard";
+import { CamperCard } from "./views/CamperCard/CamperCard";
 import { NotificationContainer } from "react-notifications";
 import { PreviewCamp } from "./views/PreviewSingleCamp/PreviewCamp";
 import { Campers } from "./views/Campers";

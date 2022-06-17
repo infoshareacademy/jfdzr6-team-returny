@@ -1,4 +1,4 @@
-import "./CamperCard.css";
+import "../views/CamperCard/CamperCard.css";
 export function FindCmpr({ getCamperType }) {
     function handleSelectType(e) {
       e.preventDefault();

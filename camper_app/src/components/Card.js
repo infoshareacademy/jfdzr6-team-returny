@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
-import "./CamperCard.css";
+import "../views/CamperCard/CamperCard.css";
 export function Card(props) {
     const navigate =useNavigate();
     const { data } = props;

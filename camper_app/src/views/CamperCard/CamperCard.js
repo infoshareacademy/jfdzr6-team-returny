@@ -1,12 +1,12 @@
 import React from "react";
 import "./CamperCard.css";
 import { useState, useEffect } from "react";
-import { getAllCampers } from "../api/getAllCampers";
-import { getCampersByType } from "../api/getCampersByType";
-import { Loader } from "./Loader";
+import { getAllCampers } from "../../api/getAllCampers";
+import { getCampersByType } from "../../api/getCampersByType";
+import { Loader } from "../../components/Loader";
 import { NotificationManager } from "react-notifications";
-import { Card } from "./Card";
-import { FindCmpr } from "./FindCmpr";
+import { Card } from "../../components/Card";
+import { FindCmpr } from "../../components/FindCmpr";
 
 export const CamperCard = () => {
   const [campers, setCampers] = useState([]);
