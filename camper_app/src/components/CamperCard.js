@@ -29,15 +29,15 @@ export const CamperCard = () => {
   useEffect(() => {
     getAllCampers()
       .then((data) => {
-        console.log(data);
+       
         setCampers(data);
         return data;
       })
       .then((err) => {
         if (err.length == 0) {
-          NotificationManager.error("something went wrong");
+          NotificationManager.error("coś poszło nie tak");
         }
-        console.log(err);
+        
       });
   }, []);
 

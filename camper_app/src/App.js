@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { UserContext } from "./context/userContext";
 import { AddCamperForm } from "./views/AddCamperForm/AddCamperForm";
 import { NavBar } from "./components/NavBar";
@@ -14,9 +14,9 @@ import { Login } from "./views/Login";
 
 export function App() {
   const context=useContext(UserContext);
-  const [isAuth, setIsAuth] = useState(false);
+  
 
-  console.log(context.userData);
+  
   return (
     <>
       <BrowserRouter>
@@ -33,8 +33,8 @@ export function App() {
 
           <Route path="contact" element={<Home />} />
           <Route path="insurance" element={<Home />} />
-          
-          <Route path="add-camper" element={<AddCamperForm />} />
+                  
+          <Route path="add-camper" element={context.userData ? <AddCamperForm /> : <Home />} />
 
           <Route path="find-camper" element={<Campers />}>
             <Route index element={<CamperCard />} />

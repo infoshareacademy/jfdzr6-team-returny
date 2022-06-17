@@ -1,4 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink ,Link} from "react-router-dom";
+import { UserContext } from "../context/userContext";
+import { signOut } from "@firebase/auth";
+import {auth} from "../firebase";
 import styled from "styled-components";
 import logo from "../assets/logo.jpg";
 import "../components/NavBar.css";
@@ -34,10 +38,15 @@ margin: 30px;
 `;
 
 export function NavBar() {
+ 
+  const context=useContext(UserContext);
+  
   return (
     <>
     <StyledNavigation>
+      
       <StyledImgLogo src={logo} />
+      {context.userData && <p style={{color:"white"}}>zalogowany: {context.userData.email}</p>}
 
         <div className="li">
           <NavLink
@@ -84,8 +93,18 @@ export function NavBar() {
         </div>
           
        <ButtonGroup>
-            <Button> <a href="/login"> Zaloguj się</a></Button>
-            <Button> <a href="/add-camper"> Dodaj campera</a> </Button>
+        {context.userData && (
+          <>
+          <Button> <Link to="/" onClick={()=>{
+            signOut(auth);
+            context.setUserData('');
+          }}> Wyloguj się</Link></Button>
+          <Button> <Link to="/add-camper"> Dodaj campera</Link> </Button>
+          </>
+        )}
+        {!context.userData && (
+          <Button> <Link to="/login"> Zaloguj się</Link></Button>
+        )}
           </ButtonGroup>
       </StyledNavigation>
     </>
