@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css"
 
 export const Footer = () => {
@@ -6,19 +7,19 @@ export const Footer = () => {
     return (
 <div class="footer">
     <div class="row">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-youtube"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
+            <Link to="#"><i class="fa fa-facebook"></i></Link>
+            <Link to="#"><i class="fa fa-instagram"></i></Link>
+            <Link to="#"><i class="fa fa-youtube"></i></Link>
+            <Link to="#"><i class="fa fa-twitter"></i></Link>
         </div>
 
         <div class="row">
         <ul>
-            <li><a href="/about">O nas</a></li>
-            <li><a href="/find-camper">Znajdź campera</a></li>
-            <li><a href="/contact">Kontakt</a></li>
-            <li><a href="/insurance">Ubezpieczenia</a></li>
-            <li><a href="#">Regulamin</a></li>
+            <li><Link to="/about">O nas</Link></li>
+            <li><Link to="/find-camper">Znajdź campera</Link></li>
+            <li><Link to="/contact">Kontakt</Link></li>
+            <li><Link to="/insurance">Ubezpieczenia</Link></li>
+            <li><Link to="#">Regulamin</Link></li>
         </ul>
         </div>
 
