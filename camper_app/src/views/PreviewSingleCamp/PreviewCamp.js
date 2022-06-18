@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   StyledDescriptionBox,
@@ -10,7 +11,6 @@ import {
   StyledCampDetails,
 } from "./PreviewCamp.style";
 import { getCamperById } from "../../api/geCamperById";
-import { useEffect, useState } from "react";
 
 export function PreviewCamp() {
   const [camper, setCamper] = useState();
@@ -25,7 +25,7 @@ export function PreviewCamp() {
       .catch((er) => console.log(er));
   }, []);
 
-  console.log(camper);
+  
   return (
     <>
     {camper && 

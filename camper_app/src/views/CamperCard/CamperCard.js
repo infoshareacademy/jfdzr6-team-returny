@@ -1,12 +1,12 @@
 import React from "react";
 import "./CamperCard.css";
 import { useState, useEffect } from "react";
-import { getAllCampers } from "../api/getAllCampers";
-import { getCampersByType } from "../api/getCampersByType";
-import { Loader } from "./Loader";
+import { getAllCampers } from "../../api/getAllCampers";
+import { getCampersByType } from "../../api/getCampersByType";
+import { Loader } from "../../components/Loader";
 import { NotificationManager } from "react-notifications";
-import { Card } from "./Card";
-import { FindCmpr } from "./FindCmpr";
+import { Card } from "../../components/Card";
+import { FindCmpr } from "../../components/FindCmpr";
 
 export const CamperCard = () => {
   const [campers, setCampers] = useState([]);
@@ -29,15 +29,15 @@ export const CamperCard = () => {
   useEffect(() => {
     getAllCampers()
       .then((data) => {
-        console.log(data);
+       
         setCampers(data);
         return data;
       })
       .then((err) => {
         if (err.length == 0) {
-          NotificationManager.error("something went wrong");
+          NotificationManager.error("coś poszło nie tak");
         }
-        console.log(err);
+        
       });
   }, []);
 
