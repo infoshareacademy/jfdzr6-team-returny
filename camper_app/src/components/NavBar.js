@@ -95,6 +95,7 @@ export function NavBar() {
         </div>
           
        <ButtonGroup>
+
         {context.userData && (
           <>
           <Button> <Link to="/" onClick={()=>{
@@ -108,6 +109,8 @@ export function NavBar() {
         {!context.userData && (
           <Button> <Link to="/login"> Zaloguj się</Link></Button>
         )}
+
+
           </ButtonGroup>
       </StyledNavigation>
     </>
