@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { UserContext } from "../../context/userContext";
 import {
   StyledBoxBackground,
   StyledHeader1,
@@ -23,6 +25,8 @@ export const AddCamperForm = () => {
   
   const [error, setError] = useState("");
   const [sendLoader, setsendLoader] = useState(false);
+  const context=useContext(UserContext);
+
 
   const handleSubmitCamper = async (e) => {
     e.preventDefault();
@@ -39,7 +43,7 @@ export const AddCamperForm = () => {
       description,
       imgcollection,
     } = form;
-
+    console.log(description);
     if (imgcollection.files["length"] > 5) {
       setsendLoader(false);
       setError("Mozna dodać maksymalnie 5 zdjęć.");
@@ -64,6 +68,10 @@ export const AddCamperForm = () => {
         }
       }
 
+    } catch (er) {
+      console.log(er);
+    }
+    
       const camperData = {
         title: title.value,
         campertype: campertype.value,
@@ -73,21 +81,23 @@ export const AddCamperForm = () => {
         price: price.value,
         images: images,
         location: location.value,
-        description: description.value,
+        description:description.value,
+        usertlf:context.userData.mobil,
+        userid:context.userData.id,
+        useremail:context.userData.email,
       };
-
+     console.log(camperData)
       addCamper(camperData)
         .then((res) => {
           NotificationManager.success("Kamper został wysłany");
           setsendLoader(false);
         })
-        .catch((err) => {
+        .catch((err) => {console.log(err)
           NotificationManager.error("Błąd wysyłania");
+          setsendLoader(false);
         });
       form.reset();
-    } catch (er) {
-      console.log(er);
-    }
+    
   };
 
   return (

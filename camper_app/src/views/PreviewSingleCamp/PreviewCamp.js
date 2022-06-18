@@ -36,7 +36,7 @@ export function PreviewCamp() {
         </CampTitle>
   
         <StyledCampImg>
-            {camper.images.map((el,index)=><img src={camper.images[index]} alt="Tutaj jest camper" />)}
+            {camper.images.map((el,index)=><img key={index} src={camper.images[index]} alt="Tutaj jest camper" />)}
           
         </StyledCampImg>
   
