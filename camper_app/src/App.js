@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "./context/userContext";
+import { onAuthStateChanged } from "@firebase/auth";
+import { auth } from "./firebase";
 import { AddCamperForm } from "./views/AddCamperForm/AddCamperForm";
 import { NavBar } from "./components/NavBar";
 import { Home } from "./views/Home";
@@ -12,12 +14,26 @@ import { Campers } from "./views/Campers";
 import { Register } from "./views/Register";
 import { Login } from "./views/Login";
 import { ForgotPassword } from "./views/ForgotPass";
+import { getUserById } from "./api/getUserById";
 
 export function App() {
-  const context=useContext(UserContext);
-  
+  const context = useContext(UserContext);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      console.log("auth status changed", user);
+      if (user) {
+        getUserById(user.uid).then((userData) => {
+          context.setUserData({
+            id: user.uid,
+            ...userData,
+          });
+        });
+      } else {
+        console.log("nie jestes zalogowany");
+      }
+    });
+  }, []);
 
-  
   return (
     <>
       <BrowserRouter>
@@ -25,25 +41,25 @@ export function App() {
         <NotificationContainer />
 
         <Routes>
-
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Home />} />
-         
+
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="forgotpass" element={<ForgotPassword />} />
 
           <Route path="contact" element={<Home />} />
           <Route path="insurance" element={<Home />} />
-                  
-          <Route path="add-camper" element={context.userData ? <AddCamperForm /> : <Home />} />
+
+          <Route
+            path="add-camper"
+            element={context.userData ? <AddCamperForm /> : <Home />}
+          />
 
           <Route path="find-camper" element={<Campers />}>
             <Route index element={<CamperCard />} />
             <Route path=":id" element={<PreviewCamp />} />
           </Route>
-
-         
         </Routes>
 
         <Footer />
