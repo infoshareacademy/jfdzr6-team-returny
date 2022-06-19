@@ -6,6 +6,7 @@ import { getCampersByType } from "../api/getCampersByType";
 import { Loader } from "./Loader";
 import { NotificationManager } from "react-notifications";
 
+
 export const CamperCard = () => {
   const [campers, setCampers] = useState([]);
 
@@ -85,9 +86,10 @@ function FindCmpr({ getCamperType }) {
       <h2 className="find__title">Znajdź campera</h2>
       <p class="find_desc">Wybierz z listy: </p>
 
-      <div class="select">
-        <select id="cars" name="camperType" onChange={handleSelectType}>
-          <option value="allcapers">Typ campera</option>
+      <div class="select_one">
+        <p>Typ campera</p>
+        <select id="select__one">
+          <option value="allcapers">Wybierz</option>
           <option value="campervan">Campervan</option>
           <option value="integra">Integra</option>
           <option value="polintegra">Półintegra</option>
@@ -97,31 +99,30 @@ function FindCmpr({ getCamperType }) {
       </div>
 
       <div class="select_two">
-      <select id="vov" name="vovType">
-        <option value="a">Wybierz województwo</option>
-        <option value="b">dolnośląskie</option>
-        <option value="campervan">kujawsko-pomorskie</option>
-        <option value="integra">lubelskie</option>
-        <option value="polintegra">lubuskie</option>
-        <option value="alkowa">łódzkie</option>
-        <option value="allcapers">małopolskie</option>
-        <option value="campervan">mazowieckie</option>
-        <option value="integra">opolskie</option>
-        <option value="polintegra">podkarpackie</option>
-        <option value="alkowa">pomorskie</option>
-        <option value="alkowa">śląskie</option>
-        <option value="alkowa">świętokrzyskie</option>
-        <option value="alkowa">warmińsko-mazurskie</option>
-        <option value="alkowa">wielkopolskie</option>
-        <option value="alkowa">zachodniopomorskie</option>
-      </select>
+      <p>Województwo</p>
+        <select id="select__two">
+          <option>Wybierz</option>
+          <option value="mazowieckie">mazowieckie</option>
+          <option value="slaskie">śląskie</option>
+          <option value="wielkopolskie">wielkopolskie</option>
+          <option value="malopolskie">małopolskie</option>
+          <option value="dolnoslaskie">dolnośląskie</option>
+          <option value="lodzkie">łódzkie</option>
+          <option value="pomorskie">pomorskie</option>
+          <option value="podkarpackie">podkarpackie</option>
+          <option value="lubelskie">lubelskie</option>
+          <option value="kujawsko-pomorskie">kujawsko-pomorskie</option>
+           <option value="zachodniopomorskie">zachodniopomorskie</option>
+          <option value="warminsko-mazurskie">warmińsko-mazurskie</option>
+           <option value="swietokrzyskie">świętokrzyskie</option>
+          <option value="podlaskie">podlaskie</option>
+          <option value="lubuskie">lubuskie</option>
+          <option value="opolskie">opolskie</option>
+        </select>
     </div>
 
-
+    
   </div>
-
-
-
 
 
     
