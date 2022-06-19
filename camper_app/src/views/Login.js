@@ -3,6 +3,8 @@ import { signInWithEmailAndPassword } from "@firebase/auth";
 import { auth } from "../firebase";
 import { getFormData } from "../utilities/getFormData";
 import { AuthForm } from "../components/AuthForm/AuthForm";
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -22,6 +24,7 @@ export const Login = () => {
       .catch((e) => {
         console.log(e.code);
         console.log(e.message);
+        NotificationManager.error(`Błąd logowania spróbuj ponownie`);
         //   alert(firebaseErrors[e.code]);
       });
   };
