@@ -1,40 +1,71 @@
-import { StyledDescriptionBox, StyledDescription, Wrapper, StyledCampImg, CampTitle, StyledContactDetails, StyledContactHead, StyledCampDetails } from './PreviewCamp.style'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import {
+  StyledDescriptionBox,
+  StyledDescription,
+  Wrapper,
+  StyledCampImg,
+  CampTitle,
+  StyledContactDetails,
+  StyledContactHead,
+  StyledCampDetails,
+} from "./PreviewCamp.style";
+import { getCamperById } from "../../api/geCamperById";
 
+export function PreviewCamp() {
+  const [camper, setCamper] = useState();
+  const params = useParams();
+  const { id } = params;
 
+  useEffect(() => {
+    getCamperById(id)
+      .then((data) => {
+        setCamper(data);
+      })
+      .catch((er) => console.log(er));
+  }, []);
 
-export function PreviewCamp () {
-    return (
+  
+  return (
+    <>
+    {camper && 
+       
         <Wrapper>
-
-                <CampTitle>
-                    <h2>Chausson - 627GA Premium</h2>
-                </CampTitle>
-
-                <StyledCampImg>
-                    <img src= "#" alt="Tutaj jest camper"/>
-                </StyledCampImg>
-
-                <StyledCampDetails>
-                    <p>Kategoria</p>
-                    <p>Rocznik</p>
-                    <p>Marka</p>
-                    <p>Ilość osób</p>
-                    <p>Cena (zł/dzień)</p>
-                    <p>Lokalizacja</p>
-                </StyledCampDetails>
-
-                <StyledDescriptionBox>
-                    <StyledDescription>Duża lodówka 134 L z systemem AES 2 oddzielne łóżka wzdłużne 90 cm z możliwością połączenia w łoże małżeńskie 
-                        Przestronny luk bagażowy z dostępem z 2 stron i regulacją wysokości zamykany łazienka z obrotową przegrodą 5 miejsc do jazdy</StyledDescription>
-                </StyledDescriptionBox>
-
-                <StyledContactDetails>
-                    <StyledContactHead>Dane kontaktowe:</StyledContactHead>
-                    <p>Imię:</p>
-                    <p>Telefon:</p>
-                    <p>E-Mail:</p>
-                </StyledContactDetails>
-
-        </Wrapper>
-    )
+        <CampTitle>
+          <h2>{camper.title}</h2>
+        </CampTitle>
+  
+        <StyledCampImg>
+            {camper.images.map((el,index)=><img key={index} src={camper.images[index]} alt="Tutaj jest camper" />)}
+          
+        </StyledCampImg>
+  
+        <StyledCampDetails>
+          <p>Kategoria: {camper.campertype}</p>
+          <p>Rocznik : {camper.year}</p>
+          <p>Marka : {camper.brand}</p>
+          <p>Ilość osób : {camper.papacity}</p>
+          <p>Cena (zł/dzień) : {camper.price}</p>
+          <p>Lokalizacja :{camper.location}</p>
+        </StyledCampDetails>
+  
+        <StyledDescriptionBox>
+          <StyledDescription>
+            {camper.description}
+          </StyledDescription>
+        </StyledDescriptionBox>
+  
+        <StyledContactDetails>
+          <StyledContactHead>Dane kontaktowe:</StyledContactHead>
+          
+          <p>Telefon: {camper.usertlf}</p>
+          <p>E-Mail: {camper.useremail}</p>
+        </StyledContactDetails>
+        
+      </Wrapper>
+      
+    }
+    </>
+    
+  );
 }
