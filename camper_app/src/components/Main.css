@@ -17,7 +17,7 @@ main .main-overlay{
     max-width: 100%;
     height: auto;
     text-align: center;
-
+    display: flex;
 }
 
 main h2{

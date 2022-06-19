@@ -19,6 +19,8 @@ margin:2rem;
 
 }
 
+
+
 .wrapper{
     margin: 60px;
     padding: 10px;
@@ -26,6 +28,7 @@ margin:2rem;
     grid-template-columns:repeat(auto-fit,minmax(12rem, 16rem));
     gap:2rem;
     justify-content: center;
+    font-family: 'Play', sans-serif;
 }
 
 .card{
@@ -34,8 +37,8 @@ margin:2rem;
     display:flex;
     flex-direction: column;
     justify-content:space-between;
-    cursor:pointer;
     transition:transform 200ms ease-in;
+    font-family: 'Play', sans-serif;
 
 }
 
@@ -61,73 +64,63 @@ margin:2rem;
     font-size: 1rem;
     margin: 1rem;
     border:2px;
+    cursor: pointer;
+    
 }
 
 .card:hover {
     transform: scale(1.02);
 }
 
+.find {
+    display: flex;
+
+  flex-direction: column;
+  align-items: left;
+  margin:61px 20px 24px 163px;
+    
+}
+
 .find__title {
     font-size: 50px;
     font-family: 'Play', sans-serif;
-    margin: 20px;   
+    margin:3px -4px 25px 7px;
+  
 }
 
 .find_desc {
 
     font-size: 20px;
     font-family: 'Play', sans-serif;
-    margin: 20px; 
+    margin: 15px 10px 43px 7px;
 
 }
 
-.select {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 15px;
-    width: 100%;
-}    
+#select__one {
+    width: 500px;
+    height: 50px;
+       
+}
 
-.select select {
-        font-family: 'Arial';
-        display: inline-block;
-        width: 100%;
-        cursor: pointer;
-        padding: 9px 15px;
-        outline: 0;
-        border: 0px solid #000000;
-        border-radius: 0px;
-        background: #e6e6e6;
-        color: #7b7b7b;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-    }
-        .select select::-ms-expand {
-            display: none;
-        }
-        .select select:hover,
-        .select select:focus {
-            color: #000000;
-            background: #cccccc;
-        }
-        .select select:disabled {
-            opacity: 0.5;
-            pointer-events: none;
-        }
-.select_arrow {
-    position: absolute;
-    top: 16px;
-    right: 15px;
-    pointer-events: none;
-    border-style: solid;
-    border-width: 8px 5px 0px 5px;
-    border-color: #7b7b7b transparent transparent transparent;
+#select__two {
+    width: 500px;
+    height: 50px;
+    
 }
-.select select:hover ~ .select_arrow,
-.select select:focus ~ .select_arrow {
-    border-top-color: #000000;
+
+label {
+    display:flex;
+    justify-content: center;
+    font: 1rem 'Fira Sans', sans-serif;
+    width: 200px;
+    height: 50px;
+    
 }
-.select select:disabled ~ .select_arrow {
-    border-top-color: #cccccc;
+
+input,
+label {
+    
+    width: 200px;
+    height: 50px;
+    
 }
