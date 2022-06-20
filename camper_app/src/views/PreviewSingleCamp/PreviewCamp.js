@@ -11,6 +11,7 @@ import {
   StyledCampDetails,
 } from "./PreviewCamp.style";
 import { getCamperById } from "../../api/geCamperById";
+import { UsersComments } from "../../components/UsersComments";
 
 export function PreviewCamp() {
   const [camper, setCamper] = useState();
@@ -61,6 +62,8 @@ export function PreviewCamp() {
           <p>Telefon: {camper.usertlf}</p>
           <p>E-Mail: {camper.useremail}</p>
         </StyledContactDetails>
+
+        <UsersComments camperData={camper} />
         
       </Wrapper>
       
