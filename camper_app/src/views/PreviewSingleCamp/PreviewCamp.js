@@ -60,8 +60,15 @@ export function PreviewCamp() {
           
           <p>Telefon: {camper.usertlf}</p>
           <p>E-Mail: {camper.useremail}</p>
+
+     
+
+        
         </StyledContactDetails>
         
+    
+
+
       </Wrapper>
       
     }
