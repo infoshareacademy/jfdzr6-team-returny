@@ -4,7 +4,7 @@ export function UsersComments({camperData}){
 
     return (
         <>
-        <div>
+        <div style={{border:"black 1px solid"}}>
         <h3>Komentarze uzytkowników :</h3>
           {/* {post.comment[0] && post.comment.map((comment,index)=><div key={index}><p>{index+1}: {comment.comment}</p></div> )}
 
