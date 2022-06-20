@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   font-family: 'Play', sans-serif;
   margin: 20px auto;
-  width: 50%;
-  padding: 30px;
+  width: 700px;
+  padding: 20px 20px 18px 27px;
   box-shadow: 0 1px 3px;
   display: flex;
   flex-direction: column;
@@ -15,11 +15,11 @@ export const Wrapper = styled.section`
 
 export const CampTitle = styled.div`
     width: 600px;
-    font-size: 30px;
+    font-size: 20px;
     margin: 20px auto;
     box-shadow: 0 1px 3px;
     background-color: white;
-    padding: 10px 10px;
+    padding: 20px;
 `;
 
 export const StyledCampImg = styled.div`
@@ -31,6 +31,7 @@ export const StyledDescriptionBox = styled.div`
     margin: 20px auto;
     background-color: white;
     width: 600px;
+    padding:auto;
 `;
 
 export const StyledDescription = styled.p`
@@ -49,9 +50,10 @@ export const StyledCampDetails = styled.div`
     box-shadow: 0 1px 3px;
     background-color: white;
     font-size: 15px;
-    padding: 10px;
+    padding: 20px;
     width: 600px;
     line-height: 1.8;
+    font-weight:2px;
 `;
 
 export const StyledContactDetails = styled.div`
@@ -60,10 +62,58 @@ export const StyledContactDetails = styled.div`
     box-shadow: 0 1px 3px;
     background-color: white;
     font-size: 15px;
-    padding: 10px;
+    padding: 20px;
     line-height: 1.8;
 `;
 
 export const StyledContactHead = styled.p`
     font-size: 15px;
+`;
+
+export const CommentsArea = styled.section`
+    margin: 20px auto;
+    background-color: white;
+    width: 600px;
+    font-size:12px;
+    box-shadow: 0 1px 3px;
+    background-color: white;
+    padding: 20px;
+    display:flex;
+    flex-direction: column;
+    
+`;
+
+export const StyledButtonCom = styled.button `
+
+  width: 150px;
+  height: 50px;
+  font-size: 12px;
+  padding: 10px;
+  margin:20px 20px 20px 415px;
+  background-color: #78cdca;
+  justify-content: right;
+  cursor: pointer;
+  &:hover {
+    color: white;
+  }
+`;
+
+export const StyledInputTextCom = styled.input`
+  font-size: 12px;
+  height: 100px;
+  width: 100%;
+  margin: 5px 5px 5px 5px;
+  padding-left: 10px;
+  border-radius: 8px;
+  border: 1px solid black;
+  `;
+
+export const StyledComment = styled.div`
+background-color: #f0f0f0;
+font-size: 12px;
+height: auto;
+width: 100%;
+margin: 5px 5px 5px 5px;
+padding: 30px 30px 30px 30px;
+
 `;
