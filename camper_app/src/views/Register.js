@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { UserContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { db } from "../firebase";
@@ -9,6 +11,7 @@ import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
 export function Register() {
+  const context=useContext(UserContext);
   const navigate=useNavigate();
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -31,11 +34,11 @@ export function Register() {
         email: jwt.user.email,
         createdAt: serverTimestamp(),
       });
-      navigate('/login');
-      console.log(result);
+      context.setUserData('');
       await signOut(auth);
       e.target.reset();
       NotificationManager.info(`Twoje konto: ${jwt.user.email} zostało utworzone`);
+      navigate('/login');
     } catch (err) {
       console.log(e);
       //   alert(FirebaseError[e.code])

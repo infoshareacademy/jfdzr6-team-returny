@@ -8,7 +8,7 @@ export const StyledHeader2 = styled.h2`
 
 export const StyledHeader3 = styled.h3`
   font-family: 'Play', sans-serif;
-  margin: 25px 0px 10px 3px;
+  margin: 25px 0px 10px -120px;
   font-size: 20px;
 `;
 
@@ -23,7 +23,6 @@ export const StyledWrapper = styled.div`
 export const StyledBoxBackground = styled.div`
   display: flex;
   flex-direction: column;
-  text-align: center;
   align-items: center;
   background-color: rgb(210, 210, 210);
   box-shadow: 0 2px 5px;
