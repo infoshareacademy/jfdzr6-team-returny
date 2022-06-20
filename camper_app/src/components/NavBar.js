@@ -47,7 +47,9 @@ export function NavBar() {
     <>
     <StyledNavigation>
       
+      <NavLink to="/">
       <StyledImgLogo src={logo} />
+      </NavLink>
       {context.userData && <p style={{color:"white"}}>zalogowany: {context.userData.email}</p>}
 
         <div className="li">
@@ -103,7 +105,7 @@ export function NavBar() {
             context.setUserData('');
             NotificationManager.info("Zostałeś wylogowany");
           }}> Wyloguj się</Link></Button>
-          <Button> <Link to="/add-camper"> Dodaj campera</Link> </Button>
+          <Button> <Link to="/add-camper"> Dodaj campera</Link></Button>
           </>
         )}
         {!context.userData && (
