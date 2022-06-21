@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   font-family: 'Play', sans-serif;
   margin: 20px auto;
-  width: 700px;
+  width: 900px;
   padding: 20px 20px 18px 27px;
   box-shadow: 0 1px 3px;
   display: flex;
@@ -14,7 +14,7 @@ export const Wrapper = styled.section`
 `;
 
 export const CampTitle = styled.div`
-    width: 600px;
+    width: 800px;
     font-size: 20px;
     margin: 20px auto;
     box-shadow: 0 1px 3px;
@@ -30,7 +30,7 @@ export const StyledCampImg = styled.div`
 export const StyledDescriptionBox = styled.div`
     margin: 20px auto;
     background-color: white;
-    width: 600px;
+    width: 800px;
     padding:auto;
 `;
 
@@ -39,7 +39,7 @@ export const StyledDescription = styled.p`
   margin: auto 0;
   box-shadow: 0 1px 3px;
   padding: 20px;
-  width: 600px;
+  width: 800px;
   line-height: 1.8;
   
 `;
@@ -51,13 +51,13 @@ export const StyledCampDetails = styled.div`
     background-color: white;
     font-size: 15px;
     padding: 20px;
-    width: 600px;
+    width: 800px;
     line-height: 1.8;
     font-weight:2px;
 `;
 
 export const StyledContactDetails = styled.div`
-    width: 600px;
+    width: 800px;
     margin: 15px auto;
     box-shadow: 0 1px 3px;
     background-color: white;
@@ -73,7 +73,7 @@ export const StyledContactHead = styled.p`
 export const CommentsArea = styled.section`
     margin: 20px auto;
     background-color: white;
-    width: 600px;
+    width: 800px;
     font-size:12px;
     box-shadow: 0 1px 3px;
     background-color: white;
@@ -89,7 +89,7 @@ export const StyledButtonCom = styled.button `
   height: 50px;
   font-size: 12px;
   padding: 10px;
-  margin:20px 20px 20px 415px;
+  margin:20px 20px 20px 615px;
   background-color: #78cdca;
   justify-content: right;
   cursor: pointer;
