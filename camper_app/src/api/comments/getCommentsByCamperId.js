@@ -1,5 +1,5 @@
 import { getDoc, doc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 
 export function getCommentsByCapmerId(id) {
     const docRef = doc(db, "comments", id);

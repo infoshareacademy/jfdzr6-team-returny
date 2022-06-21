@@ -1,23 +1,22 @@
 import { useEffect, useState, useContext } from "react";
 import { UserContext } from "../context/userContext";
-import { getCommentsByCapmerId } from "../api/getCommentsByCamperId";
 import { db } from "../firebase";
 import { updateDoc, doc, deleteField } from "firebase/firestore";
 import uuid from "react-uuid";
-import { addNewCommentsGroup } from "../api/addNewCommentsGroup";
+import { getCommentsByCapmerId } from "../api/comments/getCommentsByCamperId";
+import { addNewCommentsGroup } from "../api/comments/addNewCommentsGroup";
+import { addNewComment } from "../api/comments/addNewComment";
 
 export function UsersComments({ camperData }) {
   const [isVisibleAddCommentForm, setisVisibleAddCommentForm] = useState(true);
   const [comments, setComments] = useState();
 
   const context = useContext(UserContext);
-  console.log(context.userData.id);
-
-  console.log("id campera:", camperData.userid);
+    
   useEffect(() => {
     getCommentsByCapmerId(camperData.id)
       .then((allcomments) => {
-        if (allcomments?.startComments) {
+        if (allcomments.startComments) {
           setComments(allcomments);
         } else {
           addNewCommentsGroup(camperData.id);
@@ -32,7 +31,6 @@ export function UsersComments({ camperData }) {
   function handleSubmitComment(e) {
     e.preventDefault();
     const newcomment = e.target.contentcom.value;
-    console.log(newcomment);
     const docData = {
       [uuid()]: {
         comment: newcomment,
@@ -40,19 +38,15 @@ export function UsersComments({ camperData }) {
       },
     };
 
-    sendEditComment(docData, camperData.id);
+    addNewComment(docData, camperData.id).then(res=>{
+      getCommentsByCapmerId(camperData.id).then((allcomments) => {
+        setComments(allcomments);
+      }).catch(er=>{console.log(er)});
+    });
     setisVisibleAddCommentForm(true);
   }
 
-  function sendEditComment(com, id) {
-    const docRef = doc(db, "comments", id);
-    updateDoc(docRef, com).then((res) => {
-      getCommentsByCapmerId(camperData.id).then((allcomments) => {
-        setComments(allcomments);
-      });
-    });
-  }
-
+ 
   function deleteComment(field, id) {
     const docRef = doc(db, "comments", id);
     updateDoc(docRef, {
@@ -73,7 +67,7 @@ export function UsersComments({ camperData }) {
         {comments &&
           Object.keys(comments).map((key, index) => {
             if (typeof comments[key] === "object") {
-              console.log(key);
+              
               return (
                 <div key={index}>
                   <p>autor:{comments[key].autor}</p>

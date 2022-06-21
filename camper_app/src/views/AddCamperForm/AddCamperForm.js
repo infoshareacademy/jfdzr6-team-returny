@@ -82,15 +82,13 @@ export const AddCamperForm = () => {
       userid: context.userData.id,
       useremail: context.userData.email,
     };
-    console.log(camperData);
+
     addCamper(camperData)
       .then((res) => {
         NotificationManager.success("Kamper został wysłany");
-
         setsendLoader(false);
       })
       .catch((err) => {
-        console.log(err);
         NotificationManager.error("Błąd wysyłania");
         setsendLoader(false);
       });
