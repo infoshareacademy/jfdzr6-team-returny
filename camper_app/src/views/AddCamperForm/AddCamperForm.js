@@ -22,11 +22,9 @@ import "react-notifications/lib/notifications.css";
 import { Loader } from "../../components/Loader";
 
 export const AddCamperForm = () => {
-  
   const [error, setError] = useState("");
   const [sendLoader, setsendLoader] = useState(false);
-  const context=useContext(UserContext);
-
+  const context = useContext(UserContext);
 
   const handleSubmitCamper = async (e) => {
     e.preventDefault();
@@ -43,7 +41,7 @@ export const AddCamperForm = () => {
       description,
       imgcollection,
     } = form;
-    console.log(description);
+
     if (imgcollection.files["length"] > 5) {
       setsendLoader(false);
       setError("Mozna dodać maksymalnie 5 zdjęć.");
@@ -64,40 +62,39 @@ export const AddCamperForm = () => {
           );
           const downloadUrl = await getDownloadURL(snapshot.ref);
           images.push(downloadUrl);
-         
         }
       }
-
     } catch (er) {
       console.log(er);
     }
-    
-      const camperData = {
-        title: title.value,
-        campertype: campertype.value,
-        year: year.value,
-        brand: brand.value,
-        papacity: capacity.value,
-        price: price.value,
-        images: images,
-        location: location.value,
-        description:description.value,
-        usertlf:context.userData.mobil,
-        userid:context.userData.id,
-        useremail:context.userData.email,
-      };
-     console.log(camperData)
-      addCamper(camperData)
-        .then((res) => {
-          NotificationManager.success("Kamper został wysłany");
-          setsendLoader(false);
-        })
-        .catch((err) => {console.log(err)
-          NotificationManager.error("Błąd wysyłania");
-          setsendLoader(false);
-        });
-      form.reset();
-    
+
+    const camperData = {
+      title: title.value,
+      campertype: campertype.value,
+      year: year.value,
+      brand: brand.value,
+      papacity: capacity.value,
+      price: price.value,
+      images: images,
+      location: location.value,
+      description: description.value,
+      usertlf: context.userData.mobil,
+      userid: context.userData.id,
+      useremail: context.userData.email,
+    };
+    console.log(camperData);
+    addCamper(camperData)
+      .then((res) => {
+        NotificationManager.success("Kamper został wysłany");
+
+        setsendLoader(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        NotificationManager.error("Błąd wysyłania");
+        setsendLoader(false);
+      });
+    form.reset();
   };
 
   return (
@@ -177,7 +174,6 @@ export const AddCamperForm = () => {
             </StyledBoxBackground>
 
             <StyledBoxBackground>
-             
               <StyledHeader2>Zdjęcia</StyledHeader2>
               <DivInfo>Maksymalna ilość zdjęć: 5</DivInfo>
               <StyledInputFile
