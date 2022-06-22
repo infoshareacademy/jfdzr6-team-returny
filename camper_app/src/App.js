@@ -38,8 +38,8 @@ export function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar />
         <NotificationContainer />
+        <NavBar />
 
         <Routes>
           <Route path="/" element={<Home />} />
