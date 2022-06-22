@@ -10,9 +10,16 @@ import {
   StyledContactDetails,
   StyledContactHead,
   StyledCampDetails,
+  CommentsArea,
+  StyledButtonCom,
+  StyledInputTextCom,
+  StyledComment, 
 } from "./PreviewCamp.style";
 import { getCamperById } from "../../api/geCamperById";
 import { UsersComments2 } from "../../components/UsersComments2";
+import { StyledButton } from "../AddCamperForm/AddCamperForm.style";
+
+
 
 export function PreviewCamp() {
   const [camper, setCamper] = useState();
@@ -31,6 +38,7 @@ export function PreviewCamp() {
     <>
       {camper && (
         <Wrapper>
+
           <CampTitle>
             <h2>{camper.title}</h2>
           </CampTitle>
@@ -66,10 +74,66 @@ export function PreviewCamp() {
             </StyledContactDetails>
           )}
 
-          
+          //tutaj jest komponent z obsluga komentarzy Wszystko co jest w CommentsArea idzie do tego komponentu
           <UsersComments2 camperData={camper} />
         </Wrapper>
       )}
+
+       
+  
+        <CommentsArea>
+
+          <h2>Komentarze:</h2>
+
+        <StyledComment>
+          <h2>Tytuł komentarza</h2>
+          <p>autor: jskak@wp.pl</p>
+          <p>data: 23/12/2022 </p>
+          <hr></hr>
+          <p>LoremIpsum</p>
+        </StyledComment>
+        <StyledComment>
+          <h2>Tytuł komentarza</h2>
+          <p>autor: jskak@wp.pl</p>
+          <p>data: 23/12/2022 </p>
+          <hr></hr>
+          <p>LoremIpsum</p>
+        </StyledComment>
+        <StyledComment>
+          <h2>Polecam</h2>
+          <p>autor: jskak@wp.pl</p>
+          <p>data: 23/12/2022 </p>
+          <hr></hr>
+          <p>Fajny kamper, idealny na dłuższe trasy</p>
+        </StyledComment>
+        <StyledComment>
+          <h2>Tytuł komentarza</h2>
+          <p>autor: jskak@wp.pl</p>
+          <p>data: 23/12/2022 </p>
+          <hr></hr>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </StyledComment>
+
+        
+        <StyledInputTextCom
+                    name="comment"
+                    type="text"
+                    placeholder="Dodaj komentarz"
+                    maxLength="120"
+                  />
+
+
+        <StyledButtonCom>Dodaj komentarz</StyledButtonCom>
+
+        </CommentsArea>
+
+    
+      
+    
+
     </>
   );
 }
+
+
+
