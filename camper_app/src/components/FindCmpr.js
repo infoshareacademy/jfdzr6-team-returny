@@ -1,32 +1,48 @@
+import { useState } from "react";
 import "../views/CamperCard/CamperCard.css";
-export function FindCmpr({ getCamperType }) {
-    function handleSelectType(e) {
-      e.preventDefault();
-      getCamperType(e.target.value);
-    }
-  
-    return (
-      <div class="find">
+export function FindCmpr({ setSearch, setMissCamper }) {
+  function handleSelectType(e) {
+    setSearch((prevstate) => {
+      return {
+        ...prevstate,
+        type: e.target.value,
+      };
+    });
+    setMissCamper(false)
+    e.preventDefault();
+  }
+  function handleChangeRegion(e) {
+    setSearch((prevstate) => {
+      return {
+        ...prevstate,
+        region: e.target.value,
+      };
+    });
+    setMissCamper(false)
+    e.preventDefault();
+  }
 
+  return (
+    <div class="find">
       <h2 className="find__title">Znajdź campera</h2>
       <p class="find_desc">Wybierz z listy: </p>
 
       <div class="select_one">
         <p>Typ campera</p>
-        <select id="select__one">
+        <select id="select__one" name="camperType" onChange={handleSelectType}>
           <option value="allcapers">Wybierz</option>
           <option value="campervan">Campervan</option>
           <option value="integra">Integra</option>
           <option value="polintegra">Półintegra</option>
           <option value="alkowa">Alkowa</option>
         </select>
-        <div class="select_arrow"></div>  
+        <div class="select_arrow"></div>
       </div>
 
       <div class="select_two">
-      <p>Województwo</p>
-        <select id="select__two">
-          <option>Wybierz</option>
+        <p>Województwo</p>
+        <select id="select__two" name="region" onChange={handleChangeRegion}>
+          <option value="">Wybierz</option>
           <option value="mazowieckie">mazowieckie</option>
           <option value="slaskie">śląskie</option>
           <option value="wielkopolskie">wielkopolskie</option>
@@ -44,8 +60,7 @@ export function FindCmpr({ getCamperType }) {
           <option value="lubuskie">lubuskie</option>
           <option value="opolskie">opolskie</option>
         </select>
+      </div>
     </div>
-  </div>
-    );
-  }
-  
+  );
+}
