@@ -45,8 +45,35 @@ export function Calendar() {
   function handleAddEvent() {
     setAllEvents([...allEvents, newEvent]);
   }
-  console.log(newEvent);
-  console.log(allEvents);
+
+  // console.log(newEvent);
+  // console.log(allEvents);
+
+  // Dane do podpięcia z bazą danych:
+  let startDate = new Date(newEvent.start)
+  let endDate = new Date(newEvent.end)
+  let dailyRate = 300   // do pobrania z oferty konkretnego campera, musi byc typ: number
+
+  console.log(startDate)
+  console.log(endDate)
+
+
+  //funkcja licząca:
+  function rentalCost() {
+      if (startDate != null && endDate != null) {
+        const difference = endDate.getTime() - startDate.getTime()
+        console.log(difference)
+
+        const rentalDuration = Math.ceil(difference / (1000 * 3600 * 24))
+        console.log(rentalDuration)
+
+        const totalCost = rentalDuration * dailyRate
+        console.log(totalCost)
+        } 
+  }
+  rentalCost()
+  
+
   return (
     <div className="Calendar">
       <StyledHeader>Kalendarz wypożyczeń campera</StyledHeader>
