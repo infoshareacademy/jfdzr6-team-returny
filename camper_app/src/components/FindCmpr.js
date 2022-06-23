@@ -7,18 +7,31 @@ export function FindCmpr({ setSearch, setMissCamper }) {
         type: e.target.value,
       };
     });
-    setMissCamper(false)
+    setMissCamper(false);
     e.preventDefault();
   }
   function handleChangeRegion(e) {
-    setSearch((prevstate) => {
-      return {
-        ...prevstate,
-        region: e.target.value,
-      };
-    });
-    setMissCamper(false)
-    e.preventDefault();
+    if (e.target.value == "none") {
+      setSearch((prevstate) => {
+        return {
+          ...prevstate,
+          region: '',
+        };
+      });
+      setMissCamper(false);
+      e.preventDefault();
+    } else {
+      setSearch((prevstate) => {
+        return {
+          ...prevstate,
+          region: e.target.value,
+        };
+      });
+      setMissCamper(false);
+      e.preventDefault();
+    }
+
+    
   }
 
   return (
@@ -41,7 +54,7 @@ export function FindCmpr({ setSearch, setMissCamper }) {
       <div class="select_two">
         <p>Województwo</p>
         <select id="select__two" name="region" onChange={handleChangeRegion}>
-          <option value="">Wybierz</option>
+          <option value="none">Wybierz</option>
           <option value="mazowieckie">mazowieckie</option>
           <option value="slaskie">śląskie</option>
           <option value="wielkopolskie">wielkopolskie</option>

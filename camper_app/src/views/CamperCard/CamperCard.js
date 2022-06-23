@@ -3,6 +3,7 @@ import "./CamperCard.css";
 import { useState, useEffect } from "react";
 import { getAllCampers } from "../../api/getAllCampers";
 import { getCampersByType } from "../../api/getCampersByType";
+import { getCampersByOnlyRegion } from "../../api/getCampersByOnlyRegion";
 import { Loader } from "../../components/Loader";
 import { NotificationManager } from "react-notifications";
 import { Card } from "../../components/Card";
@@ -14,65 +15,47 @@ export const CamperCard = () => {
   const [campers, setCampers] = useState([]);
   const [missCamper, setMissCamper] = useState(false);
   const [search, setSearch] = useState({ type: "", region: "" });
+  console.log(Boolean(search.region));
   useEffect(() => {
-    if (search.type == "allcapers" && !search.region) {
+    if (search.type === "allcapers" && !search.region) {
       console.log("halo wszystkie");
       getAllCampers().then((data) => {
+        setMissCamper(false);
         setCampers(data);
-        return data;
       });
     }
-    if (search.type !== "allcapers" && !search.region) {
+    if (search.type !== "allcapers" && search.region === "") {
       console.log("pobieram po typie");
-      getCampersType(search.type);
+      getCampersByType(search.type)
+        .then((data) => {
+          if (data.length == 0) {
+            setMissCamper(true);
+            throw new Error("brak kamperow");
+          }
+          setCampers(data);
+        })
+        .catch((err) => console.log(err));
     }
-    if (search.type == "allcapers" || (!search.type && search.region)) {
+    if (search.type === "allcapers" && search.region) {
       console.log("pobieram tylko po regionie");
-      getCampersByOnlyRegion(search.region);
-    }
-    if (search.type!=="allcapers" && search.region!=='') {
-      console.log("pobieram po typie i po regionie");
-      getCamperByTypeAndRegion(search.type, search.region);
-    }
-  }, [search]);
-
-  ///
-  function getCampersByOnlyRegion(region) {
-    getCampersByRegion(region).then((data) => {
-      if (data.length == 0) {
-        setMissCamper(true);
-        throw new Error("brak kamperow");
-      }
-      setCampers(data);
-    });
-  }
-  
-  function getCampersByRegion(region) {
-    const q = query(collection(db, "campers"), where("location", "==", region));
-    return getDocs(q)
-      .then((querySnapshot) => {
-        return querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-      })
-      .then((data) => {
-        console.log(data);
-        return data;
-      });
-  }
-/////
-  function getCampersType(type) {
-    getCampersByType(type)
-      .then((data) => {
+      getCampersByOnlyRegion(search.region).then((data) => {
         if (data.length == 0) {
           setMissCamper(true);
           throw new Error("brak kamperow");
         }
         setCampers(data);
-      })
-      .catch((err) => console.log(err));
-  }
+      });
+    }
+    if (search.type !== "allcapers" && search.type !== "" && search.region) {
+      console.log("pobieram po typie i po regionie");
+      getCamperByTypeAndRegion(search.type, search.region);
+    }
+  }, [search]);
+
+  
+
+  
+  
 
   function getCamperByTypeAndRegion(type, region) {
     const q = query(
@@ -97,11 +80,12 @@ export const CamperCard = () => {
       });
   }
 
-
   ///////
   useEffect(() => {
     getAllCampers()
       .then((data) => {
+        console.log('campery',data)
+        setMissCamper(false);
         setCampers(data);
         return data;
       })
