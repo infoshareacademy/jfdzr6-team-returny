@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../views/CamperCard/CamperCard.css";
 export function FindCmpr({ setSearch, setMissCamper }) {
   function handleSelectType(e) {
