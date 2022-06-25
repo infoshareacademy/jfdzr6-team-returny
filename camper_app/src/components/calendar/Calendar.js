@@ -10,6 +10,7 @@ import {
   CenteredDiv,
   StyledHeader,
   StyledWrapper,
+  StyledButton,
 } from "./Calendar.style.js";
 import plLocale from '@fullcalendar/core/locales/pl';
 // import momentTimezonePlugin from "@fullcalendar/moment-timezone";
@@ -34,7 +35,7 @@ const events = [
   },
 ];
 
-export function Calendar() {
+export function Calendar({camper}) {
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: "",
@@ -46,29 +47,24 @@ export function Calendar() {
     setAllEvents([...allEvents, newEvent]);
   }
 
-  // Dane do podpięcia z bazą danych:
   let startDate = new Date(newEvent.start)
   let endDate = new Date(newEvent.end)
-  let dailyRate = 300   // do pobrania z oferty konkretnego campera, musi byc typ: number
+  let dailyRate = camper.price
 
-  console.log(startDate)
-  console.log(endDate)
-
-  //funkcja licząca:
   function rentalCost() {
       if (startDate != null && endDate != null) {
         const difference = endDate.getTime() - startDate.getTime()
-        console.log(difference)
-
         const rentalDuration = Math.ceil(difference / (1000 * 3600 * 24))
         console.log(rentalDuration)
-
         const totalCost = rentalDuration * dailyRate
         console.log(totalCost)
-        } 
+        // return totalCost
+      }  
   }
   rentalCost()
-  
+
+  // console.log(totalCost)
+
   
   return (
     <div className="Calendar">
@@ -85,6 +81,24 @@ export function Calendar() {
       </StyledWrapper>
       <CenteredDiv>
         <CenteredDiv>
+
+        {/* <input
+          type="text"
+          placeholder="Add Title"
+          
+          value={
+            newEvent.title
+          }
+          onChange={(e) =>
+            setNewEvent({
+              ...newEvent,
+              title:
+                e.target
+                  .value,
+            })
+          }
+        /> */}  
+
           <DatePicker
             placeholderText="Data początkowa"
             selected={newEvent.start}
@@ -106,14 +120,14 @@ export function Calendar() {
             }
           />
         </CenteredDiv>
-        <button
+        <StyledButton
           style={{
             margin: "30px",
           }}
           onClick={handleAddEvent}
         >
           Zarezerwuj campera
-        </button>
+        </StyledButton>
       </CenteredDiv>
     </div>
   );
