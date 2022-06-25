@@ -68,6 +68,10 @@ margin:2rem;
     
 }
 
+.card__btn:hover{
+    color: white;
+}
+
 .card:hover {
     transform: scale(1.02);
 }

@@ -80,7 +80,7 @@ export function UsersComments2({ camperData }) {
 
                 {context.userData.id === el.autorId ? (
                   <button className="button2" onClick={() => handledeleteComment(el.id)}>
-                    Skasuj komentarz
+                    Usuń komentarz
                   </button>
                 ) : (
                   ""
@@ -90,10 +90,10 @@ export function UsersComments2({ camperData }) {
           })}
         {context.userData && (
           <form onSubmit={handleSubmitComment}>
-            <h5>Napisz Komentarz</h5>
-            <textarea name="contentcom" />
+            <h3 class="h3com">Napisz Komentarz</h3>
+            <textarea className="comment" name="contentcom" />
             <br></br>
-            <button type="submit">Dodaj komentarz</button>
+            <button className="button3" type="submit">Dodaj komentarz</button>
           </form>
         )}
       </div>
