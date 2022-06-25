@@ -4,6 +4,8 @@ import { UserContext } from "../context/userContext";
 import { getCommentsByCamperId } from "../api/comments/getCommentsByCamperId";
 import { addComment } from "../api/comments/addComment";
 import { deleteComment } from "../api/comments/deleteComment";
+import './UsersComments2.css';
+
 
 export function UsersComments2({ camperData }) {
   const [comments, setComments] = useState();
@@ -53,15 +55,15 @@ export function UsersComments2({ camperData }) {
 
   return (
     <>
-      <div style={{ border: "black 1px solid", width: "100%" }}>
-        <h3 style={{ marginBottom: "15px", textAlign: "center" }}>
+      <div className="CommentsArea">
+        <h3 style={{ marginBottom: "15px"}}>
           Komentarze uzytkowników :
         </h3>
 
         {comments &&
           comments.map((el, index) => {
             return (
-              <div style={{ marginBottom: "10px" }} key={index}>
+              <div className="StyledComment">
                 <p>
                   <b>dodano: </b>
                   {new Date(el.createdAt.seconds * 1000).toLocaleDateString()}
@@ -70,13 +72,14 @@ export function UsersComments2({ camperData }) {
                   <b>autor: </b>
                   {el.autor}
                 </p>
+                <hr></hr>
                 <p>
-                  <b>terść: </b>
+                  <b>treść: </b>
                   {el.comment}
                 </p>
 
                 {context.userData.id === el.autorId ? (
-                  <button onClick={() => handledeleteComment(el.id)}>
+                  <button className="button2" onClick={() => handledeleteComment(el.id)}>
                     Skasuj komentarz
                   </button>
                 ) : (

@@ -77,9 +77,9 @@ export function PreviewCamp() {
 
           <Calendar camper={camper} />
           
-
           {/* tutaj jest komponent z obsluga komentarzy Wszystko co jest w CommentsArea idzie do tego komponentu */}
           <UsersComments2 camperData={camper} />
+
         </Wrapper>
       )}
 

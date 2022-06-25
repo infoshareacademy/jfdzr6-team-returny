@@ -1,0 +1,36 @@
+.StyledComment {
+background-color: #f0f0f0;
+font-size: 12px;
+height: auto;
+width: 100%;
+margin: 5px 5px 5px 5px;
+padding: 30px 30px 30px 30px;
+
+}
+
+
+.CommentsArea {
+    margin: 20px auto;
+    background-color: white;
+    width: 800px;
+    font-size:12px;
+    box-shadow: 0 1px 3px;
+    background-color: white;
+    padding: 20px;
+    display:flex;
+    flex-direction: column;
+
+}
+
+.button2 {
+    background-color:#78cdca;
+    align-items: left;
+    width:25px;
+    height: 25px;
+    padding: 18px 18px;
+    border: none;
+    border-radius: 0.3px;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+
+}
