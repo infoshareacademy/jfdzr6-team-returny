@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./Calendar.style.js";
-import moment from "moment";
+// import moment from "moment";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import {
@@ -11,7 +10,9 @@ import {
   CenteredDiv,
   StyledHeader,
   StyledWrapper,
+  StyledButton,
 } from "./Calendar.style.js";
+import plLocale from '@fullcalendar/core/locales/pl';
 // import momentTimezonePlugin from "@fullcalendar/moment-timezone";
 
 
@@ -19,11 +20,11 @@ const events = [
   {
     title: "inny camper",
     allDay: true,
-    start: new Date(2022, 6, 0),
-    end: new Date(2022, 6, 0),
+    start: new Date(2022, 6, 6),
+    end: new Date(2022, 6, 13),
   },
   {
-    title: "camperVan",
+    title: "test",
     start: new Date(2022, 6, 7),
     end: new Date(2022, 6, 10),
   },
@@ -34,7 +35,7 @@ const events = [
   },
 ];
 
-export function Calendar() {
+export function Calendar({camper}) {
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: "",
@@ -45,38 +46,59 @@ export function Calendar() {
   function handleAddEvent() {
     setAllEvents([...allEvents, newEvent]);
   }
-  console.log(newEvent);
-  console.log(allEvents);
+
+  let startDate = new Date(newEvent.start)
+  let endDate = new Date(newEvent.end)
+  let dailyRate = camper.price
+
+  function rentalCost() {
+      if (startDate != null && endDate != null) {
+        const difference = endDate.getTime() - startDate.getTime()
+        const rentalDuration = Math.ceil(difference / (1000 * 3600 * 24))
+        console.log(rentalDuration)
+        const totalCost = rentalDuration * dailyRate
+        return totalCost
+      }  
+  }
+  const totalCost = rentalCost()
+  console.log(totalCost)
+
+  
   return (
     <div className="Calendar">
       <StyledHeader>Kalendarz wypożyczeń campera</StyledHeader>
       <StyledWrapper>
         <FullCalendar
+          locale={plLocale}
           plugins={[dayGridPlugin]}
           timeZone="Europe/Warsaw"
           initialView="dayGridMonth"
           events={allEvents}
+          contentHeight={450}
         />
       </StyledWrapper>
       <CenteredDiv>
-        <input
+        <CenteredDiv>
+
+        {/* <input
           type="text"
           placeholder="Add Title"
-          style={{
-            width: "20%",
-            margin: "15px",
-          }}
-          value={newEvent.title}
+          
+          value={
+            newEvent.title
+          }
           onChange={(e) =>
             setNewEvent({
               ...newEvent,
-              title: e.target.value,
+              title:
+                e.target
+                  .value,
             })
           }
-        />
-        <CenteredDiv>
+        /> */}  
+
           <DatePicker
-            placeholderText="Start Date"
+            placeholderText="Data początkowa"
             selected={newEvent.start}
             onChange={(start) =>
               setNewEvent({
@@ -86,7 +108,7 @@ export function Calendar() {
             }
           />
           <DatePicker
-            placeholderText="End Date"
+            placeholderText="Data końcowa"
             selected={newEvent.end}
             onChange={(end) =>
               setNewEvent({
@@ -96,14 +118,14 @@ export function Calendar() {
             }
           />
         </CenteredDiv>
-        <button
+        <StyledButton
           style={{
             margin: "30px",
           }}
           onClick={handleAddEvent}
         >
-          Add Event
-        </button>
+          Zarezerwuj campera
+        </StyledButton>
       </CenteredDiv>
     </div>
   );

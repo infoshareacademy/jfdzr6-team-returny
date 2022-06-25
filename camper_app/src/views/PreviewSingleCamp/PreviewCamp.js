@@ -18,6 +18,7 @@ import {
 import { getCamperById } from "../../api/geCamperById";
 import { UsersComments2 } from "../../components/UsersComments2";
 import { StyledButton } from "../AddCamperForm/AddCamperForm.style";
+import { Calendar } from "../../components/calendar/Calendar";
 
 
 
@@ -77,8 +78,10 @@ export function PreviewCamp() {
             </StyledContactDetails>
           )}
 
-         
-          <UsersComments2 camperData={camper} /> 
+          <Calendar camper={camper} />
+          
+          <UsersComments2 camperData={camper} />
+
         </Wrapper>
       )}
     

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fullcalendar/core": "^5.11.0",
     "@fullcalendar/daygrid": "^5.11.0",
     "@fullcalendar/moment-timezone": "^5.11.0",
     "@fullcalendar/react": "^5.11.1",
@@ -10,9 +11,9 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "firebase": "^9.8.1",
     "fullcalendar": "^5.11.0",
     "moment": "^2.29.3",
-    "firebase": "^9.8.1",
     "react": "^18.1.0",
     "react-big-calendar": "^0.40.1",
     "react-datepicker": "^4.8.0",
