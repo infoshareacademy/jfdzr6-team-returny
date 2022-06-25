@@ -7,8 +7,8 @@ export const StyledHeader = styled.h2`
 `;
 
 export const StyledWrapper = styled.div`
-  background-color: khaki;
-  width: 70%;
+  background-color: lightgrey;
+  width: 450px;
   margin: 0 auto;
 `;
 
@@ -17,4 +17,5 @@ export const CenteredDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 20px;
 `;
