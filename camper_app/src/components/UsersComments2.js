@@ -91,9 +91,9 @@ export function UsersComments2({ camperData }) {
         {context.userData && (
           <form onSubmit={handleSubmitComment}>
             <h5>Napisz Komentarz</h5>
-            <textarea name="contentcom" />
+            <textarea className="comment" name="contentcom" />
             <br></br>
-            <button type="submit">Dodaj komentarz</button>
+            <button className="button3" type="submit">Dodaj komentarz</button>
           </form>
         )}
       </div>
