@@ -54,6 +54,7 @@ export function PreviewCamp() {
           </StyledCampImg>
 
           <StyledCampDetails>
+            <h2>O camperze:</h2>
             <p>Kategoria: {camper.campertype}</p>
             <p>Rocznik : {camper.year}</p>
             <p>Marka : {camper.brand}</p>
@@ -63,12 +64,14 @@ export function PreviewCamp() {
           </StyledCampDetails>
 
           <StyledDescriptionBox>
-            <StyledDescription>{camper.description}</StyledDescription>
+            <StyledDescription>
+            <h2>Opis:</h2>
+              {camper.description}</StyledDescription>
           </StyledDescriptionBox>
 
           {context.userData && (
             <StyledContactDetails>
-              <StyledContactHead>Dane kontaktowe:</StyledContactHead>
+              <StyledContactHead><h2>Dane kontaktowe:</h2></StyledContactHead>
               <p>Telefon: {camper.usertlf}</p>
               <p>E-Mail: {camper.useremail}</p>
             </StyledContactDetails>
