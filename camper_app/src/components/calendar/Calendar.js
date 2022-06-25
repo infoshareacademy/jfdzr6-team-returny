@@ -79,24 +79,6 @@ export function Calendar({camper}) {
       </StyledWrapper>
       <CenteredDiv>
         <CenteredDiv>
-
-        {/* <input
-          type="text"
-          placeholder="Add Title"
-          
-          value={
-            newEvent.title
-          }
-          onChange={(e) =>
-            setNewEvent({
-              ...newEvent,
-              title:
-                e.target
-                  .value,
-            })
-          }
-        /> */}  
-
           <DatePicker
             placeholderText="Data początkowa"
             selected={newEvent.start}
@@ -104,6 +86,7 @@ export function Calendar({camper}) {
               setNewEvent({
                 ...newEvent,
                 start,
+                title: camper.title,
               })
             }
           />
