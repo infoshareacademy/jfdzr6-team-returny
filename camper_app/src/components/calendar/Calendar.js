@@ -57,13 +57,11 @@ export function Calendar({camper}) {
         const rentalDuration = Math.ceil(difference / (1000 * 3600 * 24))
         console.log(rentalDuration)
         const totalCost = rentalDuration * dailyRate
-        console.log(totalCost)
-        // return totalCost
+        return totalCost
       }  
   }
-  rentalCost()
-
-  // console.log(totalCost)
+  const totalCost = rentalCost()
+  console.log(totalCost)
 
   
   return (
