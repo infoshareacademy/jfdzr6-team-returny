@@ -19,7 +19,6 @@ import {
 } from "./PreviewCamp.style";
 import { getCamperById } from "../../api/geCamperById";
 import { UsersComments2 } from "../../components/UsersComments2";
-import { StyledButton } from "../AddCamperForm/AddCamperForm.style";
 import { Calendar } from "../../components/calendar/Calendar";
 import MyGallery from "../../components/MyGallery";
 
@@ -40,7 +39,7 @@ export function PreviewCamp() {
     <>
       {camper && (
         <Wrapper>
-          
+
           <CampTitle>
             <h2>{camper.title}</h2>
           </CampTitle>
