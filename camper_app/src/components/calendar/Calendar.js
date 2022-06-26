@@ -31,7 +31,7 @@ const events = [
   },
 ];
 
-export function Calendar({camper}) {
+export function Calendar({camper,user}) {
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: "",
@@ -65,7 +65,6 @@ export function Calendar({camper}) {
       return ''
   }
   const totalCost = rentalCost()
-  
   return (
     <div className="Calendar">
       <StyledHeader>Kalendarz wypożyczeń campera</StyledHeader>
@@ -81,7 +80,9 @@ export function Calendar({camper}) {
           contentHeight={450}
         />
       </StyledWrapper>
+        {user && 
       <CenteredDiv>
+        
         <CenteredDiv>
           <DatePicker
             placeholderText="Data początkowa"
@@ -117,7 +118,10 @@ export function Calendar({camper}) {
         >
           Zarezerwuj campera
         </StyledButton>
+
       </CenteredDiv>
+      
+        }
     </div>
   );
 }
