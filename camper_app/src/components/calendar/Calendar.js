@@ -11,6 +11,7 @@ import {
   StyledHeader,
   StyledWrapper,
   StyledButton,
+  TotalPriceInfo,
 } from "./Calendar.style.js";
 import plLocale from '@fullcalendar/core/locales/pl';
 // import momentTimezonePlugin from "@fullcalendar/moment-timezone";
@@ -22,11 +23,6 @@ const events = [
     allDay: true,
     start: new Date(2022, 6, 6),
     end: new Date(2022, 6, 13),
-  },
-  {
-    title: "test",
-    start: new Date(2022, 6, 7),
-    end: new Date(2022, 6, 10),
   },
   {
     title: "camper zajety",
@@ -94,7 +90,7 @@ export function Calendar({camper}) {
               setNewEvent({
                 ...newEvent,
                 start,
-                title: camper.title,
+                title: 'Zajęty',
               })
             }
           />
@@ -108,11 +104,11 @@ export function Calendar({camper}) {
               })
             }
           />
-        
         <div id='costInfo'>
-          <h3>{totalCost}</h3>
+            <h3>{totalCost}</h3>
         </div>
         </CenteredDiv>
+
         <StyledButton
           style={{
             margin: "30px",
