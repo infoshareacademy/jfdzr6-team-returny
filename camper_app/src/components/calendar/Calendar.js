@@ -11,6 +11,7 @@ import {
   StyledHeader,
   StyledWrapper,
   StyledButton,
+  TotalPriceInfo,
 } from "./Calendar.style.js";
 import plLocale from '@fullcalendar/core/locales/pl';
 // import momentTimezonePlugin from "@fullcalendar/moment-timezone";
@@ -22,11 +23,6 @@ const events = [
     allDay: true,
     start: new Date(2022, 6, 6),
     end: new Date(2022, 6, 13),
-  },
-  {
-    title: "test",
-    start: new Date(2022, 6, 7),
-    end: new Date(2022, 6, 10),
   },
   {
     title: "camper zajety",
@@ -50,25 +46,32 @@ export function Calendar({camper,user}) {
   let startDate = new Date(newEvent.start)
   let endDate = new Date(newEvent.end)
   let dailyRate = camper.price
+  
+
+  function isValidDate(d) {
+    return d instanceof Date && !isNaN(d);
+  }
 
   function rentalCost() {
-      if (startDate != null && endDate != null) {
+      if (isValidDate(startDate) && isValidDate(endDate)) {
+        console.log(startDate)
+        console.log(endDate)
         const difference = endDate.getTime() - startDate.getTime()
         const rentalDuration = Math.ceil(difference / (1000 * 3600 * 24))
         console.log(rentalDuration)
         const totalCost = rentalDuration * dailyRate
-        return totalCost
+        return `Cena wynajmu: ${totalCost} zł`
       }  
+      return ''
   }
   const totalCost = rentalCost()
-  console.log(totalCost)
-
-  console.log(user)
   return (
     <div className="Calendar">
       <StyledHeader>Kalendarz wypożyczeń campera</StyledHeader>
       <StyledWrapper>
         <FullCalendar
+          nextDayThreshold={'00:00:00'}
+          allDay={false}
           locale={plLocale}
           plugins={[dayGridPlugin]}
           timeZone="Europe/Warsaw"
@@ -88,7 +91,7 @@ export function Calendar({camper,user}) {
               setNewEvent({
                 ...newEvent,
                 start,
-                title: camper.title,
+                title: 'Zajęty',
               })
             }
           />
@@ -102,6 +105,9 @@ export function Calendar({camper,user}) {
               })
             }
           />
+        <div id='costInfo'>
+            <h3>{totalCost}</h3>
+        </div>
         </CenteredDiv>
 
         <StyledButton
