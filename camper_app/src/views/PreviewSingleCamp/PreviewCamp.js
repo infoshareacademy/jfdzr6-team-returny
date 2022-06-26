@@ -71,7 +71,7 @@ export function PreviewCamp() {
             </StyledContactDetails>
           )}
 
-          <Calendar camper={camper} />
+          <Calendar camper={camper} user={context.userData}/>
           
           <UsersComments2 camperData={camper} />
          
