@@ -13,15 +13,15 @@ import {
   CommentsArea,
   StyledButtonCom,
   StyledInputTextCom,
-  StyledComment, 
+  StyledComment,
+  StyledEditButton,
+  ButtonsSection,
 } from "./PreviewCamp.style";
 import { getCamperById } from "../../api/geCamperById";
 import { UsersComments2 } from "../../components/UsersComments2";
 import { StyledButton } from "../AddCamperForm/AddCamperForm.style";
 import { Calendar } from "../../components/calendar/Calendar";
-import MyGallery from "../../components/MyGallery"
-
-
+import MyGallery from "../../components/MyGallery";
 
 export function PreviewCamp() {
   const [camper, setCamper] = useState();
@@ -40,13 +40,22 @@ export function PreviewCamp() {
     <>
       {camper && (
         <Wrapper>
-
+          
           <CampTitle>
             <h2>{camper.title}</h2>
           </CampTitle>
 
-         
-          <MyGallery camper={camper}/>
+          <MyGallery camper={camper} />
+
+          <ButtonsSection>
+            <StyledEditButton>
+              Edytuj ogłoszenie
+            </StyledEditButton>
+            <StyledEditButton>
+              Usuń ogłoszenie
+            </StyledEditButton>
+          </ButtonsSection>
+
           <StyledCampDetails>
             <h2>O camperze:</h2>
             <p>Kategoria: {camper.campertype}</p>
@@ -59,30 +68,26 @@ export function PreviewCamp() {
 
           <StyledDescriptionBox>
             <StyledDescription>
-            <h2>Opis:</h2>
-              {camper.description}</StyledDescription>
+              <h2>Opis:</h2>
+              {camper.description}
+            </StyledDescription>
           </StyledDescriptionBox>
 
           {context.userData && (
             <StyledContactDetails>
-              <StyledContactHead><h2>Dane kontaktowe:</h2></StyledContactHead>
+              <StyledContactHead>
+                <h2>Dane kontaktowe:</h2>
+              </StyledContactHead>
               <p>Telefon: {camper.usertlf}</p>
               <p>E-Mail: {camper.useremail}</p>
             </StyledContactDetails>
           )}
 
-          <Calendar camper={camper} user={context.userData}/>
-          
-          <UsersComments2 camperData={camper} />
-         
+          <Calendar camper={camper} user={context.userData} />
 
+          <UsersComments2 camperData={camper} />
         </Wrapper>
       )}
-    
-   
     </>
   );
 }
-
-
-

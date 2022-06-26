@@ -115,5 +115,25 @@ height: auto;
 width: 100%;
 margin: 5px 5px 5px 5px;
 padding: 30px 30px 30px 30px;
-
 `;
+
+export const ButtonsSection = styled.section`
+  display: flex;
+  flex-direction: row;
+  margin: 50px 10px 10px -480px;
+`;
+
+export const StyledEditButton = styled.button `
+  background-color:#c9c9c9;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin-left: 40px;
+  border-radius: 30px;
+  font-family: 'Play', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+  color: white;
+  }
+`
