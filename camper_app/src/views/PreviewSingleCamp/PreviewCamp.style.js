@@ -10,7 +10,7 @@ export const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f1f1f1;
+  background-color: white;
 `;
 
 export const CampTitle = styled.div`
