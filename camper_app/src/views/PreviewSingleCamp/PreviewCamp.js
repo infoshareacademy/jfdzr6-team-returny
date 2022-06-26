@@ -19,6 +19,7 @@ import { getCamperById } from "../../api/geCamperById";
 import { UsersComments2 } from "../../components/UsersComments2";
 import { StyledButton } from "../AddCamperForm/AddCamperForm.style";
 import { Calendar } from "../../components/calendar/Calendar";
+import MyGallery from "../../components/MyGallery"
 
 
 
@@ -44,7 +45,7 @@ export function PreviewCamp() {
             <h2>{camper.title}</h2>
           </CampTitle>
 
-          <StyledCampImg>
+          {/* <StyledCampImg>
             {camper.images.map((el, index) => (
               <img
                 key={index}
@@ -52,8 +53,8 @@ export function PreviewCamp() {
                 alt="Tutaj jest camper"
               />
             ))}
-          </StyledCampImg>
-
+          </StyledCampImg> */}
+          <MyGallery camper={camper}/>
           <StyledCampDetails>
             <h2>O camperze:</h2>
             <p>Kategoria: {camper.campertype}</p>
@@ -81,11 +82,12 @@ export function PreviewCamp() {
           <Calendar camper={camper} />
           
           <UsersComments2 camperData={camper} />
+         
 
         </Wrapper>
       )}
     
-
+   
     </>
   );
 }

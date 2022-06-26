@@ -1,0 +1,7 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+/* button {
+    border-radius: 0px;
+} */
+.image-gallery-thumbnail{
+    border-radius: 0px !important;
+}
