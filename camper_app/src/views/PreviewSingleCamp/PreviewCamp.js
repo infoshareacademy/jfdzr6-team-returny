@@ -45,15 +45,7 @@ export function PreviewCamp() {
             <h2>{camper.title}</h2>
           </CampTitle>
 
-          {/* <StyledCampImg>
-            {camper.images.map((el, index) => (
-              <img
-                key={index}
-                src={camper.images[index]}
-                alt="Tutaj jest camper"
-              />
-            ))}
-          </StyledCampImg> */}
+         
           <MyGallery camper={camper}/>
           <StyledCampDetails>
             <h2>O camperze:</h2>
