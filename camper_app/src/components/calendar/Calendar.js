@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { addReservation } from "../../api/booking/addReservation";
 import { getReservationByCamperId } from "../../api/booking/getReservationByCamperId";
+import { getReservByBorrowId } from "../../api/booking/getReservByBorrowId";
 import DatePicker, { registerLocale } from "react-datepicker";
 import pl from "date-fns/locale/pl";
 import "react-datepicker/dist/react-datepicker.css";
@@ -20,12 +21,14 @@ import plLocale from "@fullcalendar/core/locales/pl";
 registerLocale("pl", pl);
 
 export function Calendar({ camper, user }) {
+  console.log(user);
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: "",
     end: "",
   });
   const [allEvents, setAllEvents] = useState([]);
+  const [myReser, setmyReser] = useState([]);
 
   useEffect(() => {
     getReservationByCamperId(camper.id)
@@ -36,7 +39,37 @@ export function Calendar({ camper, user }) {
         console.log(err);
       });
   }, []);
+  
+    useEffect(() => {
+      if (user){
+        getReservByBorrowId(user.id, camper.id)
+        .then((data) => {
+          const newData = data.map((el) => {
+            const elstart = new Date(el.start.seconds * 1000);
+            const elend = new Date(el.end.seconds * 1000);
+  
+            return {
+              title: el.title,
+              start: elstart,
+              end: elend,
+              totalCost: el.totalCost,
+            };
+          });
+          setmyReser(newData);
+        })
+        .catch((err) => {
+          console.log(err);
+        }); 
+      } else {
+        console.log('nie jestes zalogowany')
+      }
+      
+      
+    }, [allEvents]);
+  
+  
 
+  console.log(myReser);
   function ConvertAndSendToState(data) {
     console.log("dane z firebase:", data);
     const newData = data.map((el) => {
@@ -56,8 +89,28 @@ export function Calendar({ camper, user }) {
     console.log(bookingResult[0], bookingResult[1]);
     console.log(newEvent);
     addReservation(newEvent, bookingResult[0], bookingResult[1]).then((res) => {
+      console.log(res);
       console.log("rezerwacja zatwierdzona");
-      setAllEvents([...allEvents, newEvent]);
+      alert(
+        `Rezerwacja campera: ${camper.title} dla uzytkownika: ${
+          user.email
+        } w dniach od ${new Date(newEvent.start).getDate().toString()}/${
+          new Date(newEvent.start).getMonth() + 1
+        }/${new Date(newEvent.start).getFullYear()}  do ${new Date(newEvent.end)
+          .getDate()
+          .toString()}/${new Date(newEvent.end).getMonth() + 1}/${new Date(
+          newEvent.end
+        ).getFullYear()} w cenie: ${bookingResult[0]} zł została potwierdzona`
+      );
+      getReservationByCamperId(camper.id)
+        .then((data) => {
+          console.log(data);
+          ConvertAndSendToState(data);
+
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     });
     console.log(newEvent);
   }
@@ -92,63 +145,86 @@ export function Calendar({ camper, user }) {
           />
         ) : (
           <FullCalendar
-          locale={plLocale}
-          plugins={[
-            dayGridPlugin,
-            momentTimezonePlugin,
-            resourceTimelinePlugin,
-          ]}
-          timeZone="Europe/Moscow"
-          displayEventTime={false}
-          initialView="dayGridMonth"
-          events={allEvents}
-          contentHeight={450}
-        />
+            locale={plLocale}
+            plugins={[
+              dayGridPlugin,
+              momentTimezonePlugin,
+              resourceTimelinePlugin,
+            ]}
+            timeZone="Europe/Moscow"
+            displayEventTime={false}
+            initialView="dayGridMonth"
+            events={allEvents}
+            contentHeight={450}
+          />
         )}
       </StyledWrapper>
       {user && (
-        <CenteredDiv>
+        <>
           <CenteredDiv>
-            <DatePicker
-              locale="pl"
-              placeholderText="Data początkowa"
-              selected={newEvent.start}
-              onChange={(start) => {
-                setNewEvent({
-                  ...newEvent,
-                  start,
-                  title: "zajęty",
-                  camperid: camper.id,
-                  owner: camper.useremail,
-                  ownerid: camper.userid,
-                  borrower: user.email,
-                  borrowerid: user.id,
-                });
-              }}
-            />
-            <DatePicker
-              locale="pl"
-              placeholderText="Data końcowa"
-              selected={newEvent.end}
-              onChange={(end) => {
-                setNewEvent({
-                  ...newEvent,
-                  end,
-                });
-              }}
-            />
-          </CenteredDiv>
+            <CenteredDiv>
+              <DatePicker
+                locale="pl"
+                placeholderText="Data początkowa"
+                selected={newEvent.start}
+                onChange={(start) => {
+                  setNewEvent({
+                    ...newEvent,
+                    start,
+                    title: "zajęty",
+                    camperid: camper.id,
+                    owner: camper.useremail,
+                    ownerid: camper.userid,
+                    borrower: user.email,
+                    borrowerid: user.id,
+                  });
+                }}
+              />
+              <DatePicker
+                locale="pl"
+                placeholderText="Data końcowa"
+                selected={newEvent.end}
+                onChange={(end) => {
+                  setNewEvent({
+                    ...newEvent,
+                    end,
+                  });
+                }}
+              />
+            </CenteredDiv>
 
-          <StyledButton
-            style={{
-              margin: "30px",
-            }}
-            onClick={handleAddEvent}
-          >
-            Zarezerwuj campera
-          </StyledButton>
-        </CenteredDiv>
+            <StyledButton
+              style={{
+                margin: "30px",
+              }}
+              onClick={handleAddEvent}
+            >
+              Zarezerwuj campera
+            </StyledButton>
+          </CenteredDiv>
+        </>
       )}
+      <div>
+        {user && <h3> Twoje rezerwacje :</h3>}
+        
+
+        {user &&
+          myReser &&
+          myReser.map((el, index) => {
+            return (
+              <p key={index}>
+                rezerwacja kampera nr:{index + 1} od{" "}
+                {new Date(el.start).getDate().toString()}/
+                {new Date(el.start).getMonth() + 1}/
+                {new Date(el.start).getFullYear()} do{" "}
+                {new Date(el.end).getDate().toString()}/
+                {new Date(el.end).getMonth() + 1}/
+                {new Date(el.end).getFullYear()} w cenie: {el.totalCost}
+              </p>
+            );
+          })}
+        {myReser.length == 0 && user && <p>Nie masz jeszcze rezerwacji tego kampera</p>}
+      </div>
     </div>
   );
 }
