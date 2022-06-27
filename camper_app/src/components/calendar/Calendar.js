@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {addReservation} from "../../api/booking/addReservation"
 import DatePicker, { registerLocale } from "react-datepicker";
 import pl from "date-fns/locale/pl";
 import "react-datepicker/dist/react-datepicker.css";
@@ -33,8 +34,7 @@ const events = [
 ];
 
 export function Calendar({ camper, user }) {
-  console.log(camper)
-  console.log(user)
+  
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: "",
@@ -46,11 +46,17 @@ export function Calendar({ camper, user }) {
   function handleAddEvent() {
     const bookingResult = rentalCost();
     console.log(bookingResult[0],bookingResult[1]);
-    setAllEvents([...allEvents, newEvent]);
+    addReservation(newEvent,bookingResult[0],bookingResult[1]).then(res=>{
+      console.log('rezerwacja zatwierdzona');
+      setAllEvents([...allEvents, newEvent]);
+
+
+    })
+    console.log(newEvent)
   }
 
 
-  console.log(newEvent);
+  
   function rentalCost() {
     let dailyRate = camper.price;
     if (newEvent.start != null && newEvent.end != null) {
