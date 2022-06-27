@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "emailjs-com": "^3.2.0",
     "firebase": "^9.8.1",
     "fullcalendar": "^5.11.0",
     "moment": "^2.29.3",
