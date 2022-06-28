@@ -87,6 +87,7 @@ export function Calendar({ camper, user }) {
     console.log(bookingResult[0], bookingResult[1]);
     addReservation(newEvent, bookingResult[0], bookingResult[1]).then((res) => {
       alert(
+        
         `Rezerwacja campera: ${camper.title} dla uzytkownika: ${
           user.email
         } w dniach od ${new Date(newEvent.start).getDate().toString()}/${
@@ -95,7 +96,7 @@ export function Calendar({ camper, user }) {
           .getDate()
           .toString()}/${new Date(newEvent.end).getMonth() + 1}/${new Date(
           newEvent.end
-        ).getFullYear()} w cenie: ${bookingResult[0]} zł została potwierdzona`
+        ).getFullYear()} w cenie: ${bookingResult[0]} zł została potwierdzona` 
       );
       getReservationByCamperId(camper.id)
         .then((data) => {
@@ -121,6 +122,7 @@ export function Calendar({ camper, user }) {
       })
       .catch((er) => console.log(er));
   }
+
 
   function rentalCost() {
     let dailyRate = camper.price;
@@ -221,6 +223,7 @@ export function Calendar({ camper, user }) {
               <div key={index}>
                 <p>
                   rezerwacja kampera nr:{index + 1} od{" "}
+                 
                   {new Date(el.start).getDate().toString()}/
                   {new Date(el.start).getMonth() + 1}/
                   {new Date(el.start).getFullYear()} do{" "}
