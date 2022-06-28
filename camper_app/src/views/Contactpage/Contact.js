@@ -107,7 +107,7 @@ export function Contact() {
           </StyledLists>
 
           <StyledListsMap>
-          <FaMapMarkerAlt/> <a href="https://goo.gl/maps/7UugKNUEuSZNHvqz9" target="_blank">Sprawdz jak do nas dojechać!</a>
+          <FaMapMarkerAlt/> <a href="https://goo.gl/maps/7UugKNUEuSZNHvqz9" target="_blank" rel="noreferrer">Sprawdz jak do nas dojechać!</a>
           </StyledListsMap>
 
         </StyledList>
