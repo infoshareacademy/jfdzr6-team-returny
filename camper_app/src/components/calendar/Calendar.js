@@ -178,7 +178,7 @@ export function Calendar({camper,user}) {
       </StyledWrapper>
       {user && (
         <>
-          <CenteredDiv>
+          
             <CenteredDiv>
               <DatePicker
                 locale="pl"
