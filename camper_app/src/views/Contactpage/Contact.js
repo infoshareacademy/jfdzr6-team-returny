@@ -50,7 +50,7 @@ export function Contact() {
               <StyledInput
                 name="name"
                 type="text"
-                placeholder="Imie i Nazwisko"
+                placeholder="Imie i nazwisko"
                 maxLength="50"
               />
             </StyledFormElements>
@@ -58,7 +58,7 @@ export function Contact() {
               <StyledInput
                 name="email"
                 type="email"
-                placeholder="Podaj adres e-mail"
+                placeholder="Adres e-mail"
                 maxLength="50"
               />
               
@@ -68,7 +68,7 @@ export function Contact() {
               <StyledInput
                 name="subject"
                 type="text"
-                placeholder="Podaj temat wiadomości"
+                placeholder="Temat wiadomości"
                 maxLength="100"
               />
               
@@ -78,7 +78,7 @@ export function Contact() {
               <StyledTextArea
                 name="message"
                 type="text"
-                placeholder="Podaj swoją wiadomość"
+                placeholder="Treść..."
               />
             </StyledFormElements>
             <StyledFormButton type="submit">Wyślij</StyledFormButton>
