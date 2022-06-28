@@ -44,11 +44,13 @@ export function Calendar({ camper, user }) {
       if (user){
         getReservByBorrowId(user.id, camper.id)
         .then((data) => {
+          console.log(data)
           const newData = data.map((el) => {
             const elstart = new Date(el.start.seconds * 1000);
             const elend = new Date(el.end.seconds * 1000);
   
             return {
+              bookid:el.id,
               title: el.title,
               start: elstart,
               end: elend,
@@ -211,8 +213,11 @@ export function Calendar({ camper, user }) {
         {user &&
           myReser &&
           myReser.map((el, index) => {
+           
             return (
-              <p key={index}>
+              <div key={index}>
+              <p>
+                id rezerwacji {el.bookid}
                 rezerwacja kampera nr:{index + 1} od{" "}
                 {new Date(el.start).getDate().toString()}/
                 {new Date(el.start).getMonth() + 1}/
@@ -221,6 +226,8 @@ export function Calendar({ camper, user }) {
                 {new Date(el.end).getMonth() + 1}/
                 {new Date(el.end).getFullYear()} w cenie: {el.totalCost}
               </p>
+              <button>Usuń rezerwacje</button>
+              </div>
             );
           })}
         {myReser.length == 0 && user && <p>Nie masz jeszcze rezerwacji tego kampera</p>}
