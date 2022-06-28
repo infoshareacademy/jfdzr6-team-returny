@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { addReservation } from "../../api/booking/addReservation";
 import { getReservationByCamperId } from "../../api/booking/getReservationByCamperId";
 import { getReservByBorrowId } from "../../api/booking/getReservByBorrowId";
+import { deleteReservation } from "../../api/booking/deleteReservation";
 import DatePicker, { registerLocale } from "react-datepicker";
 import pl from "date-fns/locale/pl";
 import "react-datepicker/dist/react-datepicker.css";
@@ -39,18 +40,19 @@ export function Calendar({ camper, user }) {
         console.log(err);
       });
   }, []);
-  
-    useEffect(() => {
-      if (user){
-        getReservByBorrowId(user.id, camper.id)
+
+  useEffect(() => {
+    if (user) {
+      getReservByBorrowId(user.id, camper.id)
         .then((data) => {
-          console.log(data)
+          console.log(data);
           const newData = data.map((el) => {
             const elstart = new Date(el.start.seconds * 1000);
             const elend = new Date(el.end.seconds * 1000);
-  
+
             return {
-              bookid:el.id,
+              bookid: el.id,
+              borrowerid: el.borrowerid,
               title: el.title,
               start: elstart,
               end: elend,
@@ -61,15 +63,11 @@ export function Calendar({ camper, user }) {
         })
         .catch((err) => {
           console.log(err);
-        }); 
-      } else {
-        console.log('nie jestes zalogowany')
-      }
-      
-      
-    }, [allEvents]);
-  
-  
+        });
+    } else {
+      console.log("nie jestes zalogowany");
+    }
+  }, [allEvents]);
 
   console.log(myReser);
   function ConvertAndSendToState(data) {
@@ -108,13 +106,27 @@ export function Calendar({ camper, user }) {
         .then((data) => {
           console.log(data);
           ConvertAndSendToState(data);
-
         })
         .catch((err) => {
           console.log(err);
         });
     });
     console.log(newEvent);
+  }
+
+  function deleteReservationHandler(id) {
+    deleteReservation(id)
+      .then((res) => {
+        getReservationByCamperId(camper.id)
+        .then((data) => {
+          console.log(data);
+          ConvertAndSendToState(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      })
+      .catch((er) => console.log(er));
   }
 
   function rentalCost() {
@@ -208,29 +220,32 @@ export function Calendar({ camper, user }) {
       )}
       <div>
         {user && <h3> Twoje rezerwacje :</h3>}
-        
 
         {user &&
           myReser &&
           myReser.map((el, index) => {
-           
             return (
               <div key={index}>
-              <p>
-                id rezerwacji {el.bookid}
-                rezerwacja kampera nr:{index + 1} od{" "}
-                {new Date(el.start).getDate().toString()}/
-                {new Date(el.start).getMonth() + 1}/
-                {new Date(el.start).getFullYear()} do{" "}
-                {new Date(el.end).getDate().toString()}/
-                {new Date(el.end).getMonth() + 1}/
-                {new Date(el.end).getFullYear()} w cenie: {el.totalCost}
-              </p>
-              <button>Usuń rezerwacje</button>
+                <p>
+                  rezerwacja kampera nr:{index + 1} od{" "}
+                  {new Date(el.start).getDate().toString()}/
+                  {new Date(el.start).getMonth() + 1}/
+                  {new Date(el.start).getFullYear()} do{" "}
+                  {new Date(el.end).getDate().toString()}/
+                  {new Date(el.end).getMonth() + 1}/
+                  {new Date(el.end).getFullYear()} w cenie: {el.totalCost}
+                </p>
+                {user.id === el.borrowerid ? (
+                  <button onClick={() => deleteReservationHandler(el.bookid)}>
+                    Usuń rezerwacje
+                  </button>
+                ) : null}
               </div>
             );
           })}
-        {myReser.length == 0 && user && <p>Nie masz jeszcze rezerwacji tego kampera</p>}
+        {myReser.length == 0 && user && (
+          <p>Nie masz jeszcze rezerwacji tego kampera</p>
+        )}
       </div>
     </div>
   );

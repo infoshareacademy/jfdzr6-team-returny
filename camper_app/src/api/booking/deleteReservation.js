@@ -3,5 +3,5 @@ import { db } from "../../firebase";
 
 export function deleteReservation(id) {
   const docRef = doc(db, "booking", id);
-  deleteDoc(docRef);
+ return deleteDoc(docRef);
 }
