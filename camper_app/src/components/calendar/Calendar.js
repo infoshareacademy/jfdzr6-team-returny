@@ -15,16 +15,13 @@ import {
   StyledHeader,
   StyledWrapper,
   StyledButton,
-  TotalPriceInfo,
 } from "./Calendar.style.js";
 import plLocale from "@fullcalendar/core/locales/pl";
 
 registerLocale("pl", pl);
 
-
-
-export function Calendar({camper,user}) {
-
+export function Calendar({ camper, user }) {
+  
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: "",
@@ -127,7 +124,6 @@ export function Calendar({camper,user}) {
   }
 
 
-
   function rentalCost() {
     let dailyRate = camper.price;
     if (newEvent.start != null && newEvent.end != null) {
@@ -138,12 +134,10 @@ export function Calendar({camper,user}) {
     }
   }
 
-
   return (
     <div className="Calendar">
       <StyledHeader>Kalendarz wypożyczeń campera</StyledHeader>
       <StyledWrapper>
-
         {allEvents.length > 0 ? (
           <FullCalendar
             locale={plLocale}
@@ -157,8 +151,6 @@ export function Calendar({camper,user}) {
             initialView="dayGridMonth"
             events={allEvents}
             contentHeight={450}
-
-       
           />
         ) : (
           <FullCalendar
@@ -178,7 +170,7 @@ export function Calendar({camper,user}) {
       </StyledWrapper>
       {user && (
         <>
-          
+          <CenteredDiv>
             <CenteredDiv>
               <DatePicker
                 locale="pl"
@@ -210,6 +202,15 @@ export function Calendar({camper,user}) {
               />
             </CenteredDiv>
 
+            <StyledButton
+              style={{
+                margin: "30px",
+              }}
+              onClick={handleAddEvent}
+            >
+              Zarezerwuj campera
+            </StyledButton>
+          </CenteredDiv>
         </>
       )}
       
