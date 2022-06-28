@@ -25,8 +25,8 @@ margin:2rem;
     margin: 60px;
     padding: 10px;
     display: grid;
-    grid-template-columns:repeat(auto-fit,minmax(12rem, 16rem));
-    gap:2rem;
+    grid-template-columns:repeat(auto-fit,minmax(10rem, 21rem));
+    gap:3rem;
     justify-content: center;
     font-family: 'Play', sans-serif;
 }
@@ -58,11 +58,11 @@ margin:2rem;
 }
 
 .card__btn{
-    padding:1rem;
+    padding:10px 10px 10px 10px;
     font-family:'Play', sans-serif;
     font-weight: bold;
-    font-size: 1rem;
-    margin: 1rem;
+    font-size:small;
+    margin: 8px 14px 12px 154px;
     border:2px;
     cursor: pointer;
     
@@ -77,12 +77,12 @@ margin:2rem;
 }
 
 .find {
-    display: flex;
-
-  flex-direction: column;
-  align-items: left;
+  display: flex;
+  flex-direction:row;
+  align-items:center;
   margin:61px 20px 24px 163px;
-    
+  gap: 16px;
+
 }
 
 .find__title {
@@ -101,13 +101,13 @@ margin:2rem;
 }
 
 #select__one {
-    width: 500px;
+    width: 300px;
     height: 50px;
        
 }
 
 #select__two {
-    width: 500px;
+    width: 300px;
     height: 50px;
     
 }
@@ -127,4 +127,8 @@ label {
     width: 200px;
     height: 50px;
     
+}
+
+.card__body {
+    margin: 10px 10px 10px 10px;
 }

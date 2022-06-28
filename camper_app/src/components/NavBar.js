@@ -8,6 +8,10 @@ import "react-notifications/lib/notifications.css";
 import styled from "styled-components";
 import logo from "../assets/logo.jpg";
 import "../components/NavBar.css";
+import { FaUser, FaSignOutAlt } from 'react-icons/fa';
+
+
+
 
 const StyledNavigation = styled.nav`
   background-color: #373737;
@@ -50,7 +54,7 @@ export function NavBar() {
       <NavLink to="/">
       <StyledImgLogo src={logo} />
       </NavLink>
-      {context.userData && <p style={{color:"white"}}>zalogowany: {context.userData.email}</p>}
+     
 
         <div className="li">
           <NavLink
@@ -59,7 +63,7 @@ export function NavBar() {
             }
             to="/about"
           >
-            O NAS
+            O NAS 
           </NavLink>
         </div>
 
@@ -84,7 +88,7 @@ export function NavBar() {
             KONTAKT
           </NavLink>
         </div>
-
+       
         <div className="li">
           <NavLink
             className={({ isActive }) =>
@@ -94,13 +98,19 @@ export function NavBar() {
           >
             UBEZPIECZENIA
           </NavLink>
+
         </div>
-          
+        <div className="userlog">
+        {context.userData && <p style={{color: "#78cdca"}}> <FaUser /> zalogowany: {context.userData.email}</p>}
+        </div>
+
        <ButtonGroup>
+
+      
 
         {context.userData && (
           <>
-          <Button> <Link to="/" onClick={()=>{
+          <Button><FaSignOutAlt /><Link to="/" onClick={()=>{
             signOut(auth); 
             context.setUserData('');
             NotificationManager.info("Zostałeś wylogowany");
@@ -109,7 +119,7 @@ export function NavBar() {
           </>
         )}
         {!context.userData && (
-          <Button> <Link to="/login"> Zaloguj się</Link></Button>
+          <Button> <Link to="/login"> <FaUser /> Zaloguj się</Link></Button>
         )}
 
 
