@@ -49,7 +49,6 @@ export function Calendar({ camper, user }) {
           const newData = data.map((el) => {
             const elstart = new Date(el.start.seconds * 1000);
             const elend = new Date(el.end.seconds * 1000);
-
             return {
               bookid: el.id,
               borrowerid: el.borrowerid,
@@ -87,10 +86,7 @@ export function Calendar({ camper, user }) {
   function handleAddEvent() {
     const bookingResult = rentalCost();
     console.log(bookingResult[0], bookingResult[1]);
-    console.log(newEvent);
     addReservation(newEvent, bookingResult[0], bookingResult[1]).then((res) => {
-      console.log(res);
-      console.log("rezerwacja zatwierdzona");
       alert(
         `Rezerwacja campera: ${camper.title} dla uzytkownika: ${
           user.email
@@ -104,7 +100,6 @@ export function Calendar({ camper, user }) {
       );
       getReservationByCamperId(camper.id)
         .then((data) => {
-          console.log(data);
           ConvertAndSendToState(data);
         })
         .catch((err) => {
@@ -118,13 +113,12 @@ export function Calendar({ camper, user }) {
     deleteReservation(id)
       .then((res) => {
         getReservationByCamperId(camper.id)
-        .then((data) => {
-          console.log(data);
-          ConvertAndSendToState(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+          .then((data) => {
+            ConvertAndSendToState(data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((er) => console.log(er));
   }
@@ -233,7 +227,7 @@ export function Calendar({ camper, user }) {
                   {new Date(el.start).getFullYear()} do{" "}
                   {new Date(el.end).getDate().toString()}/
                   {new Date(el.end).getMonth() + 1}/
-                  {new Date(el.end).getFullYear()} w cenie: {el.totalCost}
+                  {new Date(el.end).getFullYear()} w cenie: {el.totalCost} zł
                 </p>
                 {user.id === el.borrowerid ? (
                   <button onClick={() => deleteReservationHandler(el.bookid)}>
