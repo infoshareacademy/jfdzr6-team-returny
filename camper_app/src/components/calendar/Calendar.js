@@ -9,7 +9,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./Calendar.style.js";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import momentTimezonePlugin from "@fullcalendar/moment-timezone";
-import resourceTimelinePlugin from "@fullcalendar/resource-timeline";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import {
   CenteredDiv,
@@ -143,7 +142,7 @@ export function Calendar({ camper, user }) {
             plugins={[
               dayGridPlugin,
               momentTimezonePlugin,
-              resourceTimelinePlugin,
+              
             ]}
             timeZone="Europe/Moscow"
             displayEventTime={false}
@@ -157,7 +156,7 @@ export function Calendar({ camper, user }) {
             plugins={[
               dayGridPlugin,
               momentTimezonePlugin,
-              resourceTimelinePlugin,
+              
             ]}
             timeZone="Europe/Moscow"
             displayEventTime={false}
