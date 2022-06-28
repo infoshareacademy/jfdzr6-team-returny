@@ -21,7 +21,7 @@ import plLocale from "@fullcalendar/core/locales/pl";
 registerLocale("pl", pl);
 
 export function Calendar({ camper, user }) {
-  console.log(user);
+  
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: "",
@@ -44,7 +44,7 @@ export function Calendar({ camper, user }) {
     if (user) {
       getReservByBorrowId(user.id, camper.id)
         .then((data) => {
-          console.log(data);
+          
           const newData = data.map((el) => {
             const elstart = new Date(el.start.seconds * 1000);
             const elend = new Date(el.end.seconds * 1000);
@@ -67,7 +67,7 @@ export function Calendar({ camper, user }) {
     }
   }, [allEvents]);
 
-  console.log(myReser);
+ 
   function ConvertAndSendToState(data) {
     console.log("dane z firebase:", data);
     const newData = data.map((el) => {
@@ -236,7 +236,7 @@ export function Calendar({ camper, user }) {
               </div>
             );
           })}
-        {myReser.length == 0 && user && (
+        {myReser.length === 0 && user && (
           <p>Nie masz jeszcze rezerwacji tego kampera</p>
         )}
       </div>
