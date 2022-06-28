@@ -212,6 +212,7 @@ export function Calendar({camper,user}) {
 
         </>
       )}
+      
       <div>
         {user && <h3> Twoje rezerwacje :</h3>}
 
