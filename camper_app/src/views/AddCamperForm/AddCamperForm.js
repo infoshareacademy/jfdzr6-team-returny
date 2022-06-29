@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import * as yup from 'yup';
+import * as yup from "yup";
 import { Formik, Form } from "formik";
 import { UserContext } from "../../context/userContext";
 import {
@@ -22,9 +22,6 @@ import uuid from "react-uuid";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { Loader } from "../../components/Loader";
-
-
-
 
 export const AddCamperForm = () => {
   const [error, setError] = useState("");
@@ -82,19 +79,15 @@ export const AddCamperForm = () => {
       papacity: capacity.value,
       price: price.value,
       images: images,
+      city: city.value,
       location: location.value,
-      city:city.value,
       description: description.value,
       usertlf: context.userData.mobil,
       userid: context.userData.id,
       useremail: context.userData.email,
     };
-<<<<<<< HEAD
-    const isValid = await validationSchema.isValid(camperData);
+    // const isValid = await validationSchema.isValid(camperData);
 
-=======
-    
->>>>>>> city
     addCamper(camperData)
       .then((res) => {
         NotificationManager.success("Kamper został wysłany");
@@ -106,12 +99,11 @@ export const AddCamperForm = () => {
       });
     form.reset();
   };
-  
-  
-  const validationSchema = yup.object().shape({
-    title: yup.string().min(3).max(20).required(),
-    year: yup.string().required(),
-  });
+
+  // const validationSchema = yup.object().shape({
+  //   title: yup.string().min(3).max(20).required(),
+  //   year: yup.string().required(),
+  // });
 
   return (
     <>
@@ -119,9 +111,13 @@ export const AddCamperForm = () => {
         <div>
           <StyledHeader1>Dodaj campera</StyledHeader1>
           <Formik>
-            {formik=>{
-              console.log(formik);
-            }}
+            {/* {formik=>(
+              
+
+
+            )
+              
+            } */}
           </Formik>
           <form onSubmit={handleSubmitCamper} encType="multipart/form-data">
             <StyledBoxBackground>
@@ -174,12 +170,7 @@ export const AddCamperForm = () => {
                 zł/dzień
               </div>
               <div>
-                <StyledInputText
-                  name="city"
-                  type="text"
-                  placeholder="Miasto"
-                />
-               
+                <StyledInputText name="city" type="text" placeholder="Miasto" />
               </div>
               <StyledSelect name="location">
                 <option value="">Lokalizacja campera (województwo)</option>
