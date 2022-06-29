@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import * as Yup from 'yup';
+import * as yup from 'yup';
+import { Formik, Form } from "formik";
 import { UserContext } from "../../context/userContext";
 import {
   StyledBoxBackground,
@@ -101,9 +102,9 @@ export const AddCamperForm = () => {
   };
   
   
-  const validationSchema = Yup.object().shape({
-    title: Yup.string().min(3).max(20).required(),
-    year: Yup.string().required(),
+  const validationSchema = yup.object().shape({
+    title: yup.string().min(3).max(20).required(),
+    year: yup.string().required(),
   });
 
   return (
@@ -111,6 +112,11 @@ export const AddCamperForm = () => {
       {!sendLoader ? (
         <div>
           <StyledHeader1>Dodaj campera</StyledHeader1>
+          <Formik>
+            {formik=>{
+              console.log(formik);
+            }}
+          </Formik>
           <form onSubmit={handleSubmitCamper} encType="multipart/form-data">
             <StyledBoxBackground>
               <div>
