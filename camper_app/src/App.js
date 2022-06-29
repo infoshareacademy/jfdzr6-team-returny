@@ -17,6 +17,7 @@ import { ForgotPassword } from "./views/ForgotPass";
 import { getUserById } from "./api/getUserById";
 import { Calendar } from "./components/calendar/Calendar";
 import {Contact} from "./views/Contactpage/Contact"
+import {About} from "./views/About/About"
 
 export function App() {
   const context = useContext(UserContext);
@@ -44,7 +45,7 @@ export function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Home />} />
+          <Route path="/about" element={<About />} />
 
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
