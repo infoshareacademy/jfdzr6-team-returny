@@ -58,11 +58,12 @@ export function PreviewCamp() {
           <StyledCampDetails>
             <h2>O camperze:</h2>
             <p>Kategoria: {camper.campertype}</p>
-            <p>Rocznik : {camper.year}</p>
+            <p>Rocznik : {camper.year}</p> 
             <p>Marka : {camper.brand}</p>
             <p>Ilość osób : {camper.papacity}</p>
             <p>Cena (zł/dzień) : {camper.price}</p>
-            <p>Lokalizacja :{camper.location}</p>
+            <p>Miasto : {camper.city}</p>
+            <p>Lokalizacja : {camper.location}</p>
           </StyledCampDetails>
 
           <StyledDescriptionBox>

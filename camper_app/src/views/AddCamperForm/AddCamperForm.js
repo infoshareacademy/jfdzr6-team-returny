@@ -37,6 +37,7 @@ export const AddCamperForm = () => {
       brand,
       capacity,
       price,
+      city,
       location,
       description,
       imgcollection,
@@ -77,12 +78,13 @@ export const AddCamperForm = () => {
       price: price.value,
       images: images,
       location: location.value,
+      city:city.value,
       description: description.value,
       usertlf: context.userData.mobil,
       userid: context.userData.id,
       useremail: context.userData.email,
     };
-
+    
     addCamper(camperData)
       .then((res) => {
         NotificationManager.success("Kamper został wysłany");
@@ -149,6 +151,14 @@ export const AddCamperForm = () => {
                   placeholder="Cena [pln]"
                 />{" "}
                 zł/dzień
+              </div>
+              <div>
+                <StyledInputText
+                  name="city"
+                  type="text"
+                  placeholder="Miasto"
+                />
+               
               </div>
               <StyledSelect name="location">
                 <option value="">Lokalizacja campera (województwo)</option>
