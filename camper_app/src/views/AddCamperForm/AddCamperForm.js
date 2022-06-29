@@ -108,6 +108,7 @@ export const AddCamperForm = () => {
     capacity:yup.string().required(),
     price:yup.string().required(),
     city:yup.string().min(2).required(),
+    location:yup.string().required(),
   });
 
   return (
@@ -244,7 +245,9 @@ export const AddCamperForm = () => {
                     </p>
                   ) : null}
                 </div>
-                <StyledSelect name="location">
+                <StyledSelect name="location" onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.location}>
                   <option value="">Lokalizacja campera (województwo)</option>
                   <option value="mazowieckie">mazowieckie</option>
                   <option value="slaskie">śląskie</option>
@@ -265,6 +268,11 @@ export const AddCamperForm = () => {
                   <option value="lubuskie">lubuskie</option>
                   <option value="opolskie">opolskie</option>
                 </StyledSelect>
+                {errors.location ? (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
+                      {errors.location}
+                    </p>
+                  ) : null}
               </StyledBoxBackground>
               </Form>
             )}
