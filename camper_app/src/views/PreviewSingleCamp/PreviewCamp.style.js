@@ -13,6 +13,7 @@ export const Wrapper = styled.section`
   background-color: white;
 `;
 
+
 export const CampTitle = styled.div`
     width: 800px;
     font-size: 20px;
@@ -136,4 +137,29 @@ export const StyledEditButton = styled.button `
   &:hover {
   color: white;
   }
-`
+`;
+
+export const StyledCalendar = styled.div`
+display:flex;
+flex-direction: column;
+background-color: white;
+font-size: 12px;
+height: auto;
+width: 100%;
+margin: 5px 5px 5px 5px;
+padding: 30px 30px 30px 30px;
+
+`;
+
+export const StyledCalendarDiv = styled.div`
+
+    width: 800px;
+    margin: 15px auto;
+    box-shadow: 0 1px 3px;
+    background-color: white;
+    font-size: 15px;
+    padding: 20px;
+    line-height: 1.8;
+
+`;
+

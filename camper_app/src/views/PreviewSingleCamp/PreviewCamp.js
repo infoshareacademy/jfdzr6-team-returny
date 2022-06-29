@@ -16,11 +16,16 @@ import {
   StyledComment,
   StyledEditButton,
   ButtonsSection,
+  StyledCalendar,
+  StyledCalendarDiv,
+  StyledCalendarDiv2,
+ 
 } from "./PreviewCamp.style";
 import { getCamperById } from "../../api/geCamperById";
 import { UsersComments2 } from "../../components/UsersComments2";
 import { Calendar } from "../../components/calendar/Calendar";
 import MyGallery from "../../components/MyGallery";
+
 
 export function PreviewCamp() {
   const [camper, setCamper] = useState();
@@ -37,7 +42,14 @@ export function PreviewCamp() {
 
   return (
     <>
+
+    
       {camper && (
+
+
+
+
+
         <Wrapper>
 
           <CampTitle>
@@ -81,12 +93,36 @@ export function PreviewCamp() {
               <p>E-Mail: {camper.useremail}</p>
             </StyledContactDetails>
           )}
+          
 
+        <StyledCalendarDiv>
+          <StyledCalendar>
           <Calendar camper={camper} user={context.userData} />
+          </StyledCalendar>       
+        </StyledCalendarDiv>
+
 
           <UsersComments2 camperData={camper} />
+
+            
+          
+
         </Wrapper>
+      
+
+
       )}
+
+
+<div className="StyledCalendarDiv2">
+
+  test
+
+</div>
+
+
     </>
   );
 }
+
+
