@@ -18,7 +18,6 @@ export const CampTitle = styled.div`
     width: 800px;
     font-size: 20px;
     margin: 20px auto;
-    box-shadow: 0 1px 3px;
     background-color: white;
     padding: 20px;
 `;

@@ -25,7 +25,7 @@ import { getCamperById } from "../../api/geCamperById";
 import { UsersComments2 } from "../../components/UsersComments2";
 import { Calendar } from "../../components/calendar/Calendar";
 import MyGallery from "../../components/MyGallery";
-
+import { FaGripVertical, FaTruck, FaTasks, FaCalendarAlt, FaMoneyCheckAlt, FaRegTrashAlt, FaPencilAlt, FaRegMap, FaShuttleVan, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 export function PreviewCamp() {
   const [camper, setCamper] = useState();
@@ -53,28 +53,28 @@ export function PreviewCamp() {
         <Wrapper>
 
           <CampTitle>
-            <h2>{camper.title}</h2>
+            <h2> {camper.title}</h2>
           </CampTitle>
 
           <MyGallery camper={camper} />
 
           <ButtonsSection>
             <StyledEditButton>
-              Edytuj ogłoszenie
+              <FaPencilAlt />  Edytuj ogłoszenie
             </StyledEditButton>
             <StyledEditButton>
-              Usuń ogłoszenie
+              <FaRegTrashAlt />   Usuń ogłoszenie
             </StyledEditButton>
           </ButtonsSection>
 
           <StyledCampDetails>
-            <h2>O camperze:</h2>
-            <p>Kategoria: {camper.campertype}</p>
-            <p>Rocznik : {camper.year}</p>
-            <p>Marka : {camper.brand}</p>
-            <p>Ilość osób : {camper.papacity}</p>
-            <p>Cena (zł/dzień) : {camper.price}</p>
-            <p>Lokalizacja :{camper.location}</p>
+            <h2><FaShuttleVan /> O camperze:</h2>
+            <p><FaGripVertical /> Kategoria: {camper.campertype}</p>
+            <p><FaCalendarAlt /> Rocznik : {camper.year}</p>
+            <p><FaTruck /> Marka : {camper.brand}</p>
+            <p><FaTasks /> Ilość osób : {camper.papacity}</p>
+            <p><FaMoneyCheckAlt /> Cena (zł/dzień) : {camper.price}</p>
+            <p><FaRegMap /> Lokalizacja :{camper.location}</p>
           </StyledCampDetails>
 
           <StyledDescriptionBox>
@@ -89,8 +89,8 @@ export function PreviewCamp() {
               <StyledContactHead>
                 <h2>Dane kontaktowe:</h2>
               </StyledContactHead>
-              <p>Telefon: {camper.usertlf}</p>
-              <p>E-Mail: {camper.useremail}</p>
+              <p><FaPhoneAlt /> Telefon: {camper.usertlf}</p>
+              <p><FaEnvelope /> E-Mail: {camper.useremail}</p>
             </StyledContactDetails>
           )}
           
