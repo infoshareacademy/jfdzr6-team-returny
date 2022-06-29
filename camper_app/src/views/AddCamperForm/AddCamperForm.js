@@ -106,6 +106,7 @@ export const AddCamperForm = () => {
     year: yup.string().required(),
     brand:yup.string().required(),
     capacity:yup.string().required(),
+    price:yup.string().required(),
   });
 
   return (
@@ -216,8 +217,16 @@ export const AddCamperForm = () => {
                     name="price"
                     type="text"
                     placeholder="Cena [pln]"
-                  />{" "}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.price}
+                  />
                   zł/dzień
+                  {errors.price ? (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
+                      {errors.price}
+                    </p>
+                  ) : null}
                 </div>
                 <div>
                   <StyledInputText
