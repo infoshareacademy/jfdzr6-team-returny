@@ -142,7 +142,7 @@ console.log(imgcollection[0].name);
           >
             {({ errors, values, handleChange, handleBlur, isSubmitting ,setFieldValue}) => (
               <Form>
-                {/* {console.log(values)} */}
+               
                 <StyledBoxBackground>
                   <div>
                     <StyledInputText
