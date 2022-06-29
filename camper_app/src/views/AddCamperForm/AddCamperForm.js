@@ -110,7 +110,18 @@ export const AddCamperForm = () => {
       {!sendLoader ? (
         <div>
           <StyledHeader1>Dodaj campera</StyledHeader1>
-          <Formik>
+          <Formik initialValues={{
+            title: '',
+            campertype:'',
+            year: '',
+            brand: '',
+            papacity: '',
+            price: '',
+            // images: '',
+            city: '',
+            location: '',
+            description: '',
+          }}>
             {/* {formik=>(
               
 
