@@ -103,7 +103,8 @@ export const AddCamperForm = () => {
   const validationSchema = yup.object().shape({
     title: yup.string().min(3).max(20).required(),
     campertype:yup.string().required(),
-    // year: yup.string().required(),
+    year: yup.string().required(),
+    brand:yup.string().required(),
   });
 
   return (
@@ -165,15 +166,32 @@ export const AddCamperForm = () => {
                     type="text"
                     placeholder="Rocznik"
                     maxLength="4"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.year}
                   />
+                  {errors.year ? (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
+                      {errors.year}
+                    </p>
+                  ) : null}
                 </div>
+
                 <div>
                   <StyledInputText
                     name="brand"
                     type="text"
                     placeholder="Marka"
                     maxLength="20"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.brand}
                   />
+                  {errors.brand ? (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
+                      {errors.brand}
+                    </p>
+                  ) : null}
                 </div>
 
                 <div>
