@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import * as Yup from 'yup';
 import { UserContext } from "../../context/userContext";
 import {
   StyledBoxBackground,
@@ -20,6 +21,9 @@ import uuid from "react-uuid";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { Loader } from "../../components/Loader";
+
+
+
 
 export const AddCamperForm = () => {
   const [error, setError] = useState("");
@@ -82,6 +86,7 @@ export const AddCamperForm = () => {
       userid: context.userData.id,
       useremail: context.userData.email,
     };
+    const isValid = await validationSchema.isValid(camperData);
 
     addCamper(camperData)
       .then((res) => {
@@ -94,6 +99,12 @@ export const AddCamperForm = () => {
       });
     form.reset();
   };
+  
+  
+  const validationSchema = Yup.object().shape({
+    title: Yup.string().min(3).max(20).required(),
+    year: Yup.string().required(),
+  });
 
   return (
     <>
