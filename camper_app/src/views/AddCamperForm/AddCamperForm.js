@@ -100,35 +100,129 @@ export const AddCamperForm = () => {
     form.reset();
   };
 
-  // const validationSchema = yup.object().shape({
-  //   title: yup.string().min(3).max(20).required(),
-  //   year: yup.string().required(),
-  // });
+  const validationSchema = yup.object().shape({
+    title: yup.string().min(3).max(20).required(),
+    campertype:yup.string().required(),
+    // year: yup.string().required(),
+  });
 
   return (
     <>
       {!sendLoader ? (
         <div>
           <StyledHeader1>Dodaj campera</StyledHeader1>
-          <Formik initialValues={{
-            title: '',
-            campertype:'',
-            year: '',
-            brand: '',
-            papacity: '',
-            price: '',
-            // images: '',
-            city: '',
-            location: '',
-            description: '',
-          }}>
-            {/* {formik=>(
-              
+          <Formik onSubmit={handleSubmitCamper}
+            initialValues={{
+              title: "",
+              campertype: "",
+              year: "",
+              brand: "",
+              papacity: "",
+              price: "",
+              // images: '',
+              city: "",
+              location: "",
+              description: "",
+            }}
+            validationSchema={validationSchema}>
+            {({ errors, values, handleChange, handleBlur, isSubmitting }) => (
+              <Form>
+              <StyledBoxBackground>
+                <div>
+                  <StyledInputText
+                    name="title"
+                    type="text"
+                    placeholder="Tytuł ogłoszenia"
+                    maxLength="60"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.title}
+                  />
+                  {errors.title ? (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
+                      {errors.title}
+                    </p>
+                  ) : null}
+                </div>
 
+                <StyledSelect name="campertype" onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.campertype}>
+                  <option value="">Kategoria campera</option>
+                  <option value="campervan">Campervan</option>
+                  <option value="integra">Integra</option>
+                  <option value="polintegra">Półintegra</option>
+                  <option value="alkowa">Alkowa</option>
+                </StyledSelect>
+                {errors.campertype ? (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
+                      {errors.campertype}
+                    </p>
+                  ) : null}
+                <div>
+                  <StyledInputText
+                    name="year"
+                    type="text"
+                    placeholder="Rocznik"
+                    maxLength="4"
+                  />
+                </div>
+                <div>
+                  <StyledInputText
+                    name="brand"
+                    type="text"
+                    placeholder="Marka"
+                    maxLength="20"
+                  />
+                </div>
 
-            )
-              
-            } */}
+                <div>
+                  <StyledInputText
+                    name="capacity"
+                    type="text"
+                    placeholder="Ilość osób"
+                    maxLength="1"
+                  />
+                </div>
+                <div>
+                  <StyledInputText
+                    name="price"
+                    type="text"
+                    placeholder="Cena [pln]"
+                  />{" "}
+                  zł/dzień
+                </div>
+                <div>
+                  <StyledInputText
+                    name="city"
+                    type="text"
+                    placeholder="Miasto"
+                  />
+                </div>
+                <StyledSelect name="location">
+                  <option value="">Lokalizacja campera (województwo)</option>
+                  <option value="mazowieckie">mazowieckie</option>
+                  <option value="slaskie">śląskie</option>
+                  <option value="wielkopolskie">wielkopolskie</option>
+                  <option value="malopolskie">małopolskie</option>
+                  <option value="dolnoslaskie">dolnośląskie</option>
+                  <option value="lodzkie">łódzkie</option>
+                  <option value="pomorskie">pomorskie</option>
+                  <option value="podkarpackie">podkarpackie</option>
+                  <option value="lubelskie">lubelskie</option>
+                  <option value="kujawsko-pomorskie">kujawsko-pomorskie</option>
+                  <option value="zachodniopomorskie">zachodniopomorskie</option>
+                  <option value="warminsko-mazurskie">
+                    warmińsko-mazurskie
+                  </option>
+                  <option value="swietokrzyskie">świętokrzyskie</option>
+                  <option value="podlaskie">podlaskie</option>
+                  <option value="lubuskie">lubuskie</option>
+                  <option value="opolskie">opolskie</option>
+                </StyledSelect>
+              </StyledBoxBackground>
+              </Form>
+            )}
           </Formik>
           <form onSubmit={handleSubmitCamper} encType="multipart/form-data">
             <StyledBoxBackground>
