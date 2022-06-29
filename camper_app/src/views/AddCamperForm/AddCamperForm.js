@@ -23,15 +23,17 @@ import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { Loader } from "../../components/Loader";
 
+
 export const AddCamperForm = () => {
   const [error, setError] = useState("");
   const [sendLoader, setsendLoader] = useState(false);
   const context = useContext(UserContext);
 
-  const handleSubmitCamper = async (e) => {
-    e.preventDefault();
+  const handleSubmitCamper = async (values, {resetForm}) => {
+    console.log(values);
+    // e.preventDefault();
     setsendLoader(true);
-    const form = e.target;
+    // const form = e.target;
     const {
       title,
       campertype,
@@ -43,9 +45,11 @@ export const AddCamperForm = () => {
       location,
       description,
       imgcollection,
-    } = form;
+    } = values;
+console.log(imgcollection);
+console.log(imgcollection[0].name);
 
-    if (imgcollection.files["length"] > 5) {
+    if (imgcollection["length"] > 5) {
       setsendLoader(false);
       setError("Mozna dodać maksymalnie 5 zdjęć.");
       throw new Error("Zbyt wiele zdjęć");
@@ -53,17 +57,18 @@ export const AddCamperForm = () => {
     }
     const images = [];
     try {
-      for (let prop in imgcollection.files) {
-        if (typeof imgcollection.files[prop] === "object") {
+      for (let prop in imgcollection) {
+        if (typeof imgcollection[prop] === "object") {
           const storageRef = ref(
             storage,
-            `campers/${imgcollection.files[prop].name}+${uuid()}`
+            `campers/${imgcollection[prop].name}+${uuid()}`
           );
           const snapshot = await uploadBytes(
             storageRef,
-            imgcollection.files[prop]
+            imgcollection[prop]
           );
           const downloadUrl = await getDownloadURL(snapshot.ref);
+          console.log(downloadUrl)
           images.push(downloadUrl);
         }
       }
@@ -72,20 +77,21 @@ export const AddCamperForm = () => {
     }
 
     const camperData = {
-      title: title.value,
-      campertype: campertype.value,
-      year: year.value,
-      brand: brand.value,
-      papacity: capacity.value,
-      price: price.value,
+      title: title,
+      campertype: campertype,
+      year: year,
+      brand: brand,
+      papacity: capacity,
+      price: price,
       images: images,
-      city: city.value,
-      location: location.value,
-      description: description.value,
+      city: city,
+      location: location,
+      description: description,
       usertlf: context.userData.mobil,
       userid: context.userData.id,
       useremail: context.userData.email,
     };
+    console.log(camperData);
     // const isValid = await validationSchema.isValid(camperData);
 
     addCamper(camperData)
@@ -97,11 +103,11 @@ export const AddCamperForm = () => {
         NotificationManager.error("Błąd wysyłania");
         setsendLoader(false);
       });
-    form.reset();
+      resetForm();
   };
 
   const validationSchema = yup.object().shape({
-    title: yup.string().min(3).max(20).required(),
+    title: yup.string().min(3,'Minimalna ilość znaków 3').max(20,'Maksymalna ilość znaków 20').required('Wymagane'),
     campertype: yup.string().required(),
     year: yup.string().required(),
     brand: yup.string().required(),
@@ -109,6 +115,7 @@ export const AddCamperForm = () => {
     price: yup.string().required(),
     city: yup.string().min(2).required(),
     location: yup.string().required(),
+    imgcollection:yup.mixed().required(),
     description: yup.string().required(),
   });
 
@@ -126,15 +133,16 @@ export const AddCamperForm = () => {
               brand: "",
               papacity: "",
               price: "",
-              // images: '',
+              imgcollection: null,
               city: "",
               location: "",
               description: "",
             }}
             validationSchema={validationSchema}
           >
-            {({ errors, values, handleChange, handleBlur, isSubmitting }) => (
+            {({ errors, values, handleChange, handleBlur, isSubmitting ,setFieldValue}) => (
               <Form>
+                {/* {console.log(values)} */}
                 <StyledBoxBackground>
                   <div>
                     <StyledInputText
@@ -308,7 +316,18 @@ export const AddCamperForm = () => {
                     name="imgcollection"
                     multiple
                     accept="image/jpg, image/png"
+                    required
+                    onChange={(event)=>{
+                      setFieldValue("imgcollection",event.currentTarget.files);
+                    }}
+                    
                   />
+                  {errors.imgcollection ? (
+                    <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
+                      {errors.imgcollection}
+                    </p>
+                  ) : null}
+                  
                   <StyledError> {error && error} </StyledError>
                 </StyledBoxBackground>
                 <StyledBoxBackground>
@@ -329,7 +348,8 @@ export const AddCamperForm = () => {
                   ) : null}
                   </div>
                 </StyledBoxBackground>
-                <StyledButton disabled={isSubmitting}>Dodaj campera</StyledButton>
+                <StyledButton disabled={isSubmitting} type="submit">Dodaj campera</StyledButton>
+               
               </Form>
             )}
           </Formik>
