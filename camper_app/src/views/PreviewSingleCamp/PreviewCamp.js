@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/userContext";
 import {
   StyledDescriptionBox,
@@ -17,7 +17,10 @@ import {
   StyledEditButton,
   ButtonsSection,
 } from "./PreviewCamp.style";
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 import { getCamperById } from "../../api/geCamperById";
+import { deleteCamper } from "../../api/deleteCamper";
 import { UsersComments2 } from "../../components/UsersComments2";
 import { Calendar } from "../../components/calendar/Calendar";
 import MyGallery from "../../components/MyGallery";
@@ -26,6 +29,7 @@ export function PreviewCamp() {
   const [camper, setCamper] = useState();
   const params = useParams();
   const { id } = params;
+  const navigate = useNavigate();
   const context = useContext(UserContext);
   useEffect(() => {
     getCamperById(id)
@@ -34,7 +38,16 @@ export function PreviewCamp() {
       })
       .catch((er) => console.log(er));
   }, []);
+function deleteCamperHandler(id){
 
+  deleteCamper(id).then(res=>{
+    NotificationManager.success("Kamper został usunięty");
+    navigate('/find-camper')
+  }).catch(er=>{
+    NotificationManager.error("Coś poszło nie tak");
+    console.log(er)})
+
+}
   return (
     <>
       {camper && (
@@ -50,7 +63,7 @@ export function PreviewCamp() {
             <StyledEditButton>
               Edytuj ogłoszenie
             </StyledEditButton>
-            <StyledEditButton>
+            <StyledEditButton onClick={()=>deleteCamperHandler(id)}>
               Usuń ogłoszenie
             </StyledEditButton>
           </ButtonsSection>

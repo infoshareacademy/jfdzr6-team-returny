@@ -15,7 +15,7 @@ import { Register } from "./views/Register";
 import { Login } from "./views/Login";
 import { ForgotPassword } from "./views/ForgotPass";
 import { getUserById } from "./api/getUserById";
-import { Calendar } from "./components/calendar/Calendar";
+
 
 export function App() {
   const context = useContext(UserContext);
@@ -52,7 +52,7 @@ export function App() {
           <Route path="contact" element={<Home />} />
           <Route path="insurance" element={<Home />} />
 
-          <Route path="calendar" element={<Calendar />} />
+         
 
           <Route
             path="add-camper"
