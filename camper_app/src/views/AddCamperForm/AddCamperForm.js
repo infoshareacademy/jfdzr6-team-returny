@@ -36,7 +36,7 @@ export const AddCamperForm = () => {
       campertype,
       year,
       brand,
-      capacity,
+      papacity,
       price,
       city,
       location,
@@ -75,7 +75,7 @@ export const AddCamperForm = () => {
       campertype: campertype,
       year: year,
       brand: brand,
-      papacity: capacity,
+      papacity: papacity,
       price: price,
       images: images,
       city: city,
@@ -104,18 +104,18 @@ export const AddCamperForm = () => {
   const validationSchema = yup.object().shape({
     title: yup
       .string()
-      .min(3, "Minimalna ilość znaków 3")
-      .max(20, "Maksymalna ilość znaków 20")
-      .required("Wymagane"),
-    campertype: yup.string().required("Wymagane"),
-    year: yup.number().typeError("Niewłaściwy format danych").required("Wymagane"),
-    brand: yup.string().required("Wymagane"),
-    capacity: yup.number().typeError("Niewłaściwy format danych").required("Wymagane"),
-    price: yup.number().typeError("Niewłaściwy format danych").required("Wymagane"),
-    city: yup.string().min(2, "Minimalna ilość znaków 2").required("Wymagane"),
-    location: yup.string().required("Wymagane"),
-    imgcollection: yup.mixed().required("Wymagane"),
-    description: yup.string().min(20, "Minimalna ilość znaków 20").required("Wymagane"),
+      .min(3, "* Minimalna ilość znaków 3")
+      .max(20, "* Maksymalna ilość znaków 20")
+      .required("* Wymagane"),
+    campertype: yup.string().required("* Wymagane"),
+    year: yup.number().typeError("* Niewłaściwy format danych").required("* Wymagane"),
+    brand: yup.string().required("* Wymagane"),
+    papacity: yup.number().typeError("* Niewłaściwy format danych").required("* Wymagane"),
+    price: yup.number().typeError("* Niewłaściwy format danych").required("* Wymagane"),
+    city: yup.string().min(2, "* Minimalna ilość znaków 2").required("* Wymagane"),
+    location: yup.string().required("* Wymagane"),
+    imgcollection: yup.mixed().required("* Wymagane"),
+    description: yup.string().min(20, "* Minimalna ilość znaków 20").required("* Wymagane"),
   });
 
   return (
@@ -161,7 +161,7 @@ export const AddCamperForm = () => {
                     />
                     {errors.title ? (
                       <p
-                        style={{ color: "red", margin: "0", fontSize: "12px" }}
+                        style={{ color: "red", margin: "0", fontSize: "12px",margin: "5px 5px 5px 50px" }}
                       >
                         {errors.title}
                       </p>
@@ -181,7 +181,7 @@ export const AddCamperForm = () => {
                     <option value="alkowa">Alkowa</option>
                   </StyledSelect>
                   {errors.campertype ? (
-                    <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
+                    <p style={{ color: "red", margin: "0", fontSize: "12px", margin: "5px 5px 5px 50px"}}>
                       {errors.campertype}
                     </p>
                   ) : null}
@@ -197,7 +197,7 @@ export const AddCamperForm = () => {
                     />
                     {errors.year ? (
                       <p
-                        style={{ color: "red", margin: "0", fontSize: "12px" }}
+                        style={{ color: "red", margin: "0", fontSize: "12px", margin: "5px 5px 5px 50px" }}
                       >
                         {errors.year}
                       </p>
@@ -216,7 +216,7 @@ export const AddCamperForm = () => {
                     />
                     {errors.brand ? (
                       <p
-                        style={{ color: "red", margin: "0", fontSize: "12px" }}
+                        style={{ color: "red", margin: "0", fontSize: "12px", margin: "5px 5px 5px 50px" }}
                       >
                         {errors.brand}
                       </p>
@@ -225,19 +225,19 @@ export const AddCamperForm = () => {
 
                   <div>
                     <StyledInputText
-                      name="capacity"
+                      name="papacity"
                       type="text"
                       placeholder="Ilość osób"
                       maxLength="1"
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.capacity}
+                      value={values.papacity}
                     />
-                    {errors.capacity ? (
+                    {errors.papacity ? (
                       <p
-                        style={{ color: "red", margin: "0", fontSize: "12px" }}
+                        style={{ color: "red", margin: "0", fontSize: "12px", margin: "5px 5px 5px 50px" }}
                       >
-                        {errors.capacity}
+                        {errors.papacity}
                       </p>
                     ) : null}
                   </div>
@@ -253,7 +253,7 @@ export const AddCamperForm = () => {
                     zł/dzień
                     {errors.price ? (
                       <p
-                        style={{ color: "red", margin: "0", fontSize: "12px" }}
+                        style={{ color: "red", margin: "0", fontSize: "12px", margin: "5px 5px 5px 50px" }}
                       >
                         {errors.price}
                       </p>
@@ -270,7 +270,7 @@ export const AddCamperForm = () => {
                     />
                     {errors.city ? (
                       <p
-                        style={{ color: "red", margin: "0", fontSize: "12px" }}
+                        style={{ color: "red", margin: "0", fontSize: "12px", margin: "5px 5px 5px 50px" }}
                       >
                         {errors.city}
                       </p>
@@ -307,7 +307,7 @@ export const AddCamperForm = () => {
                     <option value="opolskie">opolskie</option>
                   </StyledSelect>
                   {errors.location ? (
-                    <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
+                    <p style={{ color: "red", margin: "0", fontSize: "12px", margin: "5px 5px 5px 50px" }}>
                       {errors.location}
                     </p>
                   ) : null}
@@ -327,7 +327,7 @@ export const AddCamperForm = () => {
                     }}
                   />
                   {errors.imgcollection ? (
-                    <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
+                    <p style={{ color: "red", margin: "0", fontSize: "12px", margin: "5px 5px 5px 50px" }}>
                       {errors.imgcollection}
                     </p>
                   ) : null}
@@ -347,7 +347,7 @@ export const AddCamperForm = () => {
                     />
                     {errors.description ? (
                       <p
-                        style={{ color: "red", margin: "0", fontSize: "12px" }}
+                        style={{ color: "red", margin: "0", fontSize: "12px", margin: "5px 5px 5px 50px" }}
                       >
                         {errors.description}
                       </p>
