@@ -4,14 +4,11 @@ import { getAllCampers } from "../../api/getAllCampers";
 import { getCampersByType } from "../../api/getCampersByType";
 import { Loader } from "../../components/Loader";
 import { NotificationManager } from "react-notifications";
-import { Card } from "../../components/Card";
-import { FindCmpr } from "../../components/FindCmpr";
+import { CardOwner } from "../../components/CardOwner";
 
 import { StyledHeader1 } from "./CamperOwnerPanel.style";
 
 export const CamperOwnerPanel = () => {
-
-    // const UserAllCampers = 
 
     const [myCampers, setMyCampers] = useState([]);
     const [missCamper, setMissCamper] = useState(false);
@@ -60,7 +57,7 @@ export const CamperOwnerPanel = () => {
             {/* <FindCmpr  setSearch={setSearch} setMissCamper={setMissCamper} /> */}
             {!missCamper ? (
               <div className="wrapper">
-                {myCampers && myCampers.map((el) => <Card key={el.id} data={el} />)}
+                {myCampers && myCampers.map((el) => <CardOwner key={el.id} data={el} />)}
               </div>
             ) : (
               <h3 style={{ textAlign: "center", marginBottom: "50px" }}>
