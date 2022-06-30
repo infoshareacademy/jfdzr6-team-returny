@@ -79,9 +79,10 @@ margin:2rem;
 .find {
   display: flex;
   flex-direction:row;
+  justify-content: center;
   align-items:center;
-  margin:61px 20px 24px 163px;
-  gap: 16px;
+  margin:78px 32px 32px 167px;
+  gap: 52px;
 
 }
 
