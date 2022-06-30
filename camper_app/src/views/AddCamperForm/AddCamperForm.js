@@ -23,17 +23,14 @@ import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { Loader } from "../../components/Loader";
 
-
 export const AddCamperForm = () => {
   const [error, setError] = useState("");
   const [sendLoader, setsendLoader] = useState(false);
   const context = useContext(UserContext);
 
-  const handleSubmitCamper = async (values, {resetForm}) => {
-    console.log(values);
-    // e.preventDefault();
+  const handleSubmitCamper = async (values, { resetForm }) => {
     setsendLoader(true);
-    // const form = e.target;
+
     const {
       title,
       campertype,
@@ -46,8 +43,8 @@ export const AddCamperForm = () => {
       description,
       imgcollection,
     } = values;
-console.log(imgcollection);
-console.log(imgcollection[0].name);
+    console.log(imgcollection);
+    console.log(imgcollection[0].name);
 
     if (imgcollection["length"] > 5) {
       setsendLoader(false);
@@ -63,12 +60,9 @@ console.log(imgcollection[0].name);
             storage,
             `campers/${imgcollection[prop].name}+${uuid()}`
           );
-          const snapshot = await uploadBytes(
-            storageRef,
-            imgcollection[prop]
-          );
+          const snapshot = await uploadBytes(storageRef, imgcollection[prop]);
           const downloadUrl = await getDownloadURL(snapshot.ref);
-          console.log(downloadUrl)
+          console.log(downloadUrl);
           images.push(downloadUrl);
         }
       }
@@ -92,7 +86,6 @@ console.log(imgcollection[0].name);
       useremail: context.userData.email,
     };
     console.log(camperData);
-    // const isValid = await validationSchema.isValid(camperData);
 
     addCamper(camperData)
       .then((res) => {
@@ -103,20 +96,26 @@ console.log(imgcollection[0].name);
         NotificationManager.error("Błąd wysyłania");
         setsendLoader(false);
       });
-      resetForm();
+    resetForm();
   };
 
+  
+
   const validationSchema = yup.object().shape({
-    title: yup.string().min(3,'Minimalna ilość znaków 3').max(20,'Maksymalna ilość znaków 20').required('Wymagane'),
-    campertype: yup.string().required('Wymagane'),
-    year: yup.string().required('Wymagane'),
-    brand: yup.string().required('Wymagane'),
-    capacity: yup.string().required('Wymagane'),
-    price: yup.string().required('Wymagane'),
-    city: yup.string().min(2,'Minimalna ilość znaków 2').required('Wymagane'),
-    location: yup.string().required('Wymagane'),
-    imgcollection:yup.mixed().required('Wymagane'),
-    description: yup.string().required('Wymagane'),
+    title: yup
+      .string()
+      .min(3, "Minimalna ilość znaków 3")
+      .max(20, "Maksymalna ilość znaków 20")
+      .required("Wymagane"),
+    campertype: yup.string().required("Wymagane"),
+    year: yup.number().typeError("Niewłaściwy format danych").required("Wymagane"),
+    brand: yup.string().required("Wymagane"),
+    capacity: yup.number().typeError("Niewłaściwy format danych").required("Wymagane"),
+    price: yup.number().typeError("Niewłaściwy format danych").required("Wymagane"),
+    city: yup.string().min(2, "Minimalna ilość znaków 2").required("Wymagane"),
+    location: yup.string().required("Wymagane"),
+    imgcollection: yup.mixed().required("Wymagane"),
+    description: yup.string().min(20, "Minimalna ilość znaków 20").required("Wymagane"),
   });
 
   return (
@@ -140,9 +139,15 @@ console.log(imgcollection[0].name);
             }}
             validationSchema={validationSchema}
           >
-            {({ errors, values, handleChange, handleBlur, isSubmitting ,setFieldValue}) => (
+            {({
+              errors,
+              values,
+              handleChange,
+              handleBlur,
+              isSubmitting,
+              setFieldValue,
+            }) => (
               <Form>
-               
                 <StyledBoxBackground>
                   <div>
                     <StyledInputText
@@ -317,17 +322,16 @@ console.log(imgcollection[0].name);
                     multiple
                     accept="image/jpg, image/png"
                     required
-                    onChange={(event)=>{
-                      setFieldValue("imgcollection",event.currentTarget.files);
+                    onChange={(event) => {
+                      setFieldValue("imgcollection", event.currentTarget.files);
                     }}
-                    
                   />
                   {errors.imgcollection ? (
                     <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
                       {errors.imgcollection}
                     </p>
                   ) : null}
-                  
+
                   <StyledError> {error && error} </StyledError>
                 </StyledBoxBackground>
                 <StyledBoxBackground>
@@ -338,22 +342,24 @@ console.log(imgcollection[0].name);
                       type="text"
                       placeholder="Opisz swój pojazd..."
                       onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.description}
+                      onBlur={handleBlur}
+                      value={values.description}
                     />
                     {errors.description ? (
-                    <p style={{ color: "red", margin: "0", fontSize: "12px" }}>
-                      {errors.description}
-                    </p>
-                  ) : null}
+                      <p
+                        style={{ color: "red", margin: "0", fontSize: "12px" }}
+                      >
+                        {errors.description}
+                      </p>
+                    ) : null}
                   </div>
                 </StyledBoxBackground>
-                <StyledButton disabled={isSubmitting} type="submit">Dodaj campera</StyledButton>
-               
+                <StyledButton disabled={isSubmitting} type="submit">
+                  Dodaj campera
+                </StyledButton>
               </Form>
             )}
           </Formik>
-          
         </div>
       ) : (
         <Loader />
