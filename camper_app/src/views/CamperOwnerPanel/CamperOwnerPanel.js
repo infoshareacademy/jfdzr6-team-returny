@@ -4,9 +4,9 @@ import { getAllCampers } from "../../api/getAllCampers";
 import { getCampersByType } from "../../api/getCampersByType";
 import { Loader } from "../../components/Loader";
 import { NotificationManager } from "react-notifications";
-import { CardOwner } from "../../components/CardOwner";
+import { CardOwner } from "./CardOwner";
+import { StyledHeader1, StyledWrapper } from "./CamperOwnerPanel.style"
 
-import { StyledHeader1 } from "./CamperOwnerPanel.style";
 
 export const CamperOwnerPanel = () => {
 
@@ -34,7 +34,6 @@ export const CamperOwnerPanel = () => {
       }
     }, [search]);
     
-  
     useEffect(() => {
       getAllCampers()
         .then((data) => {
@@ -51,14 +50,14 @@ export const CamperOwnerPanel = () => {
 
     return (
       <>
-      <StyledHeader1>Lista moich camperów</StyledHeader1>
+        <StyledHeader1>Lista moich camperów</StyledHeader1>
         {myCampers.length !== 0 ? (
           <>
             {/* <FindCmpr  setSearch={setSearch} setMissCamper={setMissCamper} /> */}
             {!missCamper ? (
-              <div className="wrapper">
+              <StyledWrapper>
                 {myCampers && myCampers.map((el) => <CardOwner key={el.id} data={el} />)}
-              </div>
+              </StyledWrapper>
             ) : (
               <h3 style={{ textAlign: "center", marginBottom: "50px" }}>
                 Brak kamperów do wyświetlenia
