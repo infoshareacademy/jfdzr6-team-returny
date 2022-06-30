@@ -108,15 +108,15 @@ console.log(imgcollection[0].name);
 
   const validationSchema = yup.object().shape({
     title: yup.string().min(3,'Minimalna ilość znaków 3').max(20,'Maksymalna ilość znaków 20').required('Wymagane'),
-    campertype: yup.string().required(),
-    year: yup.string().required(),
-    brand: yup.string().required(),
-    capacity: yup.string().required(),
-    price: yup.string().required(),
-    city: yup.string().min(2).required(),
-    location: yup.string().required(),
-    imgcollection:yup.mixed().required(),
-    description: yup.string().required(),
+    campertype: yup.string().required('Wymagane'),
+    year: yup.string().required('Wymagane'),
+    brand: yup.string().required('Wymagane'),
+    capacity: yup.string().required('Wymagane'),
+    price: yup.string().required('Wymagane'),
+    city: yup.string().min(2,'Minimalna ilość znaków 2').required('Wymagane'),
+    location: yup.string().required('Wymagane'),
+    imgcollection:yup.mixed().required('Wymagane'),
+    description: yup.string().required('Wymagane'),
   });
 
   return (
