@@ -39,15 +39,15 @@ export function PreviewCamp() {
       .catch((er) => console.log(er));
   }, []);
 function deleteCamperHandler(id){
-
   deleteCamper(id).then(res=>{
     NotificationManager.success("Kamper został usunięty");
     navigate('/find-camper')
   }).catch(er=>{
     NotificationManager.error("Coś poszło nie tak");
     console.log(er)})
-
 }
+console.log(context.userData.id);
+console.log(camper)
   return (
     <>
       {camper && (
@@ -58,7 +58,7 @@ function deleteCamperHandler(id){
           </CampTitle>
 
           <MyGallery camper={camper} />
-
+        {context.userData.id===camper.userid &&
           <ButtonsSection>
             <StyledEditButton>
               Edytuj ogłoszenie
@@ -67,6 +67,8 @@ function deleteCamperHandler(id){
               Usuń ogłoszenie
             </StyledEditButton>
           </ButtonsSection>
+        
+        }
 
           <StyledCampDetails>
             <h2>O camperze:</h2>
