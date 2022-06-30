@@ -42,7 +42,7 @@ export function FindCmpr({ setSearch, setMissCamper }) {
       <div class="select_one">
         <p>Typ campera</p>
         <select id="select__one" name="camperType" onChange={handleSelectType}>
-          <option value="allcapers">Wybierz</option>
+          <option value="allcapers">Wszystkie pojazdy</option>
           <option value="campervan">Campervan</option>
           <option value="integra">Integra</option>
           <option value="polintegra">Półintegra</option>
@@ -54,7 +54,7 @@ export function FindCmpr({ setSearch, setMissCamper }) {
       <div class="select_two">
         <p>Województwo</p>
         <select id="select__two" name="region" onChange={handleChangeRegion}>
-          <option value="none">Wybierz</option>
+          <option value="none">Wszystkie województwa</option>
           <option value="mazowieckie">mazowieckie</option>
           <option value="slaskie">śląskie</option>
           <option value="wielkopolskie">wielkopolskie</option>
