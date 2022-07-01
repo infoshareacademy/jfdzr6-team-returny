@@ -16,7 +16,7 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 20px;
+  margin: 100px;
   padding: 30px;
 `
 
