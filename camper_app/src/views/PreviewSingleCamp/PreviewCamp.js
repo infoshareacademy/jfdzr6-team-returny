@@ -27,10 +27,15 @@ import MyGallery from "../../components/MyGallery";
 
 export function PreviewCamp() {
   const [camper, setCamper] = useState();
+  const [isEdit, setisEdit] = useState(false);
+  const [newPrice,setNewPrice]= useState('');
+  const [newDescription,setnewDescription]= useState('');
+  
   const params = useParams();
   const { id } = params;
   const navigate = useNavigate();
   const context = useContext(UserContext);
+
   useEffect(() => {
     getCamperById(id)
       .then((data) => {
@@ -38,6 +43,7 @@ export function PreviewCamp() {
       })
       .catch((er) => console.log(er));
   }, []);
+
 function deleteCamperHandler(id){
   deleteCamper(id).then(res=>{
     NotificationManager.success("Kamper został usunięty");
@@ -48,6 +54,21 @@ function deleteCamperHandler(id){
 }
 console.log(context.userData.id);
 console.log(camper)
+
+function handleChangePrice(e) {
+  setNewPrice(e.target.value);
+  console.log(newPrice)
+}
+
+function handleChangeDescription(e) {
+  setnewDescription(e.target.value);
+  console.log(newDescription)
+}
+function handleSubmitChange(e){
+  e.preventDefault();
+  console.log(newPrice)
+  console.log(newDescription)
+}
   return (
     <>
       {camper && (
@@ -60,7 +81,7 @@ console.log(camper)
           <MyGallery camper={camper} />
         {context.userData.id===camper.userid &&
           <ButtonsSection>
-            <StyledEditButton>
+            <StyledEditButton onClick={()=>setisEdit(true)}>
               Edytuj ogłoszenie
             </StyledEditButton>
             <StyledEditButton onClick={()=>deleteCamperHandler(id)}>
@@ -69,6 +90,35 @@ console.log(camper)
           </ButtonsSection>
         
         }
+          {isEdit ? 
+          <StyledCampDetails>
+      <form onSubmit={handleSubmitChange}>
+        cena
+        <input
+          value={newPrice}
+          onChange={handleChangePrice}
+          placeholder="Zmień cene"
+          required
+        />
+        opis
+        <textarea
+          value={newDescription}
+          onChange={handleChangeDescription}
+          placeholder="Zmień opis"
+          required
+        />
+        <button type="submit">Zatwierdź zmiany</button>
+        <button onClick={(e)=>{
+          e.preventDefault();
+          setisEdit(false)}
+
+        }>
+            Zrezygnuj</button>
+      </form>
+
+          </StyledCampDetails> : null
+          }
+
 
           <StyledCampDetails>
             <h2>O camperze:</h2>
