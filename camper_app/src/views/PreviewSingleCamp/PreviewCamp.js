@@ -56,17 +56,13 @@ export function PreviewCamp() {
         console.log(er);
       });
   }
-  console.log(context.userData.id);
-  console.log(camper);
 
   function handleChangePrice(e) {
     setNewPrice(e.target.value);
-    console.log(newPrice);
   }
 
   function handleChangeDescription(e) {
     setnewDescription(e.target.value);
-    console.log(newDescription);
   }
   function handleSubmitChange(e) {
     e.preventDefault();
