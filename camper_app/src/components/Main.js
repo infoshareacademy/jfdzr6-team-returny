@@ -30,7 +30,7 @@ export const Main = ()=>{
           </>
         )}
         {!context.userData && (
-          <button> <Link to="/login"> Dodaj campera</Link></button>
+          <button className="ButtonMain"> <Link to="/login"> Dodaj campera</Link></button>
         )}
 
 

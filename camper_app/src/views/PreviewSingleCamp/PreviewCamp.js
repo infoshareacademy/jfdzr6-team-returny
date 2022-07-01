@@ -16,6 +16,10 @@ import {
   StyledComment,
   StyledEditButton,
   ButtonsSection,
+  StyledCalendar,
+  StyledCalendarDiv,
+  StyledCalendarDiv2,
+ 
 } from "./PreviewCamp.style";
 import { NotificationManager } from "react-notifications";
 import "react-notifications/lib/notifications.css";
@@ -25,6 +29,7 @@ import { updateCamper } from "../../api/updateCamper";
 import { UsersComments2 } from "../../components/UsersComments2";
 import { Calendar } from "../../components/calendar/Calendar";
 import MyGallery from "../../components/MyGallery";
+import { FaGripVertical, FaTruck, FaTasks, FaCalendarAlt, FaMoneyCheckAlt, FaRegTrashAlt, FaPencilAlt, FaRegMap, FaShuttleVan, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 export function PreviewCamp() {
   const [camper, setCamper] = useState();
@@ -80,20 +85,27 @@ export function PreviewCamp() {
   }
   return (
     <>
+
+    
       {camper && (
+
+
+
+
+
         <Wrapper>
           <CampTitle>
-            <h2>{camper.title}</h2>
+            <h2> {camper.title}  <hr></hr> </h2>
           </CampTitle>
 
           <MyGallery camper={camper} />
           {context.userData.id === camper.userid && (
             <ButtonsSection>
               <StyledEditButton onClick={() => setisEdit(true)}>
-                Edytuj ogłoszenie
+              <FaPencilAlt/> Edytuj ogłoszenie
               </StyledEditButton>
               <StyledEditButton onClick={() => deleteCamperHandler(id)}>
-                Usuń ogłoszenie
+              <FaRegTrashAlt/> Usuń ogłoszenie
               </StyledEditButton>
             </ButtonsSection>
           )}
@@ -132,19 +144,20 @@ export function PreviewCamp() {
           ) : null}
 
           <StyledCampDetails>
-            <h2>O camperze:</h2>
-            <p>Kategoria: {camper.campertype}</p>
-            <p>Rocznik : {camper.year}</p>
-            <p>Marka : {camper.brand}</p>
-            <p>Ilość osób : {camper.papacity}</p>
-            <p>Cena (zł/dzień) : {camper.price}</p>
+            <h2><FaShuttleVan /> O Camperze:</h2>
+            <hr></hr>
+            <p><FaGripVertical /> Kategoria: {camper.campertype}</p>
+            <p><FaCalendarAlt /> Rocznik: {camper.year}</p>
+            <p><FaTruck /> Marka: {camper.brand}</p>
+            <p><FaTasks /> Ilość osób: {camper.papacity}</p>
+            <p><FaMoneyCheckAlt /> Cena (zł/dzień): {camper.price}</p>
             <p>Miasto : {camper.city}</p>
-            <p>Lokalizacja : {camper.location}</p>
+            <p><FaRegMap /> Lokalizacja: {camper.location}</p>
           </StyledCampDetails>
 
           <StyledDescriptionBox>
             <StyledDescription>
-              <h2>Opis:</h2>
+              <h2>Opis:  <hr></hr> </h2>
               {camper.description}
             </StyledDescription>
           </StyledDescriptionBox>
@@ -152,18 +165,24 @@ export function PreviewCamp() {
           {context.userData && (
             <StyledContactDetails>
               <StyledContactHead>
-                <h2>Dane kontaktowe:</h2>
+                <h2>Dane kontaktowe:  <hr></hr> </h2>
               </StyledContactHead>
-              <p>Telefon: {camper.usertlf}</p>
-              <p>E-Mail: {camper.useremail}</p>
+              <p><FaPhoneAlt /> Telefon: {camper.usertlf}</p>
+              <p><FaEnvelope /> E-Mail: {camper.useremail}</p>
             </StyledContactDetails>
           )}
+          
 
+        <StyledCalendarDiv>
+          <StyledCalendar>
           <Calendar camper={camper} user={context.userData} />
-
+          </StyledCalendar>       
+        </StyledCalendarDiv>
           <UsersComments2 camperData={camper} />
         </Wrapper>
       )}
     </>
   );
 }
+
+
