@@ -128,7 +128,7 @@ export const StyledEditButton = styled.button `
   display: flex;
   flex-direction: row;
   padding: 20px;
-  margin-left: 40px;
+  margin-left: 13px;
   border-radius: 30px;
   font-family: 'Play', sans-serif;
   font-weight: bold;

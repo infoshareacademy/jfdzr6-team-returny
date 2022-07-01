@@ -53,7 +53,7 @@ export function PreviewCamp() {
         <Wrapper>
 
           <CampTitle>
-            <h2> {camper.title}</h2>
+            <h2> {camper.title}  <hr></hr> </h2>
           </CampTitle>
 
           <MyGallery camper={camper} />
@@ -68,18 +68,19 @@ export function PreviewCamp() {
           </ButtonsSection>
 
           <StyledCampDetails>
-            <h2><FaShuttleVan /> O camperze:</h2>
+            <h2><FaShuttleVan /> O Camperze:</h2>
+            <hr></hr>
             <p><FaGripVertical /> Kategoria: {camper.campertype}</p>
-            <p><FaCalendarAlt /> Rocznik : {camper.year}</p>
-            <p><FaTruck /> Marka : {camper.brand}</p>
-            <p><FaTasks /> Ilość osób : {camper.papacity}</p>
-            <p><FaMoneyCheckAlt /> Cena (zł/dzień) : {camper.price}</p>
-            <p><FaRegMap /> Lokalizacja :{camper.location}</p>
+            <p><FaCalendarAlt /> Rocznik: {camper.year}</p>
+            <p><FaTruck /> Marka: {camper.brand}</p>
+            <p><FaTasks /> Ilość osób: {camper.papacity}</p>
+            <p><FaMoneyCheckAlt /> Cena (zł/dzień): {camper.price}</p>
+            <p><FaRegMap /> Lokalizacja: {camper.location}</p>
           </StyledCampDetails>
 
           <StyledDescriptionBox>
             <StyledDescription>
-              <h2>Opis:</h2>
+              <h2>Opis:  <hr></hr> </h2>
               {camper.description}
             </StyledDescription>
           </StyledDescriptionBox>
@@ -87,7 +88,7 @@ export function PreviewCamp() {
           {context.userData && (
             <StyledContactDetails>
               <StyledContactHead>
-                <h2>Dane kontaktowe:</h2>
+                <h2>Dane kontaktowe:  <hr></hr> </h2>
               </StyledContactHead>
               <p><FaPhoneAlt /> Telefon: {camper.usertlf}</p>
               <p><FaEnvelope /> E-Mail: {camper.useremail}</p>
