@@ -22,7 +22,7 @@ export const CamperOwnerPanel = () => {
   return (
     <>
       <StyledHeader1>Lista moich camperów</StyledHeader1>
-      {myCampers ? (
+      {myCampers.length ? (
         <StyledWrapper>
           {myCampers.map((el) => (
             <CardOwner key={el.id} data={el} />
