@@ -32,7 +32,7 @@ class MyGallery extends React.Component {
     <ImageGallery items={newArr} autoPlay={true}
           showThumbnails={true}
           showNav={false}
-          showPlayButton={false}
+          showPlayButton={true}
           useBrowserFullscreen={false}
           slideInterval={5000}/>
     </ContenerDiv>

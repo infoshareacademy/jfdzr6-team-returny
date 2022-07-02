@@ -13,7 +13,7 @@ import { FindCmpr } from "../../components/FindCmpr";
 export const CamperCard = () => {
   const [campers, setCampers] = useState([]);
   const [missCamper, setMissCamper] = useState(false);
-  const [search, setSearch] = useState({ type: "", region: "" });
+  const [search, setSearch] = useState({ type: "allcapers", region: "" });
 
   useEffect(() => {
     if (search.type === "allcapers" && !search.region) {
