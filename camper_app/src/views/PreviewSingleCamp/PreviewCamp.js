@@ -19,6 +19,7 @@ import {
   StyledCalendar,
   StyledCalendarDiv,
   StyledCalendarDiv2,
+  StyledButtonEdit
  
 } from "./PreviewCamp.style";
 import { NotificationManager } from "react-notifications";
@@ -29,7 +30,7 @@ import { updateCamper } from "../../api/updateCamper";
 import { UsersComments2 } from "../../components/UsersComments2";
 import { Calendar } from "../../components/calendar/Calendar";
 import MyGallery from "../../components/MyGallery";
-import { FaGripVertical, FaTruck, FaTasks, FaCalendarAlt, FaMoneyCheckAlt, FaRegTrashAlt, FaPencilAlt, FaRegMap, FaShuttleVan, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaGripVertical, FaTruck, FaTasks, FaCalendarAlt, FaMoneyCheckAlt, FaRegTrashAlt, FaPencilAlt, FaRegMap, FaShuttleVan, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 
 export function PreviewCamp() {
   const [camper, setCamper] = useState();
@@ -113,7 +114,7 @@ export function PreviewCamp() {
             <StyledCampDetails>
               <form onSubmit={handleSubmitChange}>
                 <div>
-                  cena
+                  <h1>Cena:</h1>
                   <input
                     value={newPrice}
                     onChange={handleChangePrice}
@@ -122,7 +123,7 @@ export function PreviewCamp() {
                   />
                 </div>
                 <div>
-                  opis
+                  <h1>Opis:</h1>
                   <textarea
                     value={newDescription}
                     onChange={handleChangeDescription}
@@ -130,14 +131,17 @@ export function PreviewCamp() {
                     required
                   />
                 </div>
-                <button type="submit">Zatwierdź zmiany</button>
+                <button type="submit">Zapisz</button>
+                
+              
+                
                 <button
                   onClick={(e) => {
                     e.preventDefault();
                     setisEdit(false);
                   }}
                 >
-                  Zrezygnuj
+                  Anuluj
                 </button>
               </form>
             </StyledCampDetails>
@@ -151,7 +155,7 @@ export function PreviewCamp() {
             <p><FaTruck /> Marka: {camper.brand}</p>
             <p><FaTasks /> Ilość osób: {camper.papacity}</p>
             <p><FaMoneyCheckAlt /> Cena (zł/dzień): {camper.price}</p>
-            <p>Miasto : {camper.city}</p>
+            <p><FaMapMarkerAlt /> Miasto : {camper.city}</p>
             <p><FaRegMap /> Lokalizacja: {camper.location}</p>
           </StyledCampDetails>
 

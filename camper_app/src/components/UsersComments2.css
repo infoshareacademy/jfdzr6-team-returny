@@ -1,6 +1,6 @@
 .StyledComment {
 background-color: #f0f0f0;
-font-size: 12px;
+font-size: 16px;
 height: auto;
 width: 100%;
 margin: 5px 5px 5px 5px;
@@ -13,7 +13,7 @@ padding: 30px 30px 30px 30px;
     margin: 20px auto;
     background-color: white;
     width: 800px;
-    font-size:12px;
+    font-size:20px;
     box-shadow: 0 1px 3px;
     background-color: white;
     padding: 20px;
@@ -27,7 +27,7 @@ padding: 30px 30px 30px 30px;
     color:rgb(0, 0, 0);
     align-items: left;
     padding: -6px 54px 5px 35px;
-    margin: 23px 18px 20px 523px;
+    margin: 11px 25px 20px 515px;
     border: none;
     border-radius: 30px;
     font-family: 'Play', sans-serif;
@@ -70,3 +70,4 @@ color: white;
 .h3com {
     margin:55px 19px 3px 10px;
 }
+

@@ -33,9 +33,9 @@ export const StyledButton = styled.button `
 `
 
 export const YourRes = styled.div`
+background-color: #f0f0f0;
   font-size: 15px;
   margin: auto 0;
-  box-shadow: 0 1px 3px;
   padding: 20px;
   width: auto;
   line-height: 1.8;

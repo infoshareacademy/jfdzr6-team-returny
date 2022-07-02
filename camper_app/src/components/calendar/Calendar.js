@@ -219,13 +219,13 @@ export function Calendar({ camper, user }) {
       )}
       
       <YourRes>
-        {user && <h3> Twoje rezerwacje :</h3>}
+        {user && <h2> Twoje rezerwacje : <hr></hr></h2>}
 
         {user &&
           myReser &&
           myReser.map((el, index) => {
             return (
-              <div key={index}>
+              <div class="resdiv" key={index}>
                 <p>
                   rezerwacja kampera nr:{index + 1} od{" "}
                  
