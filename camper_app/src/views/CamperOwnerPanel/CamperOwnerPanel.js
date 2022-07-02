@@ -7,6 +7,12 @@ import { NotificationManager } from "react-notifications";
 import { CardOwner } from "./CardOwner";
 import { StyledHeader1, StyledWrapper } from "./CamperOwnerPanel.style"
 
+// getCampersByUserId
+// sdk... do pobrania camperow
+// getDocs, filter po uid uzytkownika (ciag znakow)
+// useEffect
+// 
+// 
 
 export const CamperOwnerPanel = () => {
 

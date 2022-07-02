@@ -19,6 +19,7 @@ export const StyledWrapper = styled.div`
 
 export const StyledCard = styled.div`
   padding: 10px;
+  background-color: white;
   overflow: hidden;
   box-shadow: 0 2px 5px;
   display: flex;
