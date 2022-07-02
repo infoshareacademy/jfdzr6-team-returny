@@ -151,7 +151,7 @@ export function PreviewCamp() {
           ) : null}
 
           <StyledCampDetails>
-            <h2><FaShuttleVan /> O Camperze:</h2>
+            <h2> O Camperze:</h2>
             <hr></hr>
             <p><FaGripVertical /> Kategoria: {camper.campertype}</p>
             <p><FaCalendarAlt /> Rocznik: {camper.year}</p>
