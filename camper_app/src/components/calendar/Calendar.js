@@ -20,12 +20,13 @@ import {
   StyledEditButton
 } from "./Calendar.style.js";
 import plLocale from "@fullcalendar/core/locales/pl";
+import emailjs from "emailjs-com";
 import { FaRegTrashAlt } from 'react-icons/fa';
+
 
 registerLocale("pl", pl);
 
 export function Calendar({ camper, user }) {
-  
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: "",
@@ -48,7 +49,6 @@ export function Calendar({ camper, user }) {
     if (user) {
       getReservByBorrowId(user.id, camper.id)
         .then((data) => {
-          
           const newData = data.map((el) => {
             const elstart = new Date(el.start.seconds * 1000);
             const elend = new Date(el.end.seconds * 1000);
@@ -71,7 +71,6 @@ export function Calendar({ camper, user }) {
     }
   }, [allEvents]);
 
- 
   function ConvertAndSendToState(data) {
     console.log("dane z firebase:", data);
     const newData = data.map((el) => {
@@ -91,7 +90,6 @@ export function Calendar({ camper, user }) {
     console.log(bookingResult[0], bookingResult[1]);
     addReservation(newEvent, bookingResult[0], bookingResult[1]).then((res) => {
       alert(
-        
         `Rezerwacja campera: ${camper.title} dla uzytkownika: ${
           user.email
         } w dniach od ${new Date(newEvent.start).getDate().toString()}/${
@@ -100,8 +98,26 @@ export function Calendar({ camper, user }) {
           .getDate()
           .toString()}/${new Date(newEvent.end).getMonth() + 1}/${new Date(
           newEvent.end
-        ).getFullYear()} w cenie: ${bookingResult[0]} zł została potwierdzona` 
+        ).getFullYear()} w cenie: ${bookingResult[0]} zł została potwierdzona. Informacja o twojej rezerwacji zostanie wysłana na twój adres e-mail`
       );
+
+      const start = `${new Date(newEvent.start).getDate().toString()}/${
+        new Date(newEvent.start).getMonth() + 1
+      }/${new Date(newEvent.start).getFullYear()}`;
+
+      const stop = `${new Date(newEvent.end).getDate().toString()}/${
+        new Date(newEvent.end).getMonth() + 1
+      }/${new Date(newEvent.end).getFullYear()}`;
+
+      emailjs.send('gmail', 'template_wysu6rx', {from_name:`${user.email}`,camper_name:`${camper.title}`, start:`${start}`,stop:`${stop}`,cena:`${bookingResult[0]}`}, 'uovqm0wbm9ul6DmnK')
+      .then((result) => {
+          console.log(result.text);
+
+      }, (error) => {
+          console.log(error.text);
+
+      });
+
       getReservationByCamperId(camper.id)
         .then((data) => {
           ConvertAndSendToState(data);
@@ -127,7 +143,6 @@ export function Calendar({ camper, user }) {
       .catch((er) => console.log(er));
   }
 
-
   function rentalCost() {
     let dailyRate = camper.price;
     if (newEvent.start != null && newEvent.end != null) {
@@ -145,11 +160,7 @@ export function Calendar({ camper, user }) {
         {allEvents.length > 0 ? (
           <FullCalendar
             locale={plLocale}
-            plugins={[
-              dayGridPlugin,
-              momentTimezonePlugin,
-              
-            ]}
+            plugins={[dayGridPlugin, momentTimezonePlugin]}
             timeZone="Europe/Moscow"
             displayEventTime={false}
             initialView="dayGridMonth"
@@ -159,11 +170,7 @@ export function Calendar({ camper, user }) {
         ) : (
           <FullCalendar
             locale={plLocale}
-            plugins={[
-              dayGridPlugin,
-              momentTimezonePlugin,
-              
-            ]}
+            plugins={[dayGridPlugin, momentTimezonePlugin]}
             timeZone="Europe/Moscow"
             displayEventTime={false}
             initialView="dayGridMonth"
@@ -217,9 +224,14 @@ export function Calendar({ camper, user }) {
           </CenteredDiv>
         </>
       )}
-      
+
+
+      <div>
+       
+    
       <YourRes>
         {user && <h2> Twoje rezerwacje : <hr></hr></h2>}
+
 
         {user &&
           myReser &&
@@ -228,7 +240,6 @@ export function Calendar({ camper, user }) {
               <div class="resdiv" key={index}>
                 <p>
                   rezerwacja kampera nr:{index + 1} od{" "}
-                 
                   {new Date(el.start).getDate().toString()}/
                   {new Date(el.start).getMonth() + 1}/
                   {new Date(el.start).getFullYear()} do{" "}
