@@ -6,6 +6,7 @@ import { deleteReservation } from "../../api/booking/deleteReservation";
 import DatePicker, { registerLocale } from "react-datepicker";
 import pl from "date-fns/locale/pl";
 import "react-datepicker/dist/react-datepicker.css";
+import './calendar.css';
 import "./Calendar.style.js";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import momentTimezonePlugin from "@fullcalendar/moment-timezone";
@@ -15,8 +16,11 @@ import {
   StyledHeader,
   StyledWrapper,
   StyledButton,
+  YourRes,
+  StyledEditButton
 } from "./Calendar.style.js";
 import plLocale from "@fullcalendar/core/locales/pl";
+import { FaRegTrashAlt } from 'react-icons/fa';
 
 registerLocale("pl", pl);
 
@@ -214,7 +218,7 @@ export function Calendar({ camper, user }) {
         </>
       )}
       
-      <div>
+      <YourRes>
         {user && <h3> Twoje rezerwacje :</h3>}
 
         {user &&
@@ -233,8 +237,8 @@ export function Calendar({ camper, user }) {
                   {new Date(el.end).getFullYear()} w cenie: {el.totalCost} zł
                 </p>
                 {user.id === el.borrowerid ? (
-                  <button onClick={() => deleteReservationHandler(el.bookid)}>
-                    Usuń rezerwacje
+                  <button className="deletebutton" onClick={() => deleteReservationHandler(el.bookid)}>
+                    <FaRegTrashAlt /> Usuń rezerwacje
                   </button>
                 ) : null}
               </div>
@@ -243,7 +247,7 @@ export function Calendar({ camper, user }) {
         {myReser.length === 0 && user && (
           <p>Nie masz jeszcze rezerwacji tego kampera</p>
         )}
-      </div>
+     </YourRes>
     </div>
   );
 }
