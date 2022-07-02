@@ -14,7 +14,7 @@ export const Main = ()=>{
                 <div className="container_main">
                     <div className="row">
                         <div className="col-lg-12">
-                            <h2>WYPOŻYCZ Z NAMI CAMPERA!</h2>
+                            <h2>WYPOŻYCZ Z NAMI KAMPERA!</h2>
                             <p>Kamper (ang. camper) lub samochód kempingowy to autonomiczny, zintegrowany samochód turystyczny, specjalnie w tym celu zbudowany lub wyposażony, zapewniający podróżującym nim pasażerom miejsca do spania i wypoczynku.</p>
                             
 
