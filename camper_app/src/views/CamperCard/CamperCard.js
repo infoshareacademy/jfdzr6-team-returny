@@ -13,7 +13,7 @@ import { FindCmpr } from "../../components/FindCmpr";
 export const CamperCard = () => {
   const [campers, setCampers] = useState([]);
   const [missCamper, setMissCamper] = useState(false);
-  const [search, setSearch] = useState({ type: "", region: "" });
+  const [search, setSearch] = useState({ type: "allcapers", region: "" });
 
   useEffect(() => {
     if (search.type === "allcapers" && !search.region) {
@@ -79,9 +79,11 @@ export const CamperCard = () => {
               {campers && campers.map((el) => <Card key={el.id} data={el} />)}
             </div>
           ) : (
-            <h3 style={{ textAlign: "center", marginBottom: "50px" }}>
-              Brak kamperów do wyświetlenia
+            <div style={{ minHeight: "400px" }}>
+            <h3 style={{ textAlign: "center", marginBottom: "50px", color:"red"}}>
+              Brak kamperów dla wybranej kategorii
             </h3>
+            </div>
           )}
         </>
       ) : (
