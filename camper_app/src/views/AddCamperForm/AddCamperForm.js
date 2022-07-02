@@ -105,7 +105,7 @@ export const AddCamperForm = () => {
     title: yup
       .string()
       .min(3, "* Minimalna ilość znaków 3")
-      .max(20, "* Maksymalna ilość znaków 20")
+      .max(22, "* Maksymalna ilość znaków 22")
       .required("* Wymagane"),
     campertype: yup.string().required("* Wymagane"),
     year: yup.number().typeError("* Niewłaściwy format danych").required("* Wymagane"),
