@@ -11,6 +11,8 @@ export const Wrapper = styled.section`
   align-items: center;
   justify-content: center;
   background-color: white;
+  border-radius: 20px;
+  
 `;
 
 
@@ -20,11 +22,13 @@ export const CampTitle = styled.div`
     margin: 20px auto;
     background-color: white;
     padding: 20px;
+    border-radius: 20px;
 `;
 
 export const StyledCampImg = styled.div`
     border: 5px solid #78cdca;
     margin: auto 0;
+    border-radius: 20px;
 `;
 
 export const StyledDescriptionBox = styled.div`
@@ -32,6 +36,7 @@ export const StyledDescriptionBox = styled.div`
     background-color: white;
     width: 800px;
     padding:auto;
+    border-radius: 20px;
 `;
 
 export const StyledDescription = styled.p`
@@ -41,7 +46,7 @@ export const StyledDescription = styled.p`
   padding: 20px;
   width: 800px;
   line-height: 1.8;
-  
+  border-radius: 20px;
 `;
 
 export const StyledCampDetails = styled.div`
@@ -54,6 +59,7 @@ export const StyledCampDetails = styled.div`
     width: 800px;
     line-height: 1.8;
     font-weight:2px;
+    border-radius: 20px;
 `;
 
 export const StyledContactDetails = styled.div`
@@ -64,6 +70,7 @@ export const StyledContactDetails = styled.div`
     font-size: 15px;
     padding: 20px;
     line-height: 1.8;
+    border-radius: 20px;
 `;
 
 export const StyledContactHead = styled.p`
@@ -159,6 +166,7 @@ export const StyledCalendarDiv = styled.div`
     font-size: 15px;
     padding: 20px;
     line-height: 1.8;
+    border-radius: 20px;
 
 `;
 

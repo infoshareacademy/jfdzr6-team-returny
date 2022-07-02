@@ -32,6 +32,7 @@ background-attachment: fixed;
     gap:3rem;
     justify-content: center;
     font-family: 'Play', sans-serif;
+    
 }
 
 .card{
@@ -43,8 +44,9 @@ background-attachment: fixed;
     transition:transform 200ms ease-in;
     font-family: 'Play', sans-serif;
     background-color: white;
-    opacity: 10;
+    opacity: 0.9;
     border-radius: 20px;
+
     
 
 }
