@@ -12,7 +12,8 @@ import {
   StyledList,
   StyledLists,
   StyledListsAddress,
-  StyledListsMap
+  StyledListsMap,
+  StyledMap
 } from "./Contactpage.style";
 import { 
   FaHome,
@@ -20,7 +21,9 @@ import {
   FaPhoneAlt,
   FaRegPaperPlane
 } from "react-icons/fa";
-import emailjs from "emailjs-com"
+import emailjs from "emailjs-com";
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 
 export function Contact() {
@@ -30,18 +33,19 @@ export function Contact() {
 
     emailjs.sendForm('gmail', 'template_nwtzf2l', e.target, 'uovqm0wbm9ul6DmnK')
       .then((result) => {
-          console.log(result.text);
-          console.prompt('Wiadomość wysłania')
+        NotificationManager.success("E-mail został pomyślnie wysłany");
       }, (error) => {
-          console.log(error.text);
-          console.dir('Błąd wysyłania wiadomości')
+        NotificationManager.error("Błąd wysyłania wiadomości");
       });
       e.target.reset()
   }
 
   return (
     <>
+
+
       <StyledContactSection>
+
         <StyledEmailSection>
         <StyledFormHeader>Wyślij zapytanie</StyledFormHeader>
         <div>
@@ -95,7 +99,7 @@ export function Contact() {
         <StyledList>
 
           <StyledListsAddress>
-            <FaHome/>    Plac Defilad 1, 00-901, Warszawa
+            <FaHome/>     Plac Defilad 1, 00-901, Warszawa
             </StyledListsAddress>
 
           <StyledLists>
@@ -108,8 +112,11 @@ export function Contact() {
 
           <StyledListsMap>
           <FaMapMarkerAlt/> <a href="https://goo.gl/maps/7UugKNUEuSZNHvqz9" target="_blank" rel="noreferrer">Sprawdz jak do nas dojechać!</a>
+  
           </StyledListsMap>
 
+         
+          
         </StyledList>
 
       </StyledMapDetails>

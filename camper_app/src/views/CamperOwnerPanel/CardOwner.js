@@ -14,7 +14,7 @@ export function CardOwner(props) {
           <h2 className="card__title">{data.title}</h2>
           <p className="card__description">{data.description}</p>
         </StyledText>
-        <StyledButton onClick={()=>navigate(`${data.id}`)} className="card__btn">Zobacz campera</StyledButton>
+        <StyledButton onClick={()=>navigate(`/find-camper/${data.id}`)} className="card__btn">Zobacz campera</StyledButton>
       </StyledCard>
     );
   }
