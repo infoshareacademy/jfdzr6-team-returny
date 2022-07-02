@@ -226,7 +226,7 @@ export function Calendar({ camper, user }) {
       )}
 
 
-      <div>
+   
        
     
       <YourRes>
