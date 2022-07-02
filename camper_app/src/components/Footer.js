@@ -21,7 +21,6 @@ export const Footer = () => {
             <li><Link to="/find-camper">Znajdź campera</Link></li>
             <li><Link to="/contact">Kontakt</Link></li>
             <li><Link to="/insurance">Ubezpieczenia</Link></li>
-            <li><Link to="#">Regulamin</Link></li>
         </ul>
         </div>
 
