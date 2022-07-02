@@ -46,6 +46,9 @@ export function PreviewCamp() {
     getCamperById(id)
       .then((data) => {
         setCamper(data);
+        setNewPrice(data.price);
+        setnewDescription(data.description);
+
       })
       .catch((er) => console.log(er));
   }, []);
