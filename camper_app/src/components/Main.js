@@ -14,11 +14,10 @@ export const Main = ()=>{
                 <div className="container_main">
                     <div className="row">
                         <div className="col-lg-12">
-                            <h2>WYPOŻYCZ Z NAMI CAMPERA!</h2>
-                            <p>Kamper (ang. camper) lub samochód kempingowy to autonomiczny, zintegrowany samochód turystyczny, specjalnie w tym celu zbudowany lub wyposażony, zapewniający podróżującym nim pasażerom miejsca do spania i wypoczynku.</p>
+                            <h2>TWOJA PODRÓŻ ZACZYNA SIĘ WŁAŚNIE TUTAJ!</h2>
+                            <p>Znajdź, wypożycz i podróżuj camperem z całkowitą swobodą oraz poczuj pełną wolność i niezależność!</p>
+                            <p>Jeśli masz swój własny pojazd, wystaw ogłoszenie i pozwól innym zwiedzać świat!</p>
                             
-
-
         {context.userData && (
           <>
           {/* <Button> <Link to="/" onClick={()=>{
