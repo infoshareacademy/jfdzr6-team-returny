@@ -21,6 +21,7 @@ export const StyledBoxBackground = styled.div`
   width: 800px;
   margin: 0px 0px 40px 50px;
   padding: 30px;
+  border-radius: 20px;
 `
 
 export const StyledInputText = styled.input`

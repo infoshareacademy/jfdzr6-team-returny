@@ -7,6 +7,7 @@ export const StyledContactSection = styled.section`
   align-items: center;
   background: url(${BackgroundCar});
   font-family: "Play", sans-serif;
+  
 `;
 
 export const StyledEmailSection = styled.section`
@@ -15,6 +16,7 @@ export const StyledEmailSection = styled.section`
   padding: 20px;
   width: 40%;
   font-family: "Play", sans-serif;
+  border-radius: 20px;
 `;
 
 export const StyledMapDetails = styled.section`
@@ -23,6 +25,7 @@ export const StyledMapDetails = styled.section`
   padding: 20px;
   width: 422px;
   height: 593px;
+  border-radius: 20px;
 `;
 
 export const StyledFormHeader = styled.h1`

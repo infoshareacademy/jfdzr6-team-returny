@@ -25,10 +25,13 @@ export const StyledBoxBackground = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #e7e7e7;
+  opacity: 0.8;
   box-shadow: 0 2px 5px;
   width: 300px;
   margin: 0px 0px 40px 50px;
   padding: 30px;
+  border-radius:20px;
+  
 `
 
 export const StyledInputText = styled.input`
@@ -51,6 +54,7 @@ export const StyledButton = styled.button `
   height: 50px;
   font-size: 16px;
   background-color: #78cdca;
+  opacity:1.0;
   margin-top: 20px;
   padding: 5px;
   cursor: pointer;
