@@ -15,7 +15,6 @@ export const StyledWrapper = styled.div`
   gap: 3rem;
   justify-items: left;
   font-family: 'Play', sans-serif;
-  height:400px;
 `
 
 export const StyledCard = styled.div`
