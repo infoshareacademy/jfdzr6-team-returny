@@ -16,10 +16,10 @@ import { Login } from "./views/Login";
 import { ForgotPassword } from "./views/ForgotPass";
 import { getUserById } from "./api/getUserById";
 
-
 import {Contact} from "./views/Contactpage/Contact"
+import {About} from "./views/About/About"
+import {Insurance} from "./views/InsurancePage/Insurance"
 import { CamperOwnerPanel } from "./views/CamperOwnerPanel/CamperOwnerPanel";
-
 
 export function App() {
   const context = useContext(UserContext);
@@ -47,15 +47,17 @@ export function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Home />} />
+          <Route path="/about" element={<About />} />
 
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="forgotpass" element={<ForgotPassword />} />
 
           <Route path="contact" element={<Contact />} />
-          <Route path="insurance" element={<Home />} />
+          <Route path="insurance" element={<Insurance />} />
+          <Route path="calendar" element={<Calendar />} />
           <Route path="user-panel" element={<CamperOwnerPanel />} />
+
 
           <Route
             path="add-camper"
