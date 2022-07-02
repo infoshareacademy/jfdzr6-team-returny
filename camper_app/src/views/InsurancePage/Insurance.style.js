@@ -5,7 +5,7 @@ export const StyledInsurance1 = styled.section`
   display: flex;
   background: url(${BackgroundCar});
   font-family: "Play", sans-serif;
-  height: 90%;
+  height: 100%;
   width: 100%;
 `;
 
@@ -20,11 +20,24 @@ export const StyledInsuranceDiv1 = styled.div`
 
 export const StyledInsuranceHeader1 = styled.h1`
   margin: 20px;
-  font-size: 40px;
+  font-size: 35px;
 `;
 
 export const StyledInsuranceParagraphs1 = styled.div`
   margin: 20px;
-  width: 76%;
   font-size: 20px;
+  line-height: 30px;
+  width: 76%;
+`;
+
+export const StyledP = styled.div`
+  margin: 20px;
+  font-size: 22px;
+  font-weight: bold;
+`;
+
+export const StyledSpan = styled.span`
+  margin: 20px;
+  font-size: 22px;
+  font-weight: bold;
 `;

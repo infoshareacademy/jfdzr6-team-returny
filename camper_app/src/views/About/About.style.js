@@ -33,19 +33,21 @@ export const StyledParagraphs2 = styled.div`
   margin-left: 20px;
   margin-bottom: -15px;
   width: 76%;
-  font-size: 20px;
+  font-size: 21px;
+  text-decoration: underline;
 `;
 
 export const StyledParagraphs3 = styled.div`
   margin-left: 20px;
   margin-bottom: -15px;
   width: 76%;
-  font-size: 20px;
+  font-size: 21px;
+  text-decoration: underline;
 `;
 
 export const StyledParagraphs1 = styled.div`
-  margin: 20px;
+  margin: 22px;
   width: 76%;
-  font-size: 21px;
+  font-size: 23px;
   font-weight: bold;
 `;
