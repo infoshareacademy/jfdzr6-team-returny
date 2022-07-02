@@ -58,7 +58,7 @@ export function UsersComments2({ camperData }) {
     <>
       <div className="CommentsArea">
         <h3 style={{ marginBottom: "15px"}}>
-          Komentarze uzytkowników :
+          Komentarze uzytkowników: <hr></hr>
         </h3>
 
         {comments &&

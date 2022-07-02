@@ -12,7 +12,8 @@ import {
   StyledList,
   StyledLists,
   StyledListsAddress,
-  StyledListsMap
+  StyledListsMap,
+  StyledMap
 } from "./Contactpage.style";
 import { 
   FaHome,
@@ -41,7 +42,10 @@ export function Contact() {
 
   return (
     <>
+
+
       <StyledContactSection>
+
         <StyledEmailSection>
         <StyledFormHeader>Wyślij zapytanie</StyledFormHeader>
         <div>
@@ -95,7 +99,7 @@ export function Contact() {
         <StyledList>
 
           <StyledListsAddress>
-            <FaHome/>    Plac Defilad 1, 00-901, Warszawa
+            <FaHome/>     Plac Defilad 1, 00-901, Warszawa
             </StyledListsAddress>
 
           <StyledLists>
@@ -108,8 +112,11 @@ export function Contact() {
 
           <StyledListsMap>
           <FaMapMarkerAlt/> <a href="https://goo.gl/maps/7UugKNUEuSZNHvqz9" target="_blank" rel="noreferrer">Sprawdz jak do nas dojechać!</a>
+  
           </StyledListsMap>
 
+         
+          
         </StyledList>
 
       </StyledMapDetails>
