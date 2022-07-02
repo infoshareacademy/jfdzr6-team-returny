@@ -31,3 +31,13 @@ export const StyledButton = styled.button `
   color: white;
   }
 `
+
+export const YourRes = styled.div`
+background-color: #f0f0f0;
+  font-size: 15px;
+  margin: auto 0;
+  padding: 20px;
+  width: auto;
+  line-height: 1.8;
+`;
+

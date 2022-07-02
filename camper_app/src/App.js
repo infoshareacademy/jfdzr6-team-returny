@@ -15,10 +15,11 @@ import { Register } from "./views/Register";
 import { Login } from "./views/Login";
 import { ForgotPassword } from "./views/ForgotPass";
 import { getUserById } from "./api/getUserById";
-import { Calendar } from "./components/calendar/Calendar";
+
 import {Contact} from "./views/Contactpage/Contact"
 import {About} from "./views/About/About"
 import {Insurance} from "./views/InsurancePage/Insurance"
+import { CamperOwnerPanel } from "./views/CamperOwnerPanel/CamperOwnerPanel";
 
 export function App() {
   const context = useContext(UserContext);
@@ -54,8 +55,9 @@ export function App() {
 
           <Route path="contact" element={<Contact />} />
           <Route path="insurance" element={<Insurance />} />
-
           <Route path="calendar" element={<Calendar />} />
+          <Route path="user-panel" element={<CamperOwnerPanel />} />
+
 
           <Route
             path="add-camper"

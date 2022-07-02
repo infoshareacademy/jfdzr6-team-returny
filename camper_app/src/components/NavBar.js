@@ -110,12 +110,14 @@ export function NavBar() {
 
         {context.userData && (
           <>
+          <Button> <Link to="/user-panel"> Panel właściciela</Link></Button>
+          <Button> <Link to="/add-camper"> Dodaj campera</Link></Button>
           <Button><FaSignOutAlt /><Link to="/" onClick={()=>{
             signOut(auth); 
             context.setUserData('');
             NotificationManager.info("Zostałeś wylogowany");
           }}> Wyloguj się</Link></Button>
-          <Button> <Link to="/add-camper"> Dodaj campera</Link></Button>
+          
           </>
         )}
         {!context.userData && (

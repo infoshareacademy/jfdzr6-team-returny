@@ -5,6 +5,7 @@ import { getCommentsByCamperId } from "../api/comments/getCommentsByCamperId";
 import { addComment } from "../api/comments/addComment";
 import { deleteComment } from "../api/comments/deleteComment";
 import './UsersComments2.css';
+import { FaRegTrashAlt } from 'react-icons/fa';
 
 
 export function UsersComments2({ camperData }) {
@@ -57,7 +58,7 @@ export function UsersComments2({ camperData }) {
     <>
       <div className="CommentsArea">
         <h3 style={{ marginBottom: "15px"}}>
-          Komentarze uzytkowników :
+          Komentarze uzytkowników: <hr></hr>
         </h3>
 
         {comments &&
@@ -80,7 +81,7 @@ export function UsersComments2({ camperData }) {
 
                 {context.userData.id === el.autorId ? (
                   <button className="button2" onClick={() => handledeleteComment(el.id)}>
-                    Usuń komentarz
+                   <FaRegTrashAlt /> Usuń komentarz
                   </button>
                 ) : (
                   ""

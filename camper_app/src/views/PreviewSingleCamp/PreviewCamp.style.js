@@ -10,14 +10,14 @@ export const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f1f1f1;
+  background-color: white;
 `;
+
 
 export const CampTitle = styled.div`
     width: 800px;
     font-size: 20px;
     margin: 20px auto;
-    box-shadow: 0 1px 3px;
     background-color: white;
     padding: 20px;
 `;
@@ -128,7 +128,7 @@ export const StyledEditButton = styled.button `
   display: flex;
   flex-direction: row;
   padding: 20px;
-  margin-left: 40px;
+  margin-left: 13px;
   border-radius: 30px;
   font-family: 'Play', sans-serif;
   font-weight: bold;
@@ -136,4 +136,29 @@ export const StyledEditButton = styled.button `
   &:hover {
   color: white;
   }
-`
+`;
+
+export const StyledCalendar = styled.div`
+display:flex;
+flex-direction: column;
+background-color: white;
+font-size: 12px;
+height: auto;
+width: 100%;
+margin: 5px 5px 5px 5px;
+padding: 30px 30px 30px 30px;
+
+`;
+
+export const StyledCalendarDiv = styled.div`
+
+    width: 800px;
+    margin: 15px auto;
+    box-shadow: 0 1px 3px;
+    background-color: white;
+    font-size: 15px;
+    padding: 20px;
+    line-height: 1.8;
+
+`;
+

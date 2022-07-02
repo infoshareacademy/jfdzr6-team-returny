@@ -11,11 +11,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
 }
 
 body{
 font-family: 'Play', sans-serif;
 margin:2rem;
+background: url(https://i.ibb.co/CM9Gg8F/camper2.jpg);
+background-attachment: fixed;
 
 }
 
@@ -39,6 +42,8 @@ margin:2rem;
     justify-content:space-between;
     transition:transform 200ms ease-in;
     font-family: 'Play', sans-serif;
+    background-color: white;
+    opacity: 10;
 
 }
 
@@ -79,16 +84,17 @@ margin:2rem;
 .find {
   display: flex;
   flex-direction:row;
+  justify-content: center;
   align-items:center;
-  margin:61px 20px 24px 163px;
-  gap: 16px;
+  margin:78px 32px 32px 167px;
+  gap: 52px;
 
 }
 
 .find__title {
     font-size: 50px;
     font-family: 'Play', sans-serif;
-    margin:3px -4px 25px 7px;
+    margin:17px 11px 25px -63px;
   
 }
 
@@ -96,13 +102,16 @@ margin:2rem;
 
     font-size: 20px;
     font-family: 'Play', sans-serif;
-    margin: 15px 10px 43px 7px;
+    margin: 61px 10px 43px 7px;
 
 }
 
 #select__one {
     width: 300px;
     height: 50px;
+    background-color: white;
+
+    
        
 }
 
