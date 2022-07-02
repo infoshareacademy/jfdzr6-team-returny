@@ -16,7 +16,7 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 20px;
+  margin: 100px;
   padding: 30px;
 `
 
@@ -24,7 +24,7 @@ export const StyledBoxBackground = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(210, 210, 210);
+  background-color: #e7e7e7;
   box-shadow: 0 2px 5px;
   width: 300px;
   margin: 0px 0px 40px 50px;
@@ -32,12 +32,10 @@ export const StyledBoxBackground = styled.div`
 `
 
 export const StyledInputText = styled.input`
-  font-size: 16px;
+  font-size: 12px;
   height: 30px;
   width: 200px;
   padding-left: 10px;
-  border-radius: 8px;
-  border: 1px solid black;
 `
 
 export const StyledLink = styled.p`

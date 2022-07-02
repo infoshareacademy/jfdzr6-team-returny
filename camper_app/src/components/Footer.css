@@ -8,13 +8,16 @@
 body{
     margin:0;
     overflow-x:hidden;
+    
     }
     
     .footer{
     background:#373737;
-    padding:30px 0px;
+    padding:10px 0px;
     font-family: 'Play', sans-serif;
-    text-align:center;
+    text-align: center;
+    position: relative;
+    
     }
     
     .footer .row{

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHeader1 = styled.h1`
   font-family: 'Play', sans-serif;
-  margin: 20px 0px 20px 50px;
+  margin: 104px 0px 40px 50px;
   color: #519a97;
   font-size: 50px;
 `;
@@ -15,7 +15,8 @@ export const StyledHeader2 = styled.h2`
 `;
 
 export const StyledBoxBackground = styled.div`
-  background-color: rgb(210, 210, 210);
+  background-color: rgb(210, 210, 210, 0.8);
+  opacity:5;
   box-shadow: 0 2px 5px;
   width: 800px;
   margin: 0px 0px 40px 50px;
@@ -28,8 +29,7 @@ export const StyledInputText = styled.input`
   width: 400px;
   margin: 5px 5px 5px 50px;
   padding-left: 10px;
-  border-radius: 8px;
-  border: 1px solid black;
+  
 `
 export const StyledSelect = styled.select`
   font-size: 16px;
@@ -37,8 +37,7 @@ export const StyledSelect = styled.select`
   width: 400px;
   margin: 5px 0px 5px 50px;
   padding-left: 10px;
-  border-radius: 8px;
-  border: 1px solid black;
+
 `
 
 export const StyledInputFile = styled.input`
@@ -50,13 +49,13 @@ export const StyledInputFile = styled.input`
 export const StyledTextArea = styled.textarea`
   resize: none;
   font-family: 'Play', sans-serif;
-  font-size: 20px;
+  font-size: 14px;
   height: 200px;
   width: 400px;
   margin: 5px 0px 10px 50px;
   padding: 10px;
-  border-radius: 8px;
-  border: 1px solid black;
+ 
+  
 `
 
 export const StyledButton = styled.button `
@@ -66,6 +65,7 @@ export const StyledButton = styled.button `
   background-color: #78cdca;
   margin-left: 700px;
   margin-bottom: 100px;
+  padding:10px 10px 10px 10px;
   cursor: pointer;
   &:hover {
     color: white;
