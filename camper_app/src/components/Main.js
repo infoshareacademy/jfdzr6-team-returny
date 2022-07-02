@@ -14,6 +14,7 @@ export const Main = ()=>{
                 <div className="container_main">
                     <div className="row">
                         <div className="col-lg-12">
+
                             <h2>TWOJA PODRÓŻ ZACZYNA SIĘ WŁAŚNIE TUTAJ!</h2>
                             <p>Znajdź, wypożycz i podróżuj camperem z całkowitą swobodą oraz poczuj pełną wolność i niezależność!</p>
                             <p>Jeśli masz swój własny pojazd, wystaw ogłoszenie i pozwól innym zwiedzać świat!</p>
