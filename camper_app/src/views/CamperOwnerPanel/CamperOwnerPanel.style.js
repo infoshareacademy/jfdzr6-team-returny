@@ -31,6 +31,7 @@ export const StyledCard = styled.div`
 
 export const StyledImg = styled.img`
   width: 300px;
+  border-radius: 20px;
 `
 
 export const StyledText = styled.div`
