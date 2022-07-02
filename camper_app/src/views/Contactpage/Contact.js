@@ -20,7 +20,9 @@ import {
   FaPhoneAlt,
   FaRegPaperPlane
 } from "react-icons/fa";
-import emailjs from "emailjs-com"
+import emailjs from "emailjs-com";
+import { NotificationManager } from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 
 export function Contact() {
@@ -30,11 +32,9 @@ export function Contact() {
 
     emailjs.sendForm('gmail', 'template_nwtzf2l', e.target, 'uovqm0wbm9ul6DmnK')
       .then((result) => {
-          console.log(result.text);
-          console.prompt('Wiadomość wysłania')
+        NotificationManager.success("E-mail został pomyślnie wysłany");
       }, (error) => {
-          console.log(error.text);
-          console.dir('Błąd wysyłania wiadomości')
+        NotificationManager.error("Błąd wysyłania wiadomości");
       });
       e.target.reset()
   }
