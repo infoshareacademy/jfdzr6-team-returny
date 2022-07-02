@@ -81,8 +81,9 @@ export function UsersComments2({ camperData }) {
 
                 {context.userData.id === el.autorId ? (
                   <button className="button2" onClick={() => handledeleteComment(el.id)}>
-                   <FaRegTrashAlt /> Usuń komentarz
+                   <FaRegTrashAlt /> Usuń
                   </button>
+                  
                 ) : (
                   ""
                 )}

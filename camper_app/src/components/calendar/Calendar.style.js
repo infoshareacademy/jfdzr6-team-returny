@@ -11,8 +11,6 @@ export const StyledWrapper = styled.div`
   width: 490px;
   margin: 0 auto;
   padding: 20px;
-  border-radius: 20px;
-  
 `;
 
 export const CenteredDiv = styled.div`
@@ -21,7 +19,6 @@ export const CenteredDiv = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 20px;
-  border-radius: 20px;
 `;
 
 export const StyledButton = styled.button `
@@ -42,6 +39,5 @@ background-color: #f0f0f0;
   padding: 20px;
   width: auto;
   line-height: 1.8;
-  border-radius: 20px;
 `;
 
