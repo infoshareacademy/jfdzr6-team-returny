@@ -5,6 +5,8 @@ import "./Footer.css"
 export const Footer = () => {
 
     return (
+
+ <footer>
 <div class="footer">
     <div class="row">
             <Link to="#"><i class="fa fa-facebook"></i></Link>
@@ -27,6 +29,7 @@ export const Footer = () => {
         Copyright © 2022 CampRide. All rights reserved || Designed By: Returny
     </div>
 </div>
+</footer>
 
     )
 }

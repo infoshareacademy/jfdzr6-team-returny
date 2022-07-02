@@ -238,7 +238,7 @@ export function Calendar({ camper, user }) {
           myReser.map((el, index) => {
             return (
               <div class="resdiv" key={index}>
-                <p>
+                <p class="pres">
                   rezerwacja kampera nr:{index + 1} od{" "}
                   {new Date(el.start).getDate().toString()}/
                   {new Date(el.start).getMonth() + 1}/
@@ -249,7 +249,7 @@ export function Calendar({ camper, user }) {
                 </p>
                 {user.id === el.borrowerid ? (
                   <button className="deletebutton" onClick={() => deleteReservationHandler(el.bookid)}>
-                    <FaRegTrashAlt /> Usuń rezerwacje
+                    <FaRegTrashAlt /> Usuń 
                   </button>
                 ) : null}
               </div>
