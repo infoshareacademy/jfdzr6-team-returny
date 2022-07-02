@@ -26,6 +26,7 @@ export const StyledCard = styled.div`
   flex-direction: row;
   justify-content:space-between;
   font-family: 'Play', sans-serif;
+  border-radius: 20px;
 `
 
 export const StyledImg = styled.img`
