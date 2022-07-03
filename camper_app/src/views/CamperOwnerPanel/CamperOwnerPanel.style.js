@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledHeader1 = styled.h1`
   font-family: 'Play', sans-serif;
   margin: 40px 0px 20px 150px;
-  color: #519a97;
+  color: black;
   font-size: 50px;
 `;
 
