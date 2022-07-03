@@ -335,7 +335,7 @@ export const AddCamperForm = () => {
                   <StyledError> {error && error} </StyledError>
                 </StyledBoxBackground>
                 <StyledBoxBackground>
-                  <StyledHeader2>Opis pojazdu:</StyledHeader2>
+                  <StyledHeader2>Opis pojazdu</StyledHeader2>
                   <div>
                     <StyledTextArea
                       name="description"

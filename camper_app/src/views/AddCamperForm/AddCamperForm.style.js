@@ -10,7 +10,7 @@ export const StyledHeader1 = styled.h1`
 export const StyledHeader2 = styled.h2`
   font-family: 'Play', sans-serif;
   margin: 5px 0px 20px 50px;
-  color: #519a97;
+  color: black;
   font-size: 30px;
 `
 
