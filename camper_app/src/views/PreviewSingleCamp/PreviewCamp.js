@@ -101,8 +101,10 @@ export function PreviewCamp() {
           <CampTitle>
             <h2> {camper.title}  <hr></hr> </h2>
           </CampTitle>
-
+         
           <MyGallery camper={camper} />
+
+         
           {context.userData.id === camper.userid && (
             <ButtonsSection>
               <StyledEditButton onClick={() => setisEdit(true)}>
