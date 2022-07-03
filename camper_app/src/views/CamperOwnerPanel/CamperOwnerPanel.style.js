@@ -14,6 +14,7 @@ export const StyledWrapper = styled.div`
   grid-template-columns: repeat(1, 100%);
   gap: 3rem;
   justify-items: left;
+  min-height:400px ;
   font-family: 'Play', sans-serif;
 `
 
