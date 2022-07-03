@@ -39,5 +39,7 @@ background-color: #f0f0f0;
   padding: 20px;
   width: auto;
   line-heightcd: 1.8;
+  border-radius: 20px;
+
 `;
 
