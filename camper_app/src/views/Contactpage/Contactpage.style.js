@@ -56,12 +56,15 @@ export const StyledTextArea = styled.textarea`
   padding: 15px;
   height: 200px;
   font-family: "Play", sans-serif;
-  border: 0;
+  border: 0; 
+  border-radius:8px;
+
 `;
 
 export const StyledFormElements = styled.div`
   padding: 10px;
   margin: auto 10px;
+  
 `;
 
 export const StyledInput = styled.input`
@@ -69,7 +72,9 @@ export const StyledInput = styled.input`
   padding: 15px;
   font-family: "Play", sans-serif;
   border: 0;
-`;
+  border-radius:8px;
+  
+  `;
 
 export const StyledFormButton = styled.button`
   margin-left: 15px;

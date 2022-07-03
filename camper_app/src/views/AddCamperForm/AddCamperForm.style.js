@@ -17,27 +17,32 @@ export const StyledHeader2 = styled.h2`
 export const StyledBoxBackground = styled.div`
   background-color: rgb(210, 210, 210, 0.8);
   opacity:5;
-  box-shadow: 0 2px 5px;
+  
   width: 800px;
   margin: 0px 0px 40px 50px;
   padding: 30px;
   border-radius: 20px;
+  
 `
 
 export const StyledInputText = styled.input`
-  font-size: 16px;
+  font-size: 13px;
   height: 40px;
   width: 400px;
   margin: 5px 5px 5px 50px;
   padding-left: 10px;  
+  border:0;
+  border-radius: 8px;
+  
 `
 export const StyledSelect = styled.select`
-  font-size: 16px;
+  font-size: 13px;
   height: 40px;
   width: 400px;
   margin: 5px 0px 5px 50px;
   padding-left: 10px;
-
+  border:0;
+  border-radius: 8px;
 `
 
 export const StyledInputFile = styled.input`
@@ -49,11 +54,12 @@ export const StyledInputFile = styled.input`
 export const StyledTextArea = styled.textarea`
   resize: none;
   font-family: 'Play', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   height: 200px;
   width: 400px;
   margin: 5px 0px 10px 50px;
   padding: 10px;
+  border:0;
  
   
 `
