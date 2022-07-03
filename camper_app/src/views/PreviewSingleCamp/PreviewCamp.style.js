@@ -194,7 +194,7 @@ export const StyledPriceArea = styled.textarea`
   `;
 
 export const StyledButton = styled.button `
-
+margin:10px;
 font-size: 16px;
 background-color: #78cdca;
 cursor: pointer;
