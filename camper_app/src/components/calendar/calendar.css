@@ -29,7 +29,18 @@
 
     display:flex;
     flex-direction: row;
+    padding: auto;
+    margin: auto;
   }
   
+  
+
+  .resdiv {
+    padding: auto;
+    margin: auto;
+  }
 
   
+  .headerres{
+    margin: 10px;
+  }
