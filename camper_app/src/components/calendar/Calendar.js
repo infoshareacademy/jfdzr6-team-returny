@@ -17,7 +17,9 @@ import {
   StyledWrapper,
   StyledButton,
   YourRes,
-  StyledEditButton
+  StyledEditButton,
+  StyledP,
+  StyledH2,
 } from "./Calendar.style.js";
 import plLocale from "@fullcalendar/core/locales/pl";
 import emailjs from "emailjs-com";
@@ -230,14 +232,14 @@ export function Calendar({ camper, user }) {
        
     
       <YourRes>
-        {user && <h2> Twoje rezerwacje : <hr></hr></h2>}
+        {user && <StyledH2> Twoje rezerwacje : <hr></hr></StyledH2>}
 
 
         {user &&
           myReser &&
           myReser.map((el, index) => {
             return (
-              <div class="resdiv" key={index}>
+              <StyledP key={index}>
                 <p class="pres">
                   rezerwacja kampera nr:{index + 1} od{" "}
                   {new Date(el.start).getDate().toString()}/
@@ -252,11 +254,11 @@ export function Calendar({ camper, user }) {
                     <FaRegTrashAlt /> Usuń 
                   </button>
                 ) : null}
-              </div>
+              </ StyledP>
             );
           })}
         {myReser.length === 0 && user && (
-          <p>Nie masz jeszcze rezerwacji tego kampera</p>
+          <StyledP>Nie masz jeszcze rezerwacji tego kampera</StyledP>
         )}
      </YourRes>
     </div>
