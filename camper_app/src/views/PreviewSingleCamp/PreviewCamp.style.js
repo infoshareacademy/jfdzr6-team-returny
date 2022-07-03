@@ -132,7 +132,7 @@ export const ButtonsSection = styled.section`
 `;
 
 export const StyledEditButton = styled.button `
-  background-color:#c9c9c9;
+  background-color:#e0e0e0;
   display: flex;
   flex-direction: row;
   padding: 20px;
