@@ -186,6 +186,7 @@ export function Calendar({ camper, user }) {
           <CenteredDiv>
             <CenteredDiv>
               <DatePicker
+                minDate={newEvent.end || new Date}
                 locale="pl"
                 placeholderText="Data początkowa"
                 selected={newEvent.start}
@@ -204,6 +205,7 @@ export function Calendar({ camper, user }) {
               />
               <DatePicker
                 locale="pl"
+                minDate={newEvent.start}
                 placeholderText="Data końcowa"
                 selected={newEvent.end}
                 onChange={(end) => {
