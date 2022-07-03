@@ -25,11 +25,17 @@ export const CamperOwnerPanel = () => {
   return (
     <>
       <StyledHeader1>Lista moich camperów</StyledHeader1>
+
       {!isLoading ? (
         <StyledWrapper>
           {myCampers.map((el) => (
             <CardOwner key={el.id} data={el} />
           ))}
+          {myCampers.length === 0 &&
+          <h3 style={{ textAlign: "center"}}>
+          Nie masz jeszcze swoich kamperów w ofercie
+        </h3>
+          }
         </StyledWrapper>
       ) : (
         <Loader />
