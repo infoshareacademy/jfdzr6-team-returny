@@ -2,27 +2,26 @@ import styled from "styled-components";
 
 export const StyledHeader1 = styled.h1`
   font-family: 'Play', sans-serif;
-  margin: 60px 0px 40px 50px;
-  color: #519a97;
+  margin: 40px 0px 20px 150px;
+  color: black;
   font-size: 50px;
-`;
+`
 
 export const StyledHeader2 = styled.h2`
   font-family: 'Play', sans-serif;
   margin: 5px 0px 20px 50px;
   color: #519a97;
   font-size: 30px;
-`;
+`
 
 export const StyledBoxBackground = styled.div`
   background-color: rgb(210, 210, 210, 0.8);
   opacity:5;
-  
   width: 800px;
-  margin: 0px 0px 40px 50px;
+  /* margin: 0px 0px 40px 50px; */
+  margin: 50px 20px 20px 150px;
   padding: 30px;
   border-radius: 20px;
-  
 `
 
 export const StyledInputText = styled.input`
@@ -33,7 +32,6 @@ export const StyledInputText = styled.input`
   padding-left: 10px;  
   border:0;
   border-radius: 8px;
-  
 `
 export const StyledSelect = styled.select`
   font-size: 13px;
@@ -61,7 +59,6 @@ export const StyledTextArea = styled.textarea`
   padding: 10px;
   border:0;
   border-radius: 8px;
- 
 `
 
 export const StyledButton = styled.button `

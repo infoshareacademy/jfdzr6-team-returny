@@ -1,14 +1,14 @@
 # Camper App
 
-Aplikacja ma na celu możliwość wypożyczenia kampera lub wystawienia jego do wypożyczenia przez użytkowników aplikacji.
+Aplikacja ma na celu możliwość wypożyczenia kampera lub wystawienia własnego pojazdu do wynajęcia przez innych użytkowników.
 
 
 ### Aplikacja stworzona w składzie:
 
-1. Daria Koleśnik : Design aplikacji + Css,
+1. Daria Koleśnik : Design aplikacji + CSS,
 2. Karol Nowakowski : Logika aplikacji (React, Firebase),
-3. Marcin Bejger : Html + Css,
-4. Wojciech Bardyga : Html + Css
+3. Marcin Bejger : HTML + CSS, Javascript
+4. Wojciech Bardyga : HTML + CSS
 
 ### Wprowadzenie
 Jest to nasza ćwiczeniowa aplikacja. Powstała na podstawie wiedzy zdobytej podczas bootcamp’u: Frontend Developer oraz wiedzy zdobytej podczas własnej edukacji, która ma na celu utrwalić zakres materiału z kursu. 
