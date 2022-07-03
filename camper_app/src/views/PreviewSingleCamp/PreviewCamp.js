@@ -19,7 +19,12 @@ import {
   StyledCalendar,
   StyledCalendarDiv,
   StyledCalendarDiv2,
-  StyledButtonEdit
+  StyledButtonEdit,
+  StyledTextArea,
+  StyledPriceArea,
+  StyledButton
+
+
  
 } from "./PreviewCamp.style";
 import { NotificationManager } from "react-notifications";
@@ -120,7 +125,7 @@ export function PreviewCamp() {
               <form onSubmit={handleSubmitChange}>
                 <div>
                   <h1>Cena:</h1>
-                  <input
+                  <StyledPriceArea
                     value={newPrice}
                     onChange={handleChangePrice}
                     placeholder="Zmień cene"
@@ -129,25 +134,25 @@ export function PreviewCamp() {
                 </div>
                 <div>
                   <h1>Opis:</h1>
-                  <textarea
+                  <StyledTextArea
                     value={newDescription}
                     onChange={handleChangeDescription}
                     placeholder="Zmień opis"
                     required
                   />
                 </div>
-                <button type="submit">Zapisz</button>
+                <StyledButton type="submit">Zapisz</StyledButton>
                 
               
                 
-                <button
+                <StyledButton
                   onClick={(e) => {
                     e.preventDefault();
                     setisEdit(false);
                   }}
                 >
                   Anuluj
-                </button>
+                </StyledButton>
               </form>
             </StyledCampDetails>
           ) : null}
