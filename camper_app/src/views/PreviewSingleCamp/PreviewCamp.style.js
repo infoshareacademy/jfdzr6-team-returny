@@ -132,7 +132,7 @@ export const ButtonsSection = styled.section`
 `;
 
 export const StyledEditButton = styled.button `
-  background-color:#c9c9c9;
+  background-color:#e0e0e0;
   display: flex;
   flex-direction: row;
   padding: 20px;
@@ -171,3 +171,35 @@ export const StyledCalendarDiv = styled.div`
 
 `;
 
+export const StyledTextArea = styled.textarea`
+  resize: none;
+  width: 600px;
+  padding: 15px;
+  height: 200px;
+  font-family: "Play", sans-serif;
+  border: 0.8; 
+  border-radius:8px;
+
+`;
+
+export const StyledPriceArea = styled.textarea`
+  resize: none;
+  padding: 15px;
+  height: 50px;
+  width: 100px;
+  font-family: "Play", sans-serif;
+  border: 0.8; 
+  border-radius:8px;
+
+  `;
+
+export const StyledButton = styled.button `
+margin:10px;
+font-size: 16px;
+background-color: #78cdca;
+cursor: pointer;
+&:hover {
+color: white;
+}
+
+`;

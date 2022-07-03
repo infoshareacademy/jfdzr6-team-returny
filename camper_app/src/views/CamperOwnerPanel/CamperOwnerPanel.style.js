@@ -51,5 +51,5 @@ export const StyledButton = styled.button`
   cursor: pointer;
   /* &:hover {
     transform: scale(1.1); */
-  }
+  
 `

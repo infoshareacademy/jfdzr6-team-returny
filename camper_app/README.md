@@ -31,9 +31,34 @@ Jest to nasza ćwiczeniowa aplikacja. Powstała na podstawie wiedzy zdobytej pod
 ### Uruchomienie
 
 Przed pobraniem repozytorium potrzebna jest instalacja: [Git](https://git-scm.com) i [Node.js](https://nodejs.org/en/download/). 
+
+1. Klonowanie repozytorium
 ```
 $ git clone https://github.com/infoshareacademy/jfdzr6-team-returny.git
 $ cd camper_app
+```
+2. W katalogu /src dodaj plik config.js poniższymi danymi:
+
+
+
+```
+
+export const firebaseConfig = {
+    apiKey: "abc,
+    authDomain: "abc",
+    projectId: "abc",
+    storageBucket: "abc",
+    messagingSenderId: "abc",
+    appId: "abc",
+    measurementId: "abc"
+  };
+````
+
+Po konkretne wartości kluczy skontaktuj się z przedstawicielem zespołu.
+
+3. Instalacja zależności
+```
+
 $ npm install
 $ npm start
 ```
