@@ -3,13 +3,13 @@ import styled from "styled-components";
 export const StyledHeader2 = styled.h2`
   font-family: 'Play', sans-serif;
   color: #519a97;
-  font-size: 30px;
+  font-size: 25px;
 `;
 
 export const StyledHeader3 = styled.h3`
   font-family: 'Play', sans-serif;
   margin: 25px 0px 10px -120px;
-  font-size: 20px;
+  font-size: 14px;
 `;
 
 export const StyledWrapper = styled.div`
@@ -25,8 +25,8 @@ export const StyledBoxBackground = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #e7e7e7;
-  opacity: 0.8;
-  box-shadow: 0 2px 5px;
+  opacity: 0.9;
+ 
   width: 300px;
   margin: 0px 0px 40px 50px;
   padding: 30px;
@@ -39,6 +39,8 @@ export const StyledInputText = styled.input`
   height: 30px;
   width: 200px;
   padding-left: 10px;
+  border-radius: 8px;
+  border:0;
 `
 
 export const StyledLink = styled.p`

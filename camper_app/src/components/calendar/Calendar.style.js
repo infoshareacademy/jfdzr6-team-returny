@@ -38,6 +38,6 @@ background-color: #f0f0f0;
   margin: auto 0;
   padding: 20px;
   width: auto;
-  line-height: 1.8;
+  line-heightcd: 1.8;
 `;
 

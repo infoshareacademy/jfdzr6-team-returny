@@ -37,6 +37,7 @@ export const StyledDescriptionBox = styled.div`
     width: 800px;
     padding:auto;
     border-radius: 20px;
+    
 `;
 
 export const StyledDescription = styled.p`
