@@ -60,8 +60,8 @@ export const StyledTextArea = styled.textarea`
   margin: 5px 0px 10px 50px;
   padding: 10px;
   border:0;
+  border-radius: 8px;
  
-  
 `
 
 export const StyledButton = styled.button `
